@@ -207,4 +207,4 @@ Para documentar un componente nuevo, agrega su entrada en `docs/src/components/`
 
 ## Licencia
 
-MIT © Oscar Castellanos
+MIT © 2026 Oscar Castellanos ([TruperMax](https://trupermax.com))

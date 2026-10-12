@@ -80,7 +80,7 @@ function sidebar(groups, current, prefix, idPrefix = '') {
       <label class="cb-sr-only" for="${idPrefix}version">Version</label>
       <div class="cb-select"><select class="cb-input cb-input--sm" id="${idPrefix}version" data-cb-version-select>
         <option value="" selected>v${VERSION} (actual)</option>
-        <option value="https://github.com/oscarcastellanos/cobalto/blob/main/CHANGELOG.md">Changelog</option>
+        <option value="https://github.com/OscarCastellanos01/cobalto/blob/main/CHANGELOG.md">Changelog</option>
       </select></div>
     </div>
     ${sidebarGroups(groups, current, prefix)}
@@ -161,7 +161,7 @@ export function layout({
       <button class="cb-icon-btn" type="button" data-cb-theme-toggle aria-label="Cambiar entre modo claro y oscuro">
         ${icon('moon', 'cb-theme-toggle__moon')}${icon('sun', 'cb-theme-toggle__sun')}
       </button>
-      <a href="https://github.com/oscarcastellanos/cobalto" class="cb-btn cb-btn--outline cb-nav__collapse">GitHub ↗</a>
+      <a href="https://github.com/OscarCastellanos01/cobalto" class="cb-btn cb-btn--outline cb-nav__collapse">GitHub ↗</a>
     </div>
   </div>
 </header>
@@ -188,7 +188,7 @@ ${main}
 
 <footer class="cb-footer border-t border-cb-line">
   <div class="cb-wrap max-w-[1440px]">
-    <div class="cb-footer__bottom mt-0 border-0 pt-0"><span>© 2026 Oscar Castellanos · Licencia MIT</span><span>Cobalto v${VERSION}</span></div>
+    <div class="cb-footer__bottom mt-0 border-0 pt-0"><span class="cb-footer__credit">© 2026 Oscar Castellanos (<a href="https://trupermax.com">TruperMax</a>) · <a href="https://github.com/OscarCastellanos01/cobalto/blob/main/LICENSE">Licencia MIT</a></span><span>Cobalto v${VERSION}</span></div>
   </div>
 </footer>
 

@@ -2,7 +2,7 @@ import { build } from 'esbuild';
 import { readFile } from 'node:fs/promises';
 
 const pkg = JSON.parse(await readFile(new URL('../package.json', import.meta.url), 'utf8'));
-const banner = `/*! cobalto v${pkg.version} | MIT */`;
+const banner = `/*! cobalto v${pkg.version} | MIT | Oscar Castellanos (TruperMax) */`;
 
 const umdOpen = `(function (root, factory) {
   if (typeof define === 'function' && define.amd) define([], factory);

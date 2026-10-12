@@ -178,8 +178,8 @@ export default {
               <span class="cb-avatar">AR</span><span class="cb-avatar cb-avatar--accent">JM</span><span class="cb-avatar">LP</span><span class="cb-avatar">+2</span>
             </div>
             <div class="cb-user">
-              <span class="cb-avatar">OC</span>
-              <span><span class="cb-user__name">Oscar Castellanos</span><span class="cb-user__meta">Administrador</span></span>
+              <span class="cb-avatar">LM</span>
+              <span><span class="cb-user__name">Lucía Morales</span><span class="cb-user__meta">Administrador</span></span>
             </div>
           `,
         },

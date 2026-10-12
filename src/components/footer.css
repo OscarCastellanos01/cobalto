@@ -32,6 +32,10 @@
     -webkit-text-stroke: 1px var(--cb-line);
   }
 
+  .cb-footer__credit a {
+    @apply underline decoration-cb-line-2 underline-offset-4 transition-colors duration-(--cb-duration-fast) hover:text-cb-text hover:decoration-cb-accent;
+  }
+
   .cb-footer__bottom {
     @apply mt-16 flex flex-wrap justify-between gap-3 border-t border-cb-line pt-6 text-cb-sm text-cb-dim;
   }

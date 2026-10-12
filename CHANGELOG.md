@@ -21,4 +21,4 @@ Todos los cambios importantes de este proyecto se documentan aquí. El formato s
 - `--cb-dark-dim` pasa de `#56689a` a `#6f7fab` y `--cb-light-dim` de `#7d8db3` a `#5c6a8d` para llegar a contraste AA.
 - El relleno de acento en modo oscuro (`--cb-accent-bg`) se oscurece un 14 % para que el texto blanco del botón primario llegue a 4.5:1.
 
-[0.1.0]: https://github.com/oscarcastellanos/cobalto/releases/tag/v0.1.0
+[0.1.0]: https://github.com/OscarCastellanos01/cobalto/releases/tag/v0.1.0

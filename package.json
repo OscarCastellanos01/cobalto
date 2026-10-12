@@ -14,16 +14,19 @@
     "laravel",
     "blade"
   ],
-  "homepage": "https://github.com/oscarcastellanos/cobalto#readme",
+  "homepage": "https://github.com/OscarCastellanos01/cobalto#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oscarcastellanos/cobalto.git"
+    "url": "git+https://github.com/OscarCastellanos01/cobalto.git"
   },
   "bugs": {
-    "url": "https://github.com/oscarcastellanos/cobalto/issues"
+    "url": "https://github.com/OscarCastellanos01/cobalto/issues"
   },
   "license": "MIT",
-  "author": "Oscar Castellanos",
+  "author": {
+    "name": "Oscar Castellanos (TruperMax)",
+    "url": "https://trupermax.com"
+  },
   "type": "module",
   "main": "./dist/cobalto.js",
   "module": "./dist/cobalto.js",
