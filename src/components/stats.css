@@ -1,0 +1,34 @@
+@layer components {
+  .cb-stats {
+    @apply mt-cb-block grid grid-cols-4 overflow-hidden rounded-cb-lg border border-cb-line max-cb-md:grid-cols-2;
+  }
+
+  .cb-stats--3 {
+    @apply grid-cols-3 max-cb-md:grid-cols-1;
+  }
+
+  .cb-stats--2 {
+    @apply grid-cols-2;
+  }
+
+  /* el margen negativo esconde el borde de la ultima fila y columna sin depender de nth-child */
+  .cb-stat {
+    @apply -mr-px -mb-px border-r border-b border-cb-line p-cb-card;
+  }
+
+  .cb-stat__value {
+    @apply block text-cb-3xl font-bold;
+  }
+
+  .cb-stat__label {
+    @apply text-cb-sm text-cb-muted;
+  }
+
+  .cb-stat__delta {
+    @apply mt-2 block text-cb-xs text-cb-success;
+  }
+
+  .cb-stat__delta--down {
+    @apply text-cb-danger;
+  }
+}

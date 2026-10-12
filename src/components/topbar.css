@@ -1,0 +1,41 @@
+@layer components {
+  .cb-topbar {
+    @apply border-b border-cb-line text-cb-sm text-cb-muted;
+  }
+
+  .cb-topbar__inner {
+    @apply mx-auto flex h-cb-topbar w-full max-w-cb items-center justify-between gap-4 px-cb-gutter max-cb-sm:px-cb-gutter-sm;
+  }
+
+  .cb-topbar__status {
+    @apply flex items-center gap-2;
+  }
+
+  .cb-topbar__aside {
+    @apply max-cb-sm:hidden;
+  }
+
+  .cb-topbar__link {
+    @apply text-cb-text underline decoration-cb-line-2 underline-offset-4 transition-colors duration-(--cb-duration-fast) hover:decoration-cb-accent;
+  }
+
+  .cb-dot {
+    @apply inline-block size-[7px] shrink-0 animate-cb-pulse rounded-full bg-cb-accent;
+  }
+
+  .cb-dot--static {
+    @apply animate-none;
+  }
+
+  .cb-dot--success {
+    @apply bg-cb-success;
+  }
+
+  .cb-dot--warning {
+    @apply bg-cb-warning;
+  }
+
+  .cb-dot--danger {
+    @apply bg-cb-danger;
+  }
+}

@@ -1,0 +1,142 @@
+@layer components {
+  .cb-btn {
+    @apply relative inline-flex h-cb-control shrink-0 items-center justify-center gap-2 rounded-cb border border-transparent px-4 text-cb-base font-semibold whitespace-nowrap text-cb-text select-none;
+    transition:
+      transform var(--cb-duration-fast) var(--ease-cb),
+      background-color var(--cb-duration-fast) var(--ease-cb),
+      border-color var(--cb-duration-fast) var(--ease-cb),
+      color var(--cb-duration-fast) var(--ease-cb);
+
+    & > svg {
+      @apply size-4 shrink-0;
+    }
+  }
+
+  .cb-btn--primary {
+    @apply bg-cb-accent-bg text-cb-accent-ink;
+
+    &:hover {
+      @apply -translate-y-px;
+    }
+  }
+
+  .cb-btn--outline {
+    @apply border-cb-line-2;
+
+    &:hover {
+      @apply border-cb-dim bg-cb-bg-3;
+    }
+  }
+
+  .cb-btn--ghost {
+    @apply text-cb-muted;
+
+    &:hover {
+      @apply bg-cb-bg-3 text-cb-text;
+    }
+  }
+
+  .cb-btn--soft {
+    @apply bg-cb-accent-soft text-cb-accent;
+
+    &:hover {
+      @apply border-cb-accent-line;
+    }
+  }
+
+  .cb-btn--danger {
+    @apply bg-cb-danger text-cb-bg;
+
+    &:hover {
+      @apply -translate-y-px;
+    }
+  }
+
+  .cb-btn--link {
+    @apply h-auto border-0 px-0 text-cb-accent underline decoration-cb-accent-line underline-offset-4;
+
+    &:hover {
+      @apply decoration-cb-accent;
+    }
+  }
+
+  .cb-btn--sm {
+    @apply h-cb-control-sm gap-1.5 px-3 text-cb-sm;
+
+    & > svg {
+      @apply size-3.5;
+    }
+  }
+
+  .cb-btn--lg {
+    @apply h-cb-control-lg px-5;
+  }
+
+  .cb-btn--block {
+    @apply w-full;
+  }
+
+  .cb-btn--icon {
+    @apply aspect-square px-0;
+  }
+
+  .cb-btn:disabled,
+  .cb-btn[aria-disabled="true"] {
+    @apply pointer-events-none translate-y-0 opacity-50;
+  }
+
+  /* el texto se vuelve transparente pero conserva el ancho, asi el boton no salta */
+  .cb-btn.is-loading,
+  .cb-btn[aria-busy="true"] {
+    @apply pointer-events-none text-transparent;
+
+    & > * {
+      @apply invisible;
+    }
+
+    &::after {
+      content: "";
+      @apply absolute inset-0 m-auto size-4 animate-cb-spin rounded-full border-2 border-current border-r-transparent;
+      color: var(--cb-btn-spinner, var(--cb-text));
+    }
+  }
+
+  .cb-btn--primary.is-loading,
+  .cb-btn--primary[aria-busy="true"] {
+    --cb-btn-spinner: var(--cb-accent-ink);
+  }
+
+  .cb-btn--link.is-loading,
+  .cb-btn--link[aria-busy="true"],
+  .cb-btn--soft.is-loading,
+  .cb-btn--soft[aria-busy="true"] {
+    --cb-btn-spinner: var(--cb-accent);
+  }
+
+  .cb-icon-btn {
+    @apply grid size-9 shrink-0 place-items-center rounded-cb border border-cb-line-2 text-cb-muted;
+    transition:
+      color var(--cb-duration-fast) var(--ease-cb),
+      border-color var(--cb-duration-fast) var(--ease-cb);
+
+    &:hover {
+      @apply border-cb-dim text-cb-text;
+    }
+
+    & > svg {
+      @apply size-[15px];
+    }
+  }
+
+  .cb-actions {
+    @apply mt-9 flex flex-wrap gap-2.5;
+
+    & > .cb-btn {
+      @apply h-cb-control-lg px-5 max-cb-sm:flex-1;
+    }
+  }
+
+  .cb-actions--center {
+    @apply justify-center;
+  }
+}

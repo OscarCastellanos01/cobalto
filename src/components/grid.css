@@ -1,0 +1,22 @@
+@layer components {
+  /* los bordes se comparten: la grilla pone arriba e izquierda y cada celda derecha y abajo */
+  .cb-grid {
+    @apply mt-cb-block grid grid-cols-3 border-t border-l border-cb-line max-cb-md:grid-cols-2 max-cb-sm:grid-cols-1;
+
+    & > * {
+      @apply rounded-none border-0 border-r border-b border-cb-line;
+    }
+  }
+
+  .cb-grid--2 {
+    @apply grid-cols-2 max-cb-sm:grid-cols-1;
+  }
+
+  .cb-grid--4 {
+    @apply grid-cols-4 max-cb-md:grid-cols-2 max-cb-sm:grid-cols-1;
+  }
+
+  .cb-grid--flush {
+    @apply mt-0;
+  }
+}

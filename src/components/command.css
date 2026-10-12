@@ -1,0 +1,58 @@
+@layer components {
+  .cb-command {
+    @apply fixed inset-0 z-(--cb-z-overlay) hidden items-start justify-center px-4 pt-[12vh];
+    background: var(--cb-overlay);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .cb-command.is-open {
+    @apply flex;
+  }
+
+  .cb-command__panel {
+    @apply w-full max-w-[580px] animate-cb-pop overflow-hidden rounded-cb-xl border border-cb-line-2 bg-cb-bg-2 shadow-cb-lg;
+  }
+
+  .cb-command__head {
+    @apply flex items-center gap-3 border-b border-cb-line px-4;
+
+    & > svg {
+      @apply size-4 shrink-0 text-cb-muted;
+    }
+  }
+
+  .cb-command__input {
+    @apply h-[54px] min-w-0 flex-1 border-0 bg-transparent text-cb-md text-cb-text outline-none placeholder:text-cb-dim;
+  }
+
+  .cb-command__results {
+    @apply max-h-[340px] overflow-y-auto p-2;
+  }
+
+  .cb-command__group {
+    @apply px-2.5 pt-2.5 pb-1.5 text-cb-xs tracking-cb-wider text-cb-dim uppercase;
+  }
+
+  .cb-command__item {
+    @apply flex cursor-pointer items-center justify-between gap-3 rounded-cb-md p-2.5 text-cb-base text-cb-muted;
+
+    &:hover,
+    &.is-active,
+    &[aria-selected="true"] {
+      @apply bg-cb-bg-3 text-cb-text;
+    }
+  }
+
+  .cb-command__hint {
+    @apply shrink-0 text-cb-xs text-cb-dim;
+  }
+
+  .cb-command__empty {
+    @apply px-2.5 py-7 text-center text-cb-base text-cb-dim;
+  }
+
+  .cb-command__foot {
+    @apply flex flex-wrap gap-4 border-t border-cb-line px-4 py-2.5 text-cb-xs text-cb-dim;
+  }
+}

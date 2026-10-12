@@ -1,0 +1,21 @@
+@layer components {
+  .cb-principles {
+    @apply mt-cb-block grid list-none grid-cols-3 max-cb-md:grid-cols-2 max-cb-sm:grid-cols-1;
+  }
+
+  .cb-principles__item {
+    @apply mr-7 border-t border-cb-line py-[30px] pr-7 max-cb-sm:mr-0;
+  }
+
+  .cb-principles__num {
+    @apply mb-[18px] block text-cb-sm text-cb-accent;
+  }
+
+  .cb-principles__title {
+    @apply text-cb-xl font-semibold;
+  }
+
+  .cb-principles__text {
+    @apply mt-2.5 text-cb-base text-cb-muted;
+  }
+}

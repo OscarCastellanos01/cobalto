@@ -1,0 +1,90 @@
+@layer components {
+  .cb-label {
+    @apply inline-flex items-center gap-2.5 text-cb-sm tracking-cb-wide text-cb-muted uppercase;
+
+    & > b {
+      @apply font-semibold text-cb-accent;
+    }
+
+    &::after {
+      content: "";
+      @apply h-px w-10 bg-cb-line-2;
+    }
+  }
+
+  .cb-label--plain::after {
+    @apply hidden;
+  }
+
+  .cb-h1 {
+    @apply mt-[22px] mb-[26px] text-cb-5xl font-extrabold;
+
+    & > em {
+      @apply text-cb-dim not-italic;
+    }
+  }
+
+  .cb-h2 {
+    @apply mt-[18px] mb-4 text-cb-4xl font-bold;
+
+    & > em {
+      @apply text-cb-dim not-italic;
+    }
+  }
+
+  .cb-h3 {
+    @apply text-cb-xl font-semibold;
+  }
+
+  .cb-lead {
+    @apply max-w-cb-prose text-cb-lead text-cb-muted;
+  }
+
+  .cb-note {
+    @apply mt-[26px] max-w-[560px] text-cb-sm text-cb-dim;
+
+    & a {
+      @apply border-b border-cb-line-2 text-cb-muted transition-colors duration-(--cb-duration-fast) hover:border-cb-accent hover:text-cb-text;
+    }
+  }
+
+  .cb-link {
+    @apply text-cb-accent underline decoration-cb-accent-line underline-offset-4 transition-colors duration-(--cb-duration-fast) hover:decoration-cb-accent;
+  }
+
+  .cb-prose {
+    @apply max-w-cb-prose text-cb-md text-cb-muted;
+
+    & :where(h2) {
+      @apply mt-12 mb-3 text-cb-3xl font-bold text-cb-text;
+    }
+
+    & :where(h3) {
+      @apply mt-8 mb-2 text-cb-xl font-semibold text-cb-text;
+    }
+
+    & :where(p, ul, ol) {
+      @apply my-4;
+    }
+
+    & :where(ul) {
+      @apply list-disc pl-5;
+    }
+
+    & :where(ol) {
+      @apply list-decimal pl-5;
+    }
+
+    & :where(a) {
+      @apply text-cb-accent underline decoration-cb-accent-line underline-offset-4;
+    }
+
+    & :where(strong) {
+      @apply font-semibold text-cb-text;
+    }
+
+    & :where(:not(pre) > code) {
+      @apply rounded-cb-xs bg-cb-bg-3 px-1.5 py-0.5 text-[0.9em] text-cb-text;
+    }
+  }
+}

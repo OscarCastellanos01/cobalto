@@ -1,0 +1,41 @@
+@layer components {
+  .cb-section {
+    @apply border-b border-cb-line py-cb-section max-cb-sm:py-cb-section-sm;
+  }
+
+  .cb-section--flush {
+    @apply border-b-0;
+  }
+
+  .cb-section-head--center {
+    @apply text-center;
+
+    & > .cb-lead {
+      @apply mx-auto;
+    }
+  }
+
+  .cb-hero {
+    @apply relative overflow-hidden pt-cb-hero-top pb-cb-hero-bottom max-cb-sm:pt-cb-hero-top-sm max-cb-sm:pb-cb-hero-bottom-sm;
+  }
+
+  .cb-hero--grid {
+    @apply cb-grid-bg;
+  }
+
+  .cb-hero__chips {
+    @apply mt-cb-block;
+  }
+
+  .cb-cta {
+    @apply text-center;
+
+    & .cb-lead {
+      @apply mx-auto;
+    }
+
+    & .cb-actions {
+      @apply justify-center;
+    }
+  }
+}

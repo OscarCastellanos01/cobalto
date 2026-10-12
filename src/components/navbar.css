@@ -1,0 +1,104 @@
+@layer components {
+  .cb-nav {
+    @apply sticky top-0 z-(--cb-z-sticky) border-b border-cb-line;
+    background: var(--cb-surface-blur);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .cb-nav__inner {
+    @apply mx-auto flex h-cb-nav w-full max-w-cb items-center gap-7 px-cb-gutter max-cb-sm:px-cb-gutter-sm;
+  }
+
+  .cb-logo {
+    @apply flex shrink-0 items-center gap-2.5 text-cb-lg font-bold tracking-cb-tight;
+  }
+
+  .cb-logo__mark {
+    @apply grid size-[26px] place-items-center rounded-cb-md bg-cb-accent-bg text-cb-base font-extrabold text-cb-accent-ink;
+  }
+
+  .cb-nav__menu {
+    @apply flex list-none items-center gap-1 text-cb-base max-cb-md:hidden;
+  }
+
+  .cb-nav__item {
+    @apply relative;
+  }
+
+  .cb-nav__link {
+    @apply flex items-center gap-1.5 rounded-cb-md px-3 py-2 text-cb-muted;
+    transition:
+      color var(--cb-duration-fast) var(--ease-cb),
+      background-color var(--cb-duration-fast) var(--ease-cb);
+
+    &:hover,
+    &[aria-expanded="true"],
+    &[aria-current="page"] {
+      @apply bg-cb-bg-3 text-cb-text;
+    }
+  }
+
+  .cb-nav__chevron {
+    @apply size-2.5 shrink-0 transition-transform duration-(--cb-duration);
+
+    [aria-expanded="true"] > & {
+      @apply rotate-180;
+    }
+  }
+
+  .cb-nav__actions {
+    @apply ml-auto flex items-center gap-2;
+  }
+
+  .cb-nav__collapse {
+    @apply max-cb-md:hidden;
+  }
+
+  .cb-nav__collapse-sm {
+    @apply max-cb-sm:hidden;
+  }
+
+  .cb-nav__burger {
+    @apply cb-md:hidden;
+  }
+
+  .cb-search-btn {
+    @apply flex h-9 items-center gap-2.5 rounded-cb border border-cb-line-2 pr-2.5 pl-3 text-cb-sm text-cb-muted;
+    transition:
+      border-color var(--cb-duration-fast) var(--ease-cb),
+      color var(--cb-duration-fast) var(--ease-cb);
+
+    &:hover {
+      @apply border-cb-dim text-cb-text;
+    }
+
+    & > svg {
+      @apply size-3.5 shrink-0;
+    }
+  }
+
+  .cb-search-btn__text {
+    @apply max-cb-md:hidden;
+  }
+
+  .cb-theme-toggle__sun {
+    @apply dark:hidden;
+  }
+
+  .cb-theme-toggle__moon {
+    @apply light:hidden;
+  }
+
+  .cb-burger__close {
+    @apply hidden;
+  }
+
+  [aria-expanded="true"] > .cb-burger__open {
+    @apply hidden;
+  }
+
+  [aria-expanded="true"] > .cb-burger__close {
+    @apply block;
+  }
+}
