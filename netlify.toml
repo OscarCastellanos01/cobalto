@@ -1,0 +1,16 @@
+[build]
+  command = "npm run build:deploy"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[headers]]
+  for = "/docs/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/dist/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
