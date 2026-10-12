@@ -176,6 +176,21 @@ Componentes sueltos: `import { init } from 'cobalto/components/tabs';`
 
 Los eventos usan el prefijo `cb:` (`cb:open`, `cb:close`, `cb:change`, `cb:select`...). `cb:open` y `cb:close` se pueden cancelar con `preventDefault()`.
 
+## Textos de los componentes
+
+Los textos que ven tus usuarios (estado vacío de la búsqueda, cerrar un toast, estado y paginación de la tabla, copiar) vienen en español. Cámbialos para todo el sitio o por elemento:
+
+```js
+cobalto.autoInit({ messages: { commandEmpty: 'No results for', copyDone: 'Copied' } });
+cobalto.setMessages({ tableStatus: 'Showing {start}–{end} of {total}' });
+```
+
+```html
+<div data-cb-table data-cb-table-empty="No results">...</div>
+```
+
+La lista completa de claves y atributos está en la página de instalación de la documentación.
+
 ## Convenciones
 
 - Clases con prefijo `cb-` en BEM: `.cb-card`, `.cb-card__title`, `.cb-card--featured`.
@@ -203,7 +218,7 @@ Las pruebas de interacción y de accesibilidad (`npm run test:a11y`) usan Edge o
 
 Antes de abrir un pull request, lee [`CLAUDE.md`](CLAUDE.md): comentarios solo cuando aportan, en español y sin tildes, sin alineación vertical y con indentación de 2 espacios. `npm run lint:style` revisa lo básico.
 
-Para documentar un componente nuevo, agrega su entrada en `docs/src/components/` y corre `npm run build:site`.
+Para documentar un componente nuevo, agrega su estructura y ejemplos en `docs/src/components/` y sus textos en `docs/i18n/es.json`. Después corre `npm run i18n:sync` (crea las mismas claves vacías en `en.json`) y `npm run build:site`. La documentación nunca lleva textos escritos directamente en el HTML; `npm run test:i18n` lo verifica.
 
 ## Licencia
 

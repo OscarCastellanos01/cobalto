@@ -6,8 +6,9 @@
 @source "../../src/js";
 
 @layer components {
+  /* mobile-first: con max-xl y max-cb-md juntos ganaba la de dos columnas en movil */
   .docs-shell {
-    @apply mx-auto grid w-full max-w-[1440px] grid-cols-[240px_minmax(0,1fr)_200px] gap-12 px-cb-gutter max-xl:grid-cols-[240px_minmax(0,1fr)] max-cb-md:grid-cols-1 max-cb-sm:px-cb-gutter-sm;
+    @apply mx-auto grid w-full max-w-[1440px] grid-cols-[minmax(0,1fr)] gap-12 px-cb-gutter max-cb-sm:px-cb-gutter-sm cb-md:grid-cols-[240px_minmax(0,1fr)] xl:grid-cols-[240px_minmax(0,1fr)_200px];
   }
 
   .docs-aside {
@@ -87,13 +88,14 @@
   .docs-list {
     @apply flex max-w-cb-prose list-none flex-col gap-2 text-cb-base text-cb-muted;
 
+    /* bloque y no flex: con flex cada fragmento de texto es un item y no parte linea */
     & > li {
-      @apply flex gap-3;
+      @apply relative pl-7;
     }
 
     & > li::before {
       content: "\2014";
-      @apply text-cb-dim;
+      @apply absolute left-0 text-cb-dim;
     }
 
     & code {
@@ -153,5 +155,23 @@
 @layer components {
   .docs-header + .docs-section {
     @apply border-t-0 pt-0;
+  }
+}
+
+@layer components {
+  .docs-lang-check {
+    @apply ml-auto size-4 shrink-0 text-cb-accent opacity-0;
+
+    [aria-checked="true"] > & {
+      @apply opacity-100;
+    }
+  }
+
+  [data-docs-lang] > .cb-tag {
+    @apply ml-auto;
+  }
+
+  .cb-chip > .cb-tag {
+    @apply py-0;
   }
 }

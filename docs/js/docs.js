@@ -155,25 +155,26 @@
     return vars;
   }
 
-  function ratioCell(value) {
+  // las etiquetas de las filas vienen del HTML traducido, aqui solo van los numeros
+  const CHECKS = [
+    (t) => contrast(t.base.text, t.base.bg),
+    (t) => contrast(t.base.dim, t.base['bg-2']),
+    (t) => contrast(t.accent, t.base['bg-3']),
+    (t) => contrast(t.ink, t.fill),
+  ];
+
+  function ratioTag(value) {
     const ok = value >= AA;
     const tone = ok ? 'cb-tag--success' : 'cb-tag--danger';
-    return `<td class="cb-table__num"><span class="cb-tag ${tone}">${value.toFixed(1)}:1${ok ? '' : ' bajo'}</span></td>`;
+    return `<span class="cb-tag ${tone}">${value.toFixed(1)}:1 ${ok ? '✓' : '✗'}</span>`;
   }
 
-  function contrastRows(theme) {
-    const checks = [
-      ['Texto sobre fondo', (t) => contrast(t.base.text, t.base.bg)],
-      ['Texto atenuado', (t) => contrast(t.base.dim, t.base['bg-2'])],
-      ['Acento sobre fondo', (t) => contrast(t.accent, t.base['bg-3'])],
-      ['Botón primario', (t) => contrast(t.ink, t.fill)],
-    ];
-    return checks
-      .map(
-        ([label, fn]) =>
-          `<tr><td class="cb-table__strong">${label}</td>${ratioCell(fn(theme.dark))}${ratioCell(fn(theme.light))}</tr>`
-      )
-      .join('');
+  function fillContrast(table, theme) {
+    table.querySelectorAll('[data-cz-row]').forEach((row) => {
+      const check = CHECKS[Number(row.getAttribute('data-cz-row'))];
+      row.querySelector('[data-cz-dark]').innerHTML = ratioTag(check(theme.dark));
+      row.querySelector('[data-cz-light]').innerHTML = ratioTag(check(theme.light));
+    });
   }
 
   function setupCustomizer(root) {
@@ -190,7 +191,7 @@
       const value = /^#[0-9a-f]{6}$/i.test(hex.value) ? hex.value : picker.value;
       const theme = buildTheme(value, tint.checked);
       output.textContent = cssFor(theme);
-      table.innerHTML = contrastRows(theme);
+      fillContrast(table, theme);
       if (!apply) return;
       active = true;
       // el estilo inline gana sobre data-cb-accent, por eso se limpia el tema guardado

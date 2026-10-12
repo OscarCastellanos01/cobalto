@@ -1,4 +1,4 @@
-import { bind, emit, focusableWhenScrollable, queryAll } from '../core.js';
+import { bind, emit, focusableWhenScrollable, message, queryAll } from '../core.js';
 
 const COLLATOR = new Intl.Collator('es', { numeric: true, sensitivity: 'base' });
 
@@ -51,13 +51,20 @@ function pageButton(label, page, { current = false, disabled = false, aria = '' 
   return `<li><button ${attrs.filter(Boolean).join(' ')}>${label}</button></li>`;
 }
 
-function renderPagination(page, total) {
-  const items = [pageButton('←', page - 1, { disabled: page <= 1, aria: 'Pagina anterior' })];
+function renderPagination(page, total, el) {
+  const label = (key, attr, vars) => message(key, { el, attr, vars });
+  const prev = label('paginationPrev', 'data-cb-pagination-prev');
+  const next = label('paginationNext', 'data-cb-pagination-next');
+  const items = [pageButton('←', page - 1, { disabled: page <= 1, aria: prev })];
   pageList(page, total).forEach((p) => {
-    if (p === '...') items.push('<li class="cb-pagination__ellipsis" aria-hidden="true">…</li>');
-    else items.push(pageButton(p, p, { current: p === page, aria: `Pagina ${p}` }));
+    if (p === '...') {
+      items.push('<li class="cb-pagination__ellipsis" aria-hidden="true">…</li>');
+      return;
+    }
+    const aria = label('paginationPage', 'data-cb-pagination-page', { page: p });
+    items.push(pageButton(p, p, { current: p === page, aria }));
   });
-  items.push(pageButton('→', page + 1, { disabled: page >= total, aria: 'Pagina siguiente' }));
+  items.push(pageButton('→', page + 1, { disabled: page >= total, aria: next }));
   return `<ul class="cb-pagination">${items.join('')}</ul>`;
 }
 
@@ -74,12 +81,11 @@ function createInstance(el) {
   const status = el.querySelector('[data-cb-table-status]');
   const pagination = el.querySelector('[data-cb-table-pagination]');
   const pageSize = Number(el.getAttribute('data-cb-page-size')) || 0;
-  const emptyText = el.getAttribute('data-cb-table-empty') || 'Sin resultados';
   const state = { sortIndex: -1, sortDir: 'none', page: 1, visible: rows, pageRows: rows };
 
   const emptyRow = document.createElement('tr');
   emptyRow.innerHTML = `<td class="cb-table__empty" colspan="${columns}"></td>`;
-  emptyRow.cells[0].textContent = emptyText;
+  emptyRow.cells[0].textContent = message('tableEmpty', { el, attr: 'data-cb-table-empty' });
 
   function matchesFilters(row) {
     const query = normalize(search?.value);
@@ -118,8 +124,12 @@ function createInstance(el) {
     if (!status) return;
     const total = state.visible.length;
     const selected = selectedRows().length;
-    const range = total ? `Mostrando ${start + 1}–${end} de ${total}` : 'Sin resultados';
-    status.textContent = selected ? `${range} · ${selected} seleccionada(s)` : range;
+    const vars = { start: start + 1, end, total, count: selected };
+    const range = total
+      ? message('tableStatus', { el, attr: 'data-cb-table-status-text', vars })
+      : message('tableEmpty', { el, attr: 'data-cb-table-empty' });
+    const count = message('tableSelected', { el, attr: 'data-cb-table-selected-text', vars });
+    status.textContent = selected ? `${range} · ${count}` : range;
   }
 
   function render() {
@@ -139,7 +149,7 @@ function createInstance(el) {
     if (!state.visible.length) body.appendChild(emptyRow);
     else emptyRow.remove();
 
-    if (pagination) pagination.innerHTML = pages > 1 ? renderPagination(state.page, pages) : '';
+    if (pagination) pagination.innerHTML = pages > 1 ? renderPagination(state.page, pages, el) : '';
     updateSelectAll();
     updateStatus(start, end);
   }

@@ -1,0 +1,2298 @@
+{
+  "meta": {
+    "lang": "en",
+    "name": "English",
+    "ready": false
+  },
+  "ui": {
+    "skip": "",
+    "nav": {
+      "label": "",
+      "install": "",
+      "customize": "",
+      "components": "",
+      "examples": "",
+      "github": ""
+    },
+    "menu": {
+      "open": "",
+      "title": "",
+      "close": "",
+      "sidebar": "",
+      "theme": "",
+      "language": ""
+    },
+    "search": {
+      "button": "",
+      "label": "",
+      "placeholder": "",
+      "input": "",
+      "empty": "",
+      "navigate": "",
+      "open": "",
+      "close": "",
+      "guides": ""
+    },
+    "theme": {
+      "toggle": "",
+      "accent": ""
+    },
+    "accents": {
+      "cobalto": "",
+      "esmeralda": "",
+      "ambar": "",
+      "rubi": "",
+      "violeta": "",
+      "grafito": ""
+    },
+    "lang": {
+      "label": "",
+      "es": "",
+      "en": "",
+      "soon": ""
+    },
+    "version": {
+      "label": "",
+      "current": "",
+      "changelog": ""
+    },
+    "toc": {
+      "label": "",
+      "title": ""
+    },
+    "footer": {
+      "license": ""
+    },
+    "code": {
+      "copy": "",
+      "copied": "",
+      "terminal": ""
+    },
+    "sections": {
+      "classes": "",
+      "attributes": "",
+      "javascript": "",
+      "a11y": ""
+    },
+    "table": {
+      "class": "",
+      "description": "",
+      "attribute": "",
+      "event": "",
+      "when": ""
+    },
+    "start": ""
+  },
+  "groups": {
+    "estructura": "",
+    "contenido": "",
+    "acciones": "",
+    "formularios": "",
+    "overlays": "",
+    "estado": ""
+  },
+  "pages": {
+    "index": {
+      "title": "",
+      "description": "",
+      "keywords": "",
+      "metaTitle": "",
+      "heading": "",
+      "lead": "",
+      "install": "",
+      "customize": "",
+      "noteBefore": "",
+      "noteAfter": "",
+      "quick": {
+        "title": "",
+        "desc": ""
+      },
+      "principles": {
+        "title": "",
+        "items": [
+          {
+            "title": "",
+            "text": ""
+          },
+          {
+            "title": "",
+            "text": ""
+          },
+          {
+            "title": "",
+            "text": ""
+          }
+        ]
+      },
+      "components": {
+        "title": ""
+      }
+    },
+    "instalacion": {
+      "title": "",
+      "description": "",
+      "keywords": "",
+      "lead": "",
+      "tailwind": {
+        "title": "",
+        "desc": "",
+        "import": "",
+        "js": "",
+        "auto": ""
+      },
+      "cdn": {
+        "title": "",
+        "desc": "",
+        "note": ""
+      },
+      "laravel": {
+        "title": "",
+        "desc": "",
+        "flash": ""
+      },
+      "livewire": {
+        "title": "",
+        "items": [
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      },
+      "messages": {
+        "title": "",
+        "desc": "",
+        "attrs": "",
+        "keys": "",
+        "headers": [
+          "",
+          "",
+          ""
+        ],
+        "cdn": ""
+      },
+      "fuente": {
+        "title": "",
+        "desc": "",
+        "self": ""
+      },
+      "paquete": {
+        "title": "",
+        "headers": [
+          "",
+          "",
+          ""
+        ],
+        "uses": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      }
+    },
+    "personalizacion": {
+      "title": "",
+      "description": "",
+      "keywords": "",
+      "lead": "",
+      "customizer": {
+        "title": "",
+        "desc": "",
+        "color": "",
+        "hex": "",
+        "hint": "",
+        "tint": "",
+        "tintHint": "",
+        "mode": "",
+        "dark": "",
+        "light": "",
+        "system": "",
+        "reset": "",
+        "primary": "",
+        "outline": "",
+        "soft": "",
+        "active": "",
+        "pro": "",
+        "previewTitle": "",
+        "previewText": "",
+        "previewLink": "",
+        "progress": "",
+        "contrast": "",
+        "darkColumn": "",
+        "lightColumn": "",
+        "rows": [
+          "",
+          "",
+          "",
+          ""
+        ],
+        "copy": ""
+      },
+      "levels": {
+        "title": "",
+        "one": "",
+        "two": "",
+        "three": ""
+      },
+      "themes": {
+        "title": "",
+        "desc": "",
+        "card": "",
+        "button": ""
+      },
+      "mode": {
+        "title": "",
+        "desc": "",
+        "variants": "",
+        "js": ""
+      },
+      "scale": {
+        "title": "",
+        "desc": ""
+      },
+      "tokens": {
+        "title": "",
+        "desc": "",
+        "items": {
+          "bg": "",
+          "bg-2": "",
+          "bg-3": "",
+          "line": "",
+          "line-2": "",
+          "text": "",
+          "muted": "",
+          "dim": "",
+          "accent": "",
+          "accent-ink": "",
+          "accent-bg": "",
+          "accent-soft": "",
+          "success": "",
+          "warning": "",
+          "danger": "",
+          "info": ""
+        }
+      },
+      "custom": {
+        "title": "",
+        "desc": "",
+        "status": ""
+      },
+      "other": {
+        "title": "",
+        "desc": "",
+        "headers": [
+          "",
+          ""
+        ],
+        "groups": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      }
+    }
+  },
+  "components": {
+    "topbar": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "con-estado": {
+          "title": "",
+          "description": ""
+        },
+        "estados-de-color": {
+          "title": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        ""
+      ]
+    },
+    "navbar": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "completa": {
+          "title": "",
+          "description": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "attributes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "events": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "menu-movil": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "boton-y-panel": {
+          "title": "",
+          "description": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "attributes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "events": [
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "hero": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "con-cuadricula": {
+          "title": ""
+        },
+        "centrado-y-sin-cuadricula": {
+          "title": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        ""
+      ]
+    },
+    "section-header": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "basico": {
+          "title": ""
+        },
+        "centrado": {
+          "title": ""
+        },
+        "seccion-completa": {
+          "title": "",
+          "description": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        ""
+      ]
+    },
+    "footer": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "completo": {
+          "title": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        ""
+      ]
+    },
+    "sidebar-docs": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "sidebar": {
+          "title": ""
+        },
+        "tabla-de-contenidos": {
+          "title": "",
+          "description": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "attributes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "events": [
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        ""
+      ]
+    },
+    "dashboard": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "estructura": {
+          "title": "",
+          "description": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "attributes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "events": [
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        ""
+      ]
+    },
+    "card": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "con-visual": {
+          "title": "",
+          "description": ""
+        },
+        "visuales-decorativos": {
+          "title": "",
+          "description": ""
+        },
+        "destacada-y-compacta": {
+          "title": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        ""
+      ]
+    },
+    "grid": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "tres-columnas": {
+          "title": "",
+          "description": ""
+        },
+        "dos-y-cuatro-columnas": {
+          "title": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        ""
+      ]
+    },
+    "principios": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "seis-principios": {
+          "title": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        ""
+      ]
+    },
+    "stats": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "cuatro-cifras": {
+          "title": ""
+        },
+        "con-variacion": {
+          "title": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        ""
+      ]
+    },
+    "cta": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "centrado": {
+          "title": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        ""
+      ]
+    },
+    "pricing": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "tres-planes": {
+          "title": "",
+          "description": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "attributes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "events": [
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        ""
+      ]
+    },
+    "testimonios": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "en-grilla": {
+          "title": ""
+        },
+        "grande": {
+          "title": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        ""
+      ]
+    },
+    "timeline": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "changelog": {
+          "title": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        ""
+      ]
+    },
+    "empty-state": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "con-accion": {
+          "title": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        ""
+      ]
+    },
+    "codigo": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "con-cabecera": {
+          "title": ""
+        },
+        "copiar-un-texto": {
+          "title": "",
+          "description": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "attributes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "events": [
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        ""
+      ]
+    },
+    "botones": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "variantes": {
+          "title": ""
+        },
+        "tamanos": {
+          "title": ""
+        },
+        "con-icono": {
+          "title": ""
+        },
+        "deshabilitado-y-cargando": {
+          "title": "",
+          "description": ""
+        },
+        "grupo-de-acciones": {
+          "title": "",
+          "description": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    "chips-tags": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "chips": {
+          "title": "",
+          "description": ""
+        },
+        "tags-de-estado": {
+          "title": ""
+        },
+        "atajos-de-teclado": {
+          "title": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        ""
+      ]
+    },
+    "badge-avatar": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "badges": {
+          "title": ""
+        },
+        "avatares": {
+          "title": ""
+        },
+        "grupo-y-usuario": {
+          "title": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        ""
+      ]
+    },
+    "dropdown": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "menu-de-acciones": {
+          "title": "",
+          "description": ""
+        },
+        "alineado-a-la-derecha": {
+          "title": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "attributes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "events": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        "",
+        ""
+      ],
+      "snippets": [
+        ""
+      ]
+    },
+    "breadcrumb": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "basico": {
+          "title": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        ""
+      ]
+    },
+    "paginacion": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "basica": {
+          "title": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        ""
+      ]
+    },
+    "formularios": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "campos-de-texto": {
+          "title": ""
+        },
+        "error-y-exito": {
+          "title": "",
+          "description": ""
+        },
+        "checkbox-radio-y-switch": {
+          "title": ""
+        },
+        "archivo-y-tamanos": {
+          "title": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    "tabla": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "completa": {
+          "title": "",
+          "description": ""
+        },
+        "simple": {
+          "title": "",
+          "description": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "attributes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "events": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "snippets": [
+        ""
+      ]
+    },
+    "modal": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "confirmacion": {
+          "title": ""
+        },
+        "tamanos-y-estatico": {
+          "title": "",
+          "description": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "attributes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "events": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "snippets": [
+        "",
+        ""
+      ]
+    },
+    "drawer": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "lados": {
+          "title": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "attributes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "events": [
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        ""
+      ],
+      "snippets": [
+        ""
+      ]
+    },
+    "command-palette": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "paleta": {
+          "title": "",
+          "description": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "attributes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "events": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        "",
+        ""
+      ],
+      "snippets": [
+        ""
+      ]
+    },
+    "tooltip-popover": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "tooltip": {
+          "title": "",
+          "description": ""
+        },
+        "popover": {
+          "title": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "attributes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "events": [
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "tabs": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "linea": {
+          "title": ""
+        },
+        "pastillas": {
+          "title": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "attributes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "events": [
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        "",
+        ""
+      ],
+      "snippets": [
+        ""
+      ]
+    },
+    "accordion": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "preguntas-frecuentes": {
+          "title": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "attributes": [
+        [
+          "",
+          ""
+        ]
+      ],
+      "events": [
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        ""
+      ]
+    },
+    "toast": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "variantes": {
+          "title": "",
+          "description": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "attributes": [
+        [
+          "",
+          ""
+        ]
+      ],
+      "events": [
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "snippets": [
+        "",
+        ""
+      ]
+    },
+    "alert": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "alertas": {
+          "title": ""
+        },
+        "banner": {
+          "title": "",
+          "description": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "attributes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "events": [
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        ""
+      ]
+    },
+    "progress": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "con-etiqueta": {
+          "title": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        ""
+      ],
+      "snippets": [
+        ""
+      ]
+    },
+    "skeleton-spinner": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "skeleton": {
+          "title": ""
+        },
+        "spinner": {
+          "title": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "stepper": {
+      "title": "",
+      "description": "",
+      "examples": {
+        "horizontal": {
+          "title": ""
+        },
+        "vertical": {
+          "title": ""
+        }
+      },
+      "classes": [
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ],
+        [
+          "",
+          ""
+        ]
+      ],
+      "a11y": [
+        "",
+        ""
+      ]
+    }
+  }
+}

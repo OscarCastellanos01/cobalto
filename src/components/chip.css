@@ -14,6 +14,11 @@
     }
   }
 
+  .cb-chip:disabled,
+  .cb-chip[aria-disabled="true"] {
+    @apply cursor-not-allowed opacity-60 hover:border-cb-line hover:text-cb-muted;
+  }
+
   .cb-chip.is-active,
   .cb-chip[aria-pressed="true"] {
     @apply border-cb-accent-line text-cb-text;

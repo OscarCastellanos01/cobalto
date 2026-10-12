@@ -1,31 +1,68 @@
+import { tr } from '../i18n.mjs';
+
+const P = 'pages.instalacion';
+
+const MESSAGES = [
+  ['commandEmpty', 'data-cb-command-empty', 'Sin resultados para'],
+  ['toastRegion', '', 'Notificaciones'],
+  ['toastClose', 'closeLabel (opción de toast)', 'Cerrar notificación'],
+  ['tableEmpty', 'data-cb-table-empty', 'Sin resultados'],
+  ['tableStatus', 'data-cb-table-status-text', 'Mostrando {start}–{end} de {total}'],
+  ['tableSelected', 'data-cb-table-selected-text', '{count} seleccionada(s)'],
+  ['paginationPrev', 'data-cb-pagination-prev', 'Página anterior'],
+  ['paginationNext', 'data-cb-pagination-next', 'Página siguiente'],
+  ['paginationPage', 'data-cb-pagination-page', 'Página {page}'],
+  ['copyDone', 'data-cb-copy-done', 'Copiado'],
+  ['copyError', 'data-cb-copy-error', 'Error al copiar'],
+];
+
 export default {
   slug: 'instalacion',
-  title: 'Instalación',
   order: 2,
-  description:
-    'Cómo instalar Cobalto con npm y Tailwind CSS v4, desde un CDN sin build o en Laravel con Vite y Livewire.',
-  keywords: 'npm cdn laravel vite livewire alpine blade fuente instalar',
   render({ codeBlock, table }) {
+    const desc = (key, extra = '') => tr('p', `${P}.${key}`, `class="docs-section__desc${extra}"`);
+    const title = (key) => tr('h2', `${P}.${key}.title`, 'class="docs-section__title"');
     const sections = [
-      { id: 'tailwind', title: 'Con Tailwind (recomendado)' },
-      { id: 'cdn', title: 'Sin build, desde CDN' },
-      { id: 'laravel', title: 'Laravel + Vite' },
-      { id: 'livewire', title: 'Livewire y Alpine' },
-      { id: 'fuente', title: 'Fuente' },
-      { id: 'paquete', title: 'Qué incluye el paquete' },
-    ];
+      'tailwind',
+      'cdn',
+      'laravel',
+      'livewire',
+      'messages',
+      'fuente',
+      'paquete',
+    ].map((id) => ({
+      id,
+      key: `${P}.${id}.title`,
+    }));
+    const livewire = [0, 1, 2, 3, 4]
+      .map((i) => tr('li', `${P}.livewire.items.${i}`))
+      .join('\n    ');
+    const messageRows = MESSAGES.map(([key, attr, value]) => [
+      { code: `\`${key}\`` },
+      { code: attr ? `\`${attr}\`` : '—' },
+      { code: `\`${value}\`` },
+    ]);
+    const packageRows = [
+      ['`cobalto`', '`dist/cobalto.js`'],
+      ['`cobalto/tailwind`', '`src/cobalto.css`'],
+      ['`cobalto/tokens.css`', '`src/tokens.css`'],
+      ['`cobalto/css`', '`dist/cobalto.css`'],
+      ['`cobalto/components/*`', '`src/js/components/*.js`'],
+      ['CDN', '`dist/cobalto.umd.min.js`'],
+    ].map(([name, file], i) => [{ code: name }, { code: file }, { key: `${P}.paquete.uses.${i}` }]);
+
     const main = `
 <header class="docs-header">
-  <div class="cb-label"><b>02/</b>Empezar</div>
-  <h1 class="cb-h2">Instalación</h1>
-  <p class="cb-lead">Dos formas de uso: como fuente para tu build de Tailwind CSS v4, o precompilado desde un CDN.</p>
+  <div class="cb-label"><b>02/</b>${tr('span', 'ui.start')}</div>
+  ${tr('h1', `${P}.title`, 'class="cb-h2"')}
+  ${tr('p', `${P}.lead`, 'class="cb-lead"')}
 </header>
 
 <section class="docs-section" id="tailwind">
-  <h2 class="docs-section__title">Con Tailwind (recomendado)</h2>
-  <p class="docs-section__desc">Así puedes usar las utilidades \`bg-cb-bg\`, \`text-cb-muted\` o \`dark:\` en tu propio HTML y solo se genera el CSS que usas.</p>
-  ${codeBlock('npm install cobalto tailwindcss @tailwindcss/vite', { lang: 'bash', file: 'Terminal' })}
-  <p class="docs-section__desc mt-6">Importa Cobalto justo después de Tailwind:</p>
+  ${title('tailwind')}
+  ${desc('tailwind.desc')}
+  ${codeBlock('npm install cobalto tailwindcss @tailwindcss/vite', { lang: 'bash', fileKey: 'ui.code.terminal' })}
+  ${desc('tailwind.import', ' mt-6')}
   ${codeBlock(
     `
     @import "tailwindcss";
@@ -33,7 +70,7 @@ export default {
   `,
     { lang: 'css', file: 'app.css' }
   )}
-  <p class="docs-section__desc mt-6">Y el JavaScript, si usas componentes interactivos:</p>
+  ${desc('tailwind.js', ' mt-6')}
   ${codeBlock(
     `
     import cobalto from 'cobalto';
@@ -42,7 +79,7 @@ export default {
   `,
     { lang: 'js', file: 'app.js' }
   )}
-  <p class="docs-section__desc mt-6">\`autoInit()\` restaura el tema guardado, inicializa la página y vigila el DOM para inicializar lo que se agregue después. Si prefieres control manual, llama a \`cobalto.init(elemento)\`. También puedes importar componentes sueltos:</p>
+  ${desc('tailwind.auto', ' mt-6')}
   ${codeBlock(
     `
     import { init as initTabs } from 'cobalto/components/tabs';
@@ -54,19 +91,19 @@ export default {
 </section>
 
 <section class="docs-section" id="cdn">
-  <h2 class="docs-section__title">Sin build, desde CDN</h2>
-  <p class="docs-section__desc">El CSS precompilado incluye el reset de Tailwind, los tokens y todos los componentes. El script UMD se inicializa solo; agrega \`data-cb-manual\` para evitarlo.</p>
+  ${title('cdn')}
+  ${desc('cdn.desc')}
   ${codeBlock(`
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cobalto@0.1.0/dist/cobalto.min.css">
     <script src="https://cdn.jsdelivr.net/npm/cobalto@0.1.0/dist/cobalto.umd.min.js" defer></script>
   `)}
-  <p class="docs-section__desc mt-6">Con CDN no tienes utilidades de Tailwind arbitrarias, solo las clases \`cb-*\`, \`cb-wrap\` y las utilidades que usan los propios componentes.</p>
+  ${desc('cdn.note', ' mt-6')}
 </section>
 
 <section class="docs-section" id="laravel">
-  <h2 class="docs-section__title">Laravel + Vite</h2>
-  <p class="docs-section__desc">Laravel 11+ ya trae Tailwind v4 con Vite. No hace falta configurar nada más.</p>
-  ${codeBlock('npm install cobalto', { lang: 'bash', file: 'Terminal' })}
+  ${title('laravel')}
+  ${desc('laravel.desc')}
+  ${codeBlock('npm install cobalto', { lang: 'bash', fileKey: 'ui.code.terminal' })}
   <div class="mt-4">
   ${codeBlock(
     `
@@ -89,7 +126,7 @@ export default {
     { lang: 'js', file: 'resources/js/app.js' }
   )}
   </div>
-  <p class="docs-section__desc mt-6">En el layout, agrega este script en el \`head\` para aplicar el tema guardado antes del primer pintado y evitar el parpadeo:</p>
+  ${desc('laravel.flash', ' mt-6')}
   ${codeBlock(
     `
     <script>
@@ -107,18 +144,13 @@ export default {
 </section>
 
 <section class="docs-section" id="livewire">
-  <h2 class="docs-section__title">Livewire y Alpine</h2>
+  ${title('livewire')}
   <ul class="docs-list">
-    <li>\`autoInit()\` escucha \`livewire:navigated\` y vuelve a inicializar después de cada \`wire:navigate\`.</li>
-    <li>Un \`MutationObserver\` inicializa los componentes que Livewire o Alpine agregan al DOM. Lo ya inicializado no se duplica.</li>
-    <li>Cobalto solo usa atributos \`data-cb-*\` y clases \`cb-*\`, así que no choca con \`x-*\` ni \`wire:*\`.</li>
-    <li>Si Livewire re-renderiza un componente abierto (modal, dropdown), envuélvelo en \`wire:ignore.self\` para conservar su estado.</li>
-    <li>Para abrir un modal o lanzar un toast desde PHP, despacha un evento del navegador con \`$this->dispatch(...)\` y escúchalo con \`window.addEventListener\`.</li>
+    ${livewire}
   </ul>
   <div class="mt-6">
   ${codeBlock(
     `
-    // en el componente Livewire
     $this->dispatch('toast', title: 'Guardado', variant: 'success');
   `,
     { lang: 'js', file: 'app/Livewire/EditarCliente.php' }
@@ -134,15 +166,45 @@ export default {
   </div>
 </section>
 
+<section class="docs-section" id="messages">
+  ${title('messages')}
+  ${desc('messages.desc')}
+  ${codeBlock(
+    `
+    import cobalto from 'cobalto';
+
+    cobalto.autoInit({
+      messages: {
+        commandEmpty: 'No results for',
+        tableStatus: 'Showing {start}–{end} of {total}',
+        copyDone: 'Copied',
+      },
+    });
+
+    // o en cualquier momento
+    cobalto.setMessages({ toastClose: 'Close notification' });
+  `,
+    { lang: 'js', file: 'app.js' }
+  )}
+  ${desc('messages.attrs', ' mt-6')}
+  ${codeBlock(`
+    <div class="cb-table-wrap" data-cb-table data-cb-table-empty="No results" data-cb-table-status-text="{start}–{end} of {total}">...</div>
+    <button class="cb-code__copy" data-cb-copy data-cb-copy-done="Copied">...</button>
+  `)}
+  ${desc('messages.keys', ' mt-6')}
+  ${table([`${P}.messages.headers.0`, `${P}.messages.headers.1`, `${P}.messages.headers.2`], messageRows)}
+  ${desc('messages.cdn', ' mt-6')}
+</section>
+
 <section class="docs-section" id="fuente">
-  <h2 class="docs-section__title">Fuente</h2>
-  <p class="docs-section__desc">Cobalto no carga ninguna fuente por su cuenta. Si no agregas nada, usa la monoespaciada del sistema. Para JetBrains Mono desde Google Fonts:</p>
+  ${title('fuente')}
+  ${desc('fuente.desc')}
   ${codeBlock(`
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   `)}
-  <p class="docs-section__desc mt-6">Para alojarla tú mismo (sin peticiones a Google), instala \`@fontsource-variable/jetbrains-mono\` o declara tu propio \`@font-face\`, y si quieres otra familia cambia el token:</p>
+  ${desc('fuente.self', ' mt-6')}
   ${codeBlock(
     `
     @import "@fontsource-variable/jetbrains-mono";
@@ -157,22 +219,8 @@ export default {
 </section>
 
 <section class="docs-section" id="paquete">
-  <h2 class="docs-section__title">Qué incluye el paquete</h2>
-  ${table(
-    ['Import', 'Archivo', 'Uso'],
-    [
-      ['`cobalto`', '`dist/cobalto.js`', 'JS completo (ESM).'],
-      ['`cobalto/tailwind`', '`src/cobalto.css`', 'Fuente CSS para importar después de Tailwind.'],
-      [
-        '`cobalto/tokens.css`',
-        '`src/tokens.css`',
-        'Solo tokens, temas y variantes `dark:`/`light:`.',
-      ],
-      ['`cobalto/css`', '`dist/cobalto.css`', 'CSS precompilado (también `dist/cobalto.min.css`).'],
-      ['`cobalto/components/*`', '`src/js/components/*.js`', 'JS de un componente suelto.'],
-      ['CDN', '`dist/cobalto.umd.min.js`', 'Script para `<script>` que expone `window.cobalto`.'],
-    ]
-  )}
+  ${title('paquete')}
+  ${table([`${P}.paquete.headers.0`, `${P}.paquete.headers.1`, `${P}.paquete.headers.2`], packageRows)}
 </section>
 `;
     return { main, sections };

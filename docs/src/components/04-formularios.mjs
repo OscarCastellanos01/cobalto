@@ -1,39 +1,11 @@
-const people = [
-  ['María Ramírez', 'Ventas', 'activo', '48210', '2026-09-14'],
-  ['José López', 'Soporte', 'activo', '12900', '2026-08-02'],
-  ['Ana Pérez', 'Operaciones', 'pausado', '30500', '2026-07-21'],
-  ['Luis Gómez', 'Ventas', 'activo', '8700', '2026-10-01'],
-  ['Carla Méndez', 'Finanzas', 'inactivo', '0', '2026-03-11'],
-  ['Pedro Castillo', 'Soporte', 'activo', '15420', '2026-09-30'],
-  ['Sofía Herrera', 'Operaciones', 'activo', '22100', '2026-06-18'],
-  ['Diego Morales', 'Ventas', 'pausado', '5300', '2026-05-05'],
-];
-
-const statusTag = { activo: 'cb-tag--success', pausado: 'cb-tag--warning', inactivo: '' };
-
-function personRow([name, area, status, amount, date]) {
-  const formatted = Number(amount).toLocaleString('es');
-  return `<tr data-estado="${status}">
-                    <td><input class="cb-checkbox" type="checkbox" data-cb-table-select aria-label="Seleccionar a ${name}"></td>
-                    <td class="cb-table__strong">${name}</td>
-                    <td>${area}</td>
-                    <td><span class="cb-tag ${statusTag[status]}">${status}</span></td>
-                    <td class="cb-table__num" data-value="${amount}">Q ${formatted}</td>
-                    <td data-value="${date}">${date}</td>
-                  </tr>`;
-}
-
 export default {
-  title: 'Formularios y datos',
+  key: 'formularios',
   components: [
     {
       slug: 'formularios',
-      title: 'Formularios',
-      description:
-        'Input, textarea, select, checkbox, radio, switch y archivo, con texto de ayuda y estados de error y éxito.',
       examples: [
         {
-          title: 'Campos de texto',
+          id: 'campos-de-texto',
           layout: 'block',
           html: `
             <div class="grid max-w-[640px] gap-5 cb-sm:grid-cols-2">
@@ -62,9 +34,7 @@ export default {
           `,
         },
         {
-          title: 'Error y éxito',
-          description:
-            'El estado de error se activa con `aria-invalid="true"` en el input o con `cb-field--error`. El mensaje solo se muestra en estado de error o éxito.',
+          id: 'error-y-exito',
           layout: 'block',
           html: `
             <div class="grid max-w-[640px] gap-5 cb-sm:grid-cols-2">
@@ -82,7 +52,7 @@ export default {
           `,
         },
         {
-          title: 'Checkbox, radio y switch',
+          id: 'checkbox-radio-y-switch',
           layout: 'block',
           html: `
             <div class="flex flex-wrap gap-10">
@@ -106,7 +76,7 @@ export default {
           `,
         },
         {
-          title: 'Archivo y tamaños',
+          id: 'archivo-y-tamanos',
           layout: 'block',
           html: `
             <div class="flex max-w-[520px] flex-col gap-4">
@@ -121,47 +91,12 @@ export default {
           `,
         },
       ],
-      classes: [
-        ['`.cb-field`', 'Agrupa etiqueta, control, ayuda y mensaje.'],
-        ['`.cb-field__label`, `.cb-field__optional`', 'Etiqueta y marca de opcional.'],
-        ['`.cb-field__hint`', 'Texto de ayuda.'],
-        ['`.cb-field__message`', 'Mensaje visible solo con error o éxito.'],
-        [
-          '`.cb-field--error`, `.cb-field--success`',
-          'Estados. El error también se activa con `aria-invalid="true"`.',
-        ],
-        ['`.cb-input`', 'Input, select o textarea. `--sm` y `--lg` para tamaños.'],
-        ['`.cb-textarea`', 'Altura automática y redimensión vertical.'],
-        ['`.cb-select`', 'Envoltorio del `select` con flecha propia.'],
-        ['`.cb-input-group`, `.cb-input-group__addon`', 'Input con prefijo o sufijo.'],
-        [
-          '`.cb-check`, `.cb-check__text`, `.cb-check__hint`',
-          'Etiqueta clicable para checkbox, radio y switch.',
-        ],
-        [
-          '`.cb-checkbox`, `.cb-radio`, `.cb-switch`',
-          'Controles con estilo propio, nativos por debajo.',
-        ],
-        ['`.cb-file`', 'Input de archivo.'],
-        ['`.cb-fieldset`, `.cb-fieldset__legend`', 'Grupo de opciones.'],
-      ],
-      a11y: [
-        'Cada control necesita un `label` asociado o `aria-label`.',
-        'Relaciona ayuda y errores con `aria-describedby`.',
-        'El switch es un checkbox con `role="switch"`: funciona con teclado sin JS.',
-        'El color no es la única señal de error: el mensaje lo explica en texto.',
-      ],
     },
     {
       slug: 'tabla',
-      title: 'Tabla de datos',
-      description:
-        'Tabla con orden por columna, búsqueda, filtro, paginación y selección de filas. Sin JS se ve como una tabla normal.',
       examples: [
         {
-          title: 'Completa',
-          description:
-            'Prueba ordenar por monto o fecha, buscar, filtrar por estado y seleccionar filas.',
+          id: 'completa',
           layout: 'flush',
           html: `
             <div class="cb-table-wrap rounded-none border-0" data-cb-table data-cb-page-size="5">
@@ -185,7 +120,70 @@ export default {
                     </tr>
                   </thead>
                   <tbody>
-                  ${people.map(personRow).join('\n                  ')}
+                  <tr data-estado="activo">
+                    <td><input class="cb-checkbox" type="checkbox" data-cb-table-select aria-label="Seleccionar a María Ramírez"></td>
+                    <td class="cb-table__strong">María Ramírez</td>
+                    <td>Ventas</td>
+                    <td><span class="cb-tag cb-tag--success">activo</span></td>
+                    <td class="cb-table__num" data-value="48210">Q 48.210</td>
+                    <td data-value="2026-09-14">2026-09-14</td>
+                  </tr>
+                  <tr data-estado="activo">
+                    <td><input class="cb-checkbox" type="checkbox" data-cb-table-select aria-label="Seleccionar a José López"></td>
+                    <td class="cb-table__strong">José López</td>
+                    <td>Soporte</td>
+                    <td><span class="cb-tag cb-tag--success">activo</span></td>
+                    <td class="cb-table__num" data-value="12900">Q 12.900</td>
+                    <td data-value="2026-08-02">2026-08-02</td>
+                  </tr>
+                  <tr data-estado="pausado">
+                    <td><input class="cb-checkbox" type="checkbox" data-cb-table-select aria-label="Seleccionar a Ana Pérez"></td>
+                    <td class="cb-table__strong">Ana Pérez</td>
+                    <td>Operaciones</td>
+                    <td><span class="cb-tag cb-tag--warning">pausado</span></td>
+                    <td class="cb-table__num" data-value="30500">Q 30.500</td>
+                    <td data-value="2026-07-21">2026-07-21</td>
+                  </tr>
+                  <tr data-estado="activo">
+                    <td><input class="cb-checkbox" type="checkbox" data-cb-table-select aria-label="Seleccionar a Luis Gómez"></td>
+                    <td class="cb-table__strong">Luis Gómez</td>
+                    <td>Ventas</td>
+                    <td><span class="cb-tag cb-tag--success">activo</span></td>
+                    <td class="cb-table__num" data-value="8700">Q 8700</td>
+                    <td data-value="2026-10-01">2026-10-01</td>
+                  </tr>
+                  <tr data-estado="inactivo">
+                    <td><input class="cb-checkbox" type="checkbox" data-cb-table-select aria-label="Seleccionar a Carla Méndez"></td>
+                    <td class="cb-table__strong">Carla Méndez</td>
+                    <td>Finanzas</td>
+                    <td><span class="cb-tag ">inactivo</span></td>
+                    <td class="cb-table__num" data-value="0">Q 0</td>
+                    <td data-value="2026-03-11">2026-03-11</td>
+                  </tr>
+                  <tr data-estado="activo">
+                    <td><input class="cb-checkbox" type="checkbox" data-cb-table-select aria-label="Seleccionar a Pedro Castillo"></td>
+                    <td class="cb-table__strong">Pedro Castillo</td>
+                    <td>Soporte</td>
+                    <td><span class="cb-tag cb-tag--success">activo</span></td>
+                    <td class="cb-table__num" data-value="15420">Q 15.420</td>
+                    <td data-value="2026-09-30">2026-09-30</td>
+                  </tr>
+                  <tr data-estado="activo">
+                    <td><input class="cb-checkbox" type="checkbox" data-cb-table-select aria-label="Seleccionar a Sofía Herrera"></td>
+                    <td class="cb-table__strong">Sofía Herrera</td>
+                    <td>Operaciones</td>
+                    <td><span class="cb-tag cb-tag--success">activo</span></td>
+                    <td class="cb-table__num" data-value="22100">Q 22.100</td>
+                    <td data-value="2026-06-18">2026-06-18</td>
+                  </tr>
+                  <tr data-estado="pausado">
+                    <td><input class="cb-checkbox" type="checkbox" data-cb-table-select aria-label="Seleccionar a Diego Morales"></td>
+                    <td class="cb-table__strong">Diego Morales</td>
+                    <td>Ventas</td>
+                    <td><span class="cb-tag cb-tag--warning">pausado</span></td>
+                    <td class="cb-table__num" data-value="5300">Q 5300</td>
+                    <td data-value="2026-05-05">2026-05-05</td>
+                  </tr>
                   </tbody>
                 </table>
               </div>
@@ -197,8 +195,7 @@ export default {
           `,
         },
         {
-          title: 'Simple',
-          description: 'Sin `data-cb-table` es solo estilo. `cb-table--compact` reduce el padding.',
+          id: 'simple',
           layout: 'block',
           html: `
             <div class="cb-table-wrap">
@@ -213,53 +210,8 @@ export default {
           `,
         },
       ],
-      classes: [
-        ['`.cb-table-wrap`', 'Caja con borde.'],
-        [
-          '`.cb-table-toolbar`, `.cb-table-toolbar__filters`',
-          'Barra superior con búsqueda y filtros.',
-        ],
-        ['`.cb-table-scroll`', 'Scroll horizontal en pantallas chicas.'],
-        ['`.cb-table`', 'Tabla. `--compact` reduce el espaciado.'],
-        [
-          '`.cb-table__strong`, `.cb-table__num`, `.cb-table__check`',
-          'Celda destacada, numérica (alineada a la derecha) y de selección.',
-        ],
-        ['`.cb-table__sort`', 'Botón de orden que el JS crea dentro del `th`.'],
-        ['`.cb-table-footer`', 'Pie con estado y paginación.'],
-      ],
-      attributes: [
-        ['`data-cb-table`', 'Activa el comportamiento.'],
-        ['`data-cb-page-size="n"`', 'Filas por página. Sin él no hay paginación.'],
-        [
-          '`data-cb-sort` / `data-cb-sort="number|date"`',
-          'En un `th`, permite ordenar esa columna.',
-        ],
-        ['`data-value`', 'En una celda, valor usado para ordenar en lugar del texto.'],
-        ['`data-cb-table-search`', 'Input que busca en todas las columnas (ignora tildes).'],
-        [
-          '`data-cb-table-filter="clave"`',
-          'Select que compara su valor con `data-clave` de cada fila.',
-        ],
-        [
-          '`data-cb-table-select` / `data-cb-table-select-all`',
-          'Checkboxes de fila y de encabezado.',
-        ],
-        [
-          '`data-cb-table-status`, `data-cb-table-pagination`',
-          'Dónde escribir el estado y la paginación.',
-        ],
-        ['`data-cb-table-empty`', 'Texto cuando no hay resultados.'],
-      ],
-      events: [
-        ['`cb:sort`', 'Al ordenar (`detail.column`, `detail.direction`).'],
-        ['`cb:filter`', 'Al buscar o filtrar.'],
-        ['`cb:page`', 'Al cambiar de página (`detail.page`).'],
-        ['`cb:select`', 'Al cambiar la selección (`detail.rows`).'],
-      ],
       snippets: [
         {
-          title: 'Leer las filas seleccionadas:',
           code: `
             const table = document.querySelector('[data-cb-table]');
             table.addEventListener('cb:select', (event) => {
@@ -267,12 +219,6 @@ export default {
             });
           `,
         },
-      ],
-      a11y: [
-        'Los encabezados ordenables reciben `aria-sort` y un botón para usarlos con teclado.',
-        'Las filas seleccionadas llevan `aria-selected="true"`.',
-        'El estado ("Mostrando 1–5 de 8") está en una región `aria-live`.',
-        'Cada checkbox de fila necesita `aria-label` con el nombre del registro.',
       ],
     },
   ],

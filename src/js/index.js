@@ -1,4 +1,5 @@
-import { onReady, theme } from './core.js';
+import * as core from './core.js';
+import { onReady, setMessages, theme } from './core.js';
 import themeControls from './components/theme.js';
 import dropdown from './components/dropdown.js';
 import mobileMenu from './components/mobile-menu.js';
@@ -45,8 +46,10 @@ let autoStarted = false;
  * Inicializa todos los componentes dentro de root. Se puede llamar
  * las veces que haga falta: lo ya inicializado se salta.
  * @param {ParentNode} [root]
+ * @param {{ messages?: object }} [options] messages cambia los textos por defecto
  */
-export function init(root = document) {
+export function init(root = document, options = {}) {
+  if (options.messages) setMessages(options.messages);
   Object.values(components).forEach((component) => component.init(root));
 }
 
@@ -79,11 +82,12 @@ function observeMutations() {
 /**
  * Restaura el tema guardado, inicializa la pagina y se reengancha
  * cuando Livewire navega o cuando aparecen nodos nuevos en el DOM.
- * @param {{ observe?: boolean }} [options]
+ * @param {{ observe?: boolean, messages?: object }} [options]
  */
 export function autoInit(options = {}) {
   if (autoStarted) return;
   autoStarted = true;
+  if (options.messages) setMessages(options.messages);
   theme.restore();
   onReady(() => {
     init(document);
@@ -93,9 +97,7 @@ export function autoInit(options = {}) {
   document.addEventListener('livewire:navigated', () => init(document));
 }
 
-import * as core from './core.js';
-
-export { theme, toast, modal, drawer, core };
+export { theme, toast, modal, drawer, core, setMessages };
 
 export default {
   init,
@@ -106,4 +108,5 @@ export default {
   drawer,
   components,
   core,
+  setMessages,
 };

@@ -491,3 +491,50 @@ export function focusableWhenScrollable(el) {
   });
   scrollObserver.observe(el);
 }
+
+const messages = {
+  commandEmpty: 'Sin resultados para',
+  toastRegion: 'Notificaciones',
+  toastClose: 'Cerrar notificación',
+  tableEmpty: 'Sin resultados',
+  tableStatus: 'Mostrando {start}–{end} de {total}',
+  tableSelected: '{count} seleccionada(s)',
+  paginationPrev: 'Página anterior',
+  paginationNext: 'Página siguiente',
+  paginationPage: 'Página {page}',
+  copyDone: 'Copiado',
+  copyError: 'Error al copiar',
+};
+
+/**
+ * Cambia los textos por defecto que ven los usuarios finales.
+ * Solo reemplaza las claves que se pasen.
+ * @param {Partial<typeof messages>} next
+ */
+export function setMessages(next = {}) {
+  Object.entries(next).forEach(([key, value]) => {
+    if (typeof value === 'string') messages[key] = value;
+  });
+}
+
+/**
+ * @returns {typeof messages} copia de los textos actuales
+ */
+export function getMessages() {
+  return { ...messages };
+}
+
+/**
+ * Devuelve un texto: primero el atributo del elemento, luego el mensaje global.
+ * Las llaves {nombre} se reemplazan con vars.
+ * @param {string} key
+ * @param {{ el?: Element | null, attr?: string, vars?: object }} [options]
+ * @returns {string}
+ */
+export function message(key, { el = null, attr = '', vars = {} } = {}) {
+  const custom = el && attr ? el.getAttribute(attr) : null;
+  const template = custom ?? messages[key] ?? '';
+  return template.replace(/\{(\w+)\}/g, (match, name) =>
+    name in vars ? String(vars[name]) : match
+  );
+}

@@ -1,63 +1,39 @@
-const go =
-  '<svg class="cb-card__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>';
-const copyIcon =
-  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>';
-const inboxIcon =
-  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.5 5h13L22 12v7H2v-7z"/></svg>';
-
-function card(n, tag, live, visual, title, text, meta) {
-  return `<a class="cb-card" href="#">
-                <div class="cb-card__top"><span>${n}</span><span class="cb-tag${live ? ' cb-tag--live' : ''}">${tag}</span></div>
-                ${go}
-                <div class="cb-card__visual">${visual}</div>
-                <h3 class="cb-card__title">${title}</h3>
-                <p class="cb-card__text">${text}</p>
-                <div class="cb-card__meta">${meta.map((m) => `<span>${m}</span>`).join('')}</div>
-              </a>`;
-}
-
-const rows = '<div class="cb-viz cb-viz--rows"><i></i><i></i><i></i><i></i></div>';
-const bars =
-  '<div class="cb-viz cb-viz--bars"><i style="height: 35%"></i><i style="height: 55%"></i><i style="height: 42%"></i><i style="height: 70%"></i><i class="is-accent" style="height: 92%"></i><i style="height: 60%"></i></div>';
-const shop = '<div class="cb-viz cb-viz--shop"><i></i><i></i><i></i><i></i><i></i><i></i></div>';
-const phone = '<div class="cb-viz cb-viz--phone"></div>';
-
 export default {
-  title: 'Contenido',
+  key: 'contenido',
   components: [
     {
       slug: 'card',
-      title: 'Card',
-      description:
-        'Tarjeta plana con visual, etiqueta de estado, texto, meta y una flecha que aparece en hover.',
       examples: [
         {
-          title: 'Con visual',
-          description:
-            'Si la card es un enlace, la flecha `cb-card__go` reemplaza a la etiqueta al pasar el mouse.',
+          id: 'con-visual',
           layout: 'block',
           html: `
             <div class="max-w-[360px]">
-              ${card('01', 'Activo', true, rows, 'Sistemas de gestión', 'Inventario, ventas y reportes adaptados a cómo opera tu negocio.', ['Laravel', 'MySQL'])}
+              <a class="cb-card" href="#">
+                <div class="cb-card__top"><span>01</span><span class="cb-tag cb-tag--live">Activo</span></div>
+                <svg class="cb-card__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                <div class="cb-card__visual"><div class="cb-viz cb-viz--rows"><i></i><i></i><i></i><i></i></div></div>
+                <h3 class="cb-card__title">Sistemas de gestión</h3>
+                <p class="cb-card__text">Inventario, ventas y reportes adaptados a cómo opera tu negocio.</p>
+                <div class="cb-card__meta"><span>Laravel</span><span>MySQL</span></div>
+              </a>
             </div>
           `,
         },
         {
-          title: 'Visuales decorativos',
-          description:
-            'Seis mini visuales listos: `rows`, `bars`, `shop`, `phone`, `term` y `nodes`. Todos usan los tokens de color.',
+          id: 'visuales-decorativos',
           layout: 'block',
           html: `
             <div class="cb-grid cb-grid--4 cb-grid--flush">
-              <div class="cb-card cb-card--compact"><div class="cb-card__visual">${rows}</div><p class="cb-card__text">cb-viz--rows</p></div>
-              <div class="cb-card cb-card--compact"><div class="cb-card__visual">${bars}</div><p class="cb-card__text">cb-viz--bars</p></div>
-              <div class="cb-card cb-card--compact"><div class="cb-card__visual">${shop}</div><p class="cb-card__text">cb-viz--shop</p></div>
-              <div class="cb-card cb-card--compact"><div class="cb-card__visual">${phone}</div><p class="cb-card__text">cb-viz--phone</p></div>
+              <div class="cb-card cb-card--compact"><div class="cb-card__visual"><div class="cb-viz cb-viz--rows"><i></i><i></i><i></i><i></i></div></div><p class="cb-card__text">cb-viz--rows</p></div>
+              <div class="cb-card cb-card--compact"><div class="cb-card__visual"><div class="cb-viz cb-viz--bars"><i style="height: 35%"></i><i style="height: 55%"></i><i style="height: 42%"></i><i style="height: 70%"></i><i class="is-accent" style="height: 92%"></i><i style="height: 60%"></i></div></div><p class="cb-card__text">cb-viz--bars</p></div>
+              <div class="cb-card cb-card--compact"><div class="cb-card__visual"><div class="cb-viz cb-viz--shop"><i></i><i></i><i></i><i></i><i></i><i></i></div></div><p class="cb-card__text">cb-viz--shop</p></div>
+              <div class="cb-card cb-card--compact"><div class="cb-card__visual"><div class="cb-viz cb-viz--phone"></div></div><p class="cb-card__text">cb-viz--phone</p></div>
             </div>
           `,
         },
         {
-          title: 'Destacada y compacta',
+          id: 'destacada-y-compacta',
           layout: 'block',
           html: `
             <div class="grid gap-4 cb-md:grid-cols-2">
@@ -74,49 +50,44 @@ export default {
           `,
         },
       ],
-      classes: [
-        [
-          '`.cb-card`',
-          'Tarjeta con borde de 1px, sin sombra. Si es `a` o `button` cambia de fondo en hover.',
-        ],
-        ['`.cb-card--featured`', 'Borde de acento y fondo elevado.'],
-        ['`.cb-card--compact`', 'Quita la altura mínima.'],
-        ['`.cb-card--hover`', 'Activa el hover en una card que no es enlace.'],
-        ['`.cb-card__top`', 'Fila superior con número y etiqueta.'],
-        ['`.cb-card__go`', 'Flecha ↗ que aparece en hover y foco.'],
-        ['`.cb-card__visual`', 'Caja de 110px para el visual.'],
-        ['`.cb-card__title`, `.cb-card__text`', 'Título y descripción.'],
-        ['`.cb-card__meta`', 'Etiquetas al pie, empujadas al fondo.'],
-        [
-          '`.cb-viz--rows|bars|shop|phone|term|nodes`',
-          'Visuales decorativos. En `bars`, `i.is-accent` resalta una barra.',
-        ],
-      ],
-      a11y: [
-        'Cuando toda la card es enlace, el texto del enlace es todo su contenido: mantén el título corto y claro.',
-        'Los visuales son decorativos; no necesitan texto alternativo.',
-      ],
     },
     {
       slug: 'grid',
-      title: 'Grid de cards',
-      description:
-        'Grilla con bordes compartidos: el contenedor dibuja arriba e izquierda y cada celda derecha y abajo.',
       examples: [
         {
-          title: 'Tres columnas',
-          description: 'Pasa a dos columnas por debajo de 960px y a una por debajo de 600px.',
+          id: 'tres-columnas',
           layout: 'block',
           html: `
             <div class="cb-grid cb-grid--flush">
-              ${card('01', 'Activo', true, rows, 'Gestión', 'Inventario y ventas.', ['Laravel'])}
-              ${card('02', 'Activo', true, phone, 'Móvil', 'Apps para Android e iOS.', ['Kotlin'])}
-              ${card('03', 'Mensual', false, bars, 'Soporte', 'Mejoras y atención directa.', ['SLA'])}
+              <a class="cb-card" href="#">
+                <div class="cb-card__top"><span>01</span><span class="cb-tag cb-tag--live">Activo</span></div>
+                <svg class="cb-card__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                <div class="cb-card__visual"><div class="cb-viz cb-viz--rows"><i></i><i></i><i></i><i></i></div></div>
+                <h3 class="cb-card__title">Gestión</h3>
+                <p class="cb-card__text">Inventario y ventas.</p>
+                <div class="cb-card__meta"><span>Laravel</span></div>
+              </a>
+              <a class="cb-card" href="#">
+                <div class="cb-card__top"><span>02</span><span class="cb-tag cb-tag--live">Activo</span></div>
+                <svg class="cb-card__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                <div class="cb-card__visual"><div class="cb-viz cb-viz--phone"></div></div>
+                <h3 class="cb-card__title">Móvil</h3>
+                <p class="cb-card__text">Apps para Android e iOS.</p>
+                <div class="cb-card__meta"><span>Kotlin</span></div>
+              </a>
+              <a class="cb-card" href="#">
+                <div class="cb-card__top"><span>03</span><span class="cb-tag">Mensual</span></div>
+                <svg class="cb-card__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                <div class="cb-card__visual"><div class="cb-viz cb-viz--bars"><i style="height: 35%"></i><i style="height: 55%"></i><i style="height: 42%"></i><i style="height: 70%"></i><i class="is-accent" style="height: 92%"></i><i style="height: 60%"></i></div></div>
+                <h3 class="cb-card__title">Soporte</h3>
+                <p class="cb-card__text">Mejoras y atención directa.</p>
+                <div class="cb-card__meta"><span>SLA</span></div>
+              </a>
             </div>
           `,
         },
         {
-          title: 'Dos y cuatro columnas',
+          id: 'dos-y-cuatro-columnas',
           layout: 'block',
           html: `
             <div class="cb-grid cb-grid--2 cb-grid--flush">
@@ -132,23 +103,12 @@ export default {
           `,
         },
       ],
-      classes: [
-        ['`.cb-grid`', 'Tres columnas con bordes compartidos y 56px de margen superior.'],
-        ['`.cb-grid--2`, `.cb-grid--4`', 'Dos o cuatro columnas.'],
-        ['`.cb-grid--flush`', 'Quita el margen superior.'],
-      ],
-      a11y: [
-        'Si las cards forman una lista, puedes usar `ul` con la clase `cb-grid` y `li` como celdas.',
-      ],
     },
     {
       slug: 'principios',
-      title: 'Lista de principios',
-      description:
-        'Lista numerada en tres columnas con línea superior. Sirve para valores, características o pasos.',
       examples: [
         {
-          title: 'Seis principios',
+          id: 'seis-principios',
           layout: 'block',
           html: `
             <ol class="cb-principles mt-0">
@@ -159,21 +119,12 @@ export default {
           `,
         },
       ],
-      classes: [
-        ['`.cb-principles`', 'Lista en grilla de 3 columnas (2 y 1 en pantallas chicas).'],
-        ['`.cb-principles__item`', 'Elemento con línea superior.'],
-        ['`.cb-principles__num`', 'Número en color de acento.'],
-        ['`.cb-principles__title`, `.cb-principles__text`', 'Título y texto.'],
-      ],
-      a11y: ['Usa `ol` para que el orden también se anuncie en lectores de pantalla.'],
     },
     {
       slug: 'stats',
-      title: 'Stats',
-      description: 'Cifras grandes con etiqueta, en una caja con divisiones de 1px.',
       examples: [
         {
-          title: 'Cuatro cifras',
+          id: 'cuatro-cifras',
           layout: 'block',
           html: `
             <div class="cb-stats mt-0">
@@ -185,7 +136,7 @@ export default {
           `,
         },
         {
-          title: 'Con variación',
+          id: 'con-variacion',
           layout: 'block',
           html: `
             <div class="cb-stats cb-stats--3 mt-0">
@@ -196,26 +147,12 @@ export default {
           `,
         },
       ],
-      classes: [
-        [
-          '`.cb-stats`',
-          'Caja de 4 columnas (2 por debajo de 960px). Las líneas internas no dependen de la cantidad de celdas.',
-        ],
-        ['`.cb-stats--2`, `.cb-stats--3`', 'Dos o tres columnas.'],
-        ['`.cb-stat`', 'Celda.'],
-        ['`.cb-stat__value`', 'Cifra con `clamp(28px, 3.4vw, 40px)`.'],
-        ['`.cb-stat__label`', 'Etiqueta.'],
-        ['`.cb-stat__delta`', 'Variación en verde; `--down` en rojo.'],
-      ],
-      a11y: ['No dependas solo del color en la variación: incluye el signo o el texto.'],
     },
     {
       slug: 'cta',
-      title: 'CTA',
-      description: 'Bloque centrado de llamada a la acción para cerrar una página.',
       examples: [
         {
-          title: 'Centrado',
+          id: 'centrado',
           layout: 'flush',
           html: `
             <section class="cb-section cb-cta border-b-0">
@@ -232,19 +169,12 @@ export default {
           `,
         },
       ],
-      classes: [['`.cb-cta`', 'Centra el texto, el `cb-lead` y las `cb-actions` que contiene.']],
-      a11y: ['El texto de los enlaces debe decir a dónde llevan, no solo "clic aquí".'],
     },
     {
       slug: 'pricing',
-      title: 'Pricing',
-      description:
-        'Tarjetas de precio con plan destacado, lista de características y cambio entre pago mensual y anual.',
       examples: [
         {
-          title: 'Tres planes',
-          description:
-            'Los botones `data-cb-billing` cambian los precios marcados con `data-cb-price-monthly` y `data-cb-price-yearly`.',
+          id: 'tres-planes',
           layout: 'block',
           html: `
             <div data-cb-pricing>
@@ -279,40 +209,12 @@ export default {
           `,
         },
       ],
-      classes: [
-        [
-          '`.cb-pricing`',
-          'Grilla de 3 planes con bordes compartidos. `--2` y `--4` para otras cantidades.',
-        ],
-        ['`.cb-price`', 'Plan. `--featured` agrega fondo y línea superior de acento.'],
-        ['`.cb-price__name`, `.cb-price__value`, `.cb-price__period`', 'Nombre, precio y periodo.'],
-        ['`.cb-price__features`', 'Lista con ✓. `li.is-off` la tacha.'],
-        ['`.cb-price__cta`', 'Botón empujado al fondo.'],
-        ['`.cb-billing`, `.cb-billing__option`', 'Selector de periodo.'],
-      ],
-      attributes: [
-        ['`data-cb-pricing`', 'Contenedor que agrupa selector y precios.'],
-        ['`data-cb-billing="monthly|yearly"`', 'Botón que cambia el periodo.'],
-        [
-          '`data-cb-price-monthly` / `data-cb-price-yearly`',
-          'Valores del precio para cada periodo.',
-        ],
-        ['`data-cb-billing-show="periodo"`', 'Elemento visible solo en ese periodo.'],
-      ],
-      events: [['`cb:change`', 'En el contenedor al cambiar de periodo (`detail.period`).']],
-      a11y: [
-        'El selector es un grupo de botones con `aria-pressed`.',
-        'Las características desactivadas no deben comunicarse solo con el tachado; usa un texto claro.',
-      ],
     },
     {
       slug: 'testimonios',
-      title: 'Testimonios',
-      description:
-        'Citas con autor, cargo y avatar. Se combinan con `cb-grid` para mostrar varias.',
       examples: [
         {
-          title: 'En grilla',
+          id: 'en-grilla',
           layout: 'block',
           html: `
             <div class="cb-grid cb-grid--2 cb-grid--flush">
@@ -328,7 +230,7 @@ export default {
           `,
         },
         {
-          title: 'Grande',
+          id: 'grande',
           layout: 'block',
           html: `
             <figure class="cb-testimonial cb-testimonial--large max-w-[760px] p-0">
@@ -338,22 +240,12 @@ export default {
           `,
         },
       ],
-      classes: [
-        ['`.cb-testimonial`', 'Bloque `figure`. `--large` aumenta la cita.'],
-        ['`.cb-testimonial__quote`', 'Cita con comillas de acento.'],
-        ['`.cb-testimonial__author`', 'Fila del autor al pie.'],
-        ['`.cb-testimonial__name`, `.cb-testimonial__role`', 'Nombre y cargo.'],
-      ],
-      a11y: ['`figure` + `blockquote` + `figcaption` relacionan la cita con su autor.'],
     },
     {
       slug: 'timeline',
-      title: 'Timeline y changelog',
-      description:
-        'Línea de tiempo con fecha a la izquierda. En móvil la fecha queda arriba de cada entrada.',
       examples: [
         {
-          title: 'Changelog',
+          id: 'changelog',
           layout: 'block',
           html: `
             <ol class="cb-timeline">
@@ -375,29 +267,16 @@ export default {
           `,
         },
       ],
-      classes: [
-        ['`.cb-timeline`', 'Lista ordenada.'],
-        ['`.cb-timeline__item`', 'Entrada con punto y línea. `.is-current` resalta el punto.'],
-        ['`.cb-timeline__date`', 'Fecha (usa `time` con `datetime`).'],
-        [
-          '`.cb-timeline__title`, `.cb-timeline__text`',
-          'Título y detalle. Las listas internas usan guiones.',
-        ],
-      ],
-      a11y: ['Usa `time datetime="..."` para que la fecha sea legible por máquinas.'],
     },
     {
       slug: 'empty-state',
-      title: 'Empty state',
-      description:
-        'Estado vacío con icono, texto y acciones para cuando una lista o búsqueda no tiene resultados.',
       examples: [
         {
-          title: 'Con acción',
+          id: 'con-accion',
           layout: 'block',
           html: `
             <div class="cb-empty">
-              <div class="cb-empty__icon">${inboxIcon}</div>
+              <div class="cb-empty__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.5 5h13L22 12v7H2v-7z"/></svg></div>
               <h3 class="cb-empty__title">Aún no hay facturas</h3>
               <p class="cb-empty__text">Cuando emitas tu primera factura aparecerá aquí con su estado y fecha.</p>
               <div class="cb-empty__actions"><a href="#" class="cb-btn cb-btn--primary">Crear factura</a><a href="#" class="cb-btn cb-btn--outline">Importar</a></div>
@@ -405,64 +284,28 @@ export default {
           `,
         },
       ],
-      classes: [
-        ['`.cb-empty`', 'Caja con borde punteado y contenido centrado.'],
-        ['`.cb-empty__icon`', 'Icono enmarcado.'],
-        ['`.cb-empty__title`, `.cb-empty__text`', 'Título y explicación.'],
-        ['`.cb-empty__actions`', 'Botones.'],
-      ],
-      a11y: [
-        'Si el estado vacío aparece después de filtrar, anúncialo con una región `aria-live`.',
-      ],
     },
     {
       slug: 'codigo',
-      title: 'Bloque de código',
-      description: 'Código con cabecera, botón de copiar y colores de sintaxis que siguen el tema.',
       examples: [
         {
-          title: 'Con cabecera',
+          id: 'con-cabecera',
           layout: 'block',
           html: `
             <div class="cb-code">
-              <div class="cb-code__head"><span>resources/css/app.css</span><button class="cb-code__copy" type="button" data-cb-copy>${copyIcon}<span data-cb-copy-label>Copiar</span></button></div>
+              <div class="cb-code__head"><span>resources/css/app.css</span><button class="cb-code__copy" type="button" data-cb-copy><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span data-cb-copy-label>Copiar</span></button></div>
               <pre class="cb-code__pre"><code><span class="cb-tok-key">@import</span> <span class="cb-tok-str">"tailwindcss"</span>;
             <span class="cb-tok-key">@import</span> <span class="cb-tok-str">"cobalto/tailwind"</span>;</code></pre>
             </div>
           `,
         },
         {
-          title: 'Copiar un texto',
-          description: 'Con un valor, `data-cb-copy` copia ese texto o el elemento con ese id.',
+          id: 'copiar-un-texto',
           html: `
             <code class="cb-code--inline">npm install cobalto</code>
-            <button class="cb-btn cb-btn--outline cb-btn--sm" type="button" data-cb-copy="npm install cobalto">${copyIcon}<span data-cb-copy-label>Copiar comando</span></button>
+            <button class="cb-btn cb-btn--outline cb-btn--sm" type="button" data-cb-copy="npm install cobalto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span data-cb-copy-label>Copiar comando</span></button>
           `,
         },
-      ],
-      classes: [
-        ['`.cb-code`', 'Contenedor del bloque.'],
-        ['`.cb-code__head`', 'Cabecera con nombre de archivo y botón.'],
-        [
-          '`.cb-code__copy`',
-          'Botón de copiar. `.is-copied` lo pinta de verde. `--floating` lo pone encima del código.',
-        ],
-        ['`.cb-code__pre`', 'Área con scroll horizontal.'],
-        ['`.cb-code--inline`', 'Código en línea.'],
-        ['`.cb-tok-tag|attr|str|com|key`', 'Colores de sintaxis basados en tokens.'],
-      ],
-      attributes: [
-        [
-          '`data-cb-copy`',
-          'Sin valor copia el `pre` del bloque; con id o selector copia ese elemento; con otro texto, el texto.',
-        ],
-        ['`data-cb-copy-label`', 'Elemento cuyo texto cambia a "Copiado".'],
-        ['`data-cb-copy-done`', 'Texto alternativo para el estado copiado.'],
-      ],
-      events: [['`cb:copy`', 'En el botón después de copiar (`detail.text`).']],
-      a11y: [
-        'El botón cambia su texto a "Copiado", que los lectores de pantalla anuncian al tener foco.',
-        'Sin HTTPS usa un método alternativo para copiar.',
       ],
     },
   ],

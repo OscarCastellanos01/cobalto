@@ -4,6 +4,7 @@ import {
   ensureId,
   escapeHtml,
   lockScroll,
+  message,
   pushLayer,
   queryAll,
   resolveTarget,
@@ -64,7 +65,6 @@ function createInstance(el) {
   if (!panel || !input || !results) return null;
 
   const listId = ensureId(results, 'cb-command-list');
-  const emptyText = el.getAttribute('data-cb-command-empty') || 'Sin resultados para';
   let items = readItems(el);
   let shown = [];
   let active = 0;
@@ -86,7 +86,7 @@ function createInstance(el) {
   }
 
   function renderEmpty() {
-    results.innerHTML = `<div class="cb-command__empty" role="presentation">${escapeHtml(emptyText)} “${escapeHtml(input.value)}”</div>`;
+    results.innerHTML = `<div class="cb-command__empty" role="presentation">${escapeHtml(message('commandEmpty', { el, attr: 'data-cb-command-empty' }))} “${escapeHtml(input.value)}”</div>`;
     input.removeAttribute('aria-activedescendant');
   }
 

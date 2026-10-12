@@ -1,4 +1,4 @@
-import { bind, emit, queryAll } from '../core.js';
+import { bind, emit, message, queryAll } from '../core.js';
 
 const ICONS = {
   default: '<path d="M12 8v4M12 16h.01"/><circle cx="12" cy="12" r="9"/>',
@@ -21,7 +21,7 @@ function getToaster(position) {
   toaster.className = 'cb-toaster';
   if (position.includes('top')) toaster.classList.add('cb-toaster--top');
   if (position.includes('left')) toaster.classList.add('cb-toaster--left');
-  toaster.setAttribute('aria-label', 'Notificaciones');
+  toaster.setAttribute('aria-label', message('toastRegion'));
   document.body.appendChild(toaster);
   toasters.set(position, toaster);
   return toaster;
@@ -60,6 +60,7 @@ function buildToast(options, variant) {
  * @param {{ label: string, onClick?: (event: Event) => void }} [options.action]
  * @param {boolean} [options.dismissible]
  * @param {'bottom-right' | 'bottom-left' | 'top-right' | 'top-left'} [options.position]
+ * @param {string} [options.closeLabel] aria-label del boton de cerrar
  * @returns {{ el: HTMLElement, close: () => void }}
  */
 export function toast(options = {}) {
@@ -108,7 +109,7 @@ export function toast(options = {}) {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'cb-toast__close';
-    button.setAttribute('aria-label', 'Cerrar notificacion');
+    button.setAttribute('aria-label', config.closeLabel || message('toastClose'));
     button.innerHTML = svg(CLOSE_ICON, '');
     button.addEventListener('click', close);
     el.appendChild(button);

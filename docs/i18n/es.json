@@ -1,0 +1,2298 @@
+{
+  "meta": {
+    "lang": "es",
+    "name": "Español",
+    "ready": true
+  },
+  "ui": {
+    "skip": "Saltar al contenido",
+    "nav": {
+      "label": "Principal",
+      "install": "Instalación",
+      "customize": "Personalización",
+      "components": "Componentes",
+      "examples": "Ejemplos",
+      "github": "GitHub ↗"
+    },
+    "menu": {
+      "open": "Abrir navegación",
+      "title": "Documentación",
+      "close": "Cerrar",
+      "sidebar": "Documentación",
+      "theme": "Tema de color",
+      "language": "Idioma"
+    },
+    "search": {
+      "button": "Buscar",
+      "label": "Buscar en la documentación",
+      "placeholder": "Buscar componentes, clases, páginas...",
+      "input": "Buscar",
+      "empty": "Sin resultados para",
+      "navigate": "navegar",
+      "open": "abrir",
+      "close": "cerrar",
+      "guides": "Guías"
+    },
+    "theme": {
+      "toggle": "Cambiar entre modo claro y oscuro",
+      "accent": "Tema de color"
+    },
+    "accents": {
+      "cobalto": "Cobalto",
+      "esmeralda": "Esmeralda",
+      "ambar": "Ámbar",
+      "rubi": "Rubí",
+      "violeta": "Violeta",
+      "grafito": "Grafito"
+    },
+    "lang": {
+      "label": "Idioma de la documentación",
+      "es": "Español",
+      "en": "English",
+      "soon": "Próximamente"
+    },
+    "version": {
+      "label": "Versión",
+      "current": "v{version} (actual)",
+      "changelog": "Changelog"
+    },
+    "toc": {
+      "label": "En esta página",
+      "title": "En esta página"
+    },
+    "footer": {
+      "license": "Licencia MIT"
+    },
+    "code": {
+      "copy": "Copiar",
+      "copied": "Copiado",
+      "terminal": "Terminal"
+    },
+    "sections": {
+      "classes": "Clases y modificadores",
+      "attributes": "Atributos data-cb-*",
+      "javascript": "JavaScript",
+      "a11y": "Accesibilidad"
+    },
+    "table": {
+      "class": "Clase",
+      "description": "Descripción",
+      "attribute": "Atributo",
+      "event": "Evento",
+      "when": "Cuándo se dispara"
+    },
+    "start": "Empezar"
+  },
+  "groups": {
+    "estructura": "Estructura",
+    "contenido": "Contenido",
+    "acciones": "Acciones y etiquetas",
+    "formularios": "Formularios y datos",
+    "overlays": "Overlays",
+    "estado": "Interacción y estado"
+  },
+  "pages": {
+    "index": {
+      "title": "Introducción",
+      "description": "Cobalto: componentes UI editoriales para Tailwind CSS v4, con colores que cambias con una sola variable.",
+      "keywords": "inicio cobalto",
+      "metaTitle": "Cobalto · Componentes UI para Tailwind CSS",
+      "heading": "Componentes\neditoriales. *Sin ruido.*",
+      "lead": "{count} componentes para Tailwind CSS v4 con tipografía monoespaciada, bordes finos en lugar de sombras y un sistema de color que cambias con una sola variable.",
+      "install": "Instalar ↗",
+      "customize": "Personalizar colores",
+      "noteBefore": "Pulsa",
+      "noteAfter": "para buscar cualquier componente o clase.",
+      "quick": {
+        "title": "En 30 segundos",
+        "desc": "Importa Cobalto después de Tailwind y usa las clases `cb-*` en tu HTML."
+      },
+      "principles": {
+        "title": "Principios",
+        "items": [
+          {
+            "title": "Tokens primero",
+            "text": "Ningún componente usa colores fijos. Todo pasa por variables `--cb-*`."
+          },
+          {
+            "title": "Tus utilidades ganan",
+            "text": "Los componentes viven en `@layer components`, así que `mt-0` o `bg-cb-bg-2` siempre los sobrescriben."
+          },
+          {
+            "title": "JS opcional",
+            "text": "Atributos `data-cb-*`, sin dependencias, compatible con Livewire y Alpine."
+          }
+        ]
+      },
+      "components": {
+        "title": "Componentes"
+      }
+    },
+    "instalacion": {
+      "title": "Instalación",
+      "description": "Cómo instalar Cobalto con npm y Tailwind CSS v4, desde un CDN sin build o en Laravel con Vite y Livewire.",
+      "keywords": "npm cdn laravel vite livewire alpine blade fuente instalar textos mensajes idioma",
+      "lead": "Dos formas de uso: como fuente para tu build de Tailwind CSS v4, o precompilado desde un CDN.",
+      "tailwind": {
+        "title": "Con Tailwind (recomendado)",
+        "desc": "Así puedes usar las utilidades `bg-cb-bg`, `text-cb-muted` o `dark:` en tu propio HTML y solo se genera el CSS que usas.",
+        "import": "Importa Cobalto justo después de Tailwind:",
+        "js": "Y el JavaScript, si usas componentes interactivos:",
+        "auto": "`autoInit()` restaura el tema guardado, inicializa la página y vigila el DOM para inicializar lo que se agregue después. Si prefieres control manual, llama a `cobalto.init(elemento)`. También puedes importar componentes sueltos:"
+      },
+      "cdn": {
+        "title": "Sin build, desde CDN",
+        "desc": "El CSS precompilado incluye el reset de Tailwind, los tokens y todos los componentes. El script UMD se inicializa solo; agrega `data-cb-manual` para evitarlo.",
+        "note": "Con CDN no tienes utilidades de Tailwind arbitrarias, solo las clases `cb-*`, `cb-wrap` y las utilidades que usan los propios componentes."
+      },
+      "laravel": {
+        "title": "Laravel + Vite",
+        "desc": "Laravel 11+ ya trae Tailwind v4 con Vite. No hace falta configurar nada más.",
+        "flash": "En el layout, agrega este script en el `head` para aplicar el tema guardado antes del primer pintado y evitar el parpadeo:"
+      },
+      "livewire": {
+        "title": "Livewire y Alpine",
+        "items": [
+          "`autoInit()` escucha `livewire:navigated` y vuelve a inicializar después de cada `wire:navigate`.",
+          "Un `MutationObserver` inicializa los componentes que Livewire o Alpine agregan al DOM. Lo ya inicializado no se duplica.",
+          "Cobalto solo usa atributos `data-cb-*` y clases `cb-*`, así que no choca con `x-*` ni `wire:*`.",
+          "Si Livewire re-renderiza un componente abierto (modal, dropdown), envuélvelo en `wire:ignore.self` para conservar su estado.",
+          "Para abrir un modal o lanzar un toast desde PHP, despacha un evento del navegador con `$this->dispatch(...)` y escúchalo con `window.addEventListener`."
+        ]
+      },
+      "messages": {
+        "title": "Textos e idioma",
+        "desc": "Los textos que ven tus usuarios (estado vacío de la búsqueda, botón de cerrar de los toasts, estado y paginación de la tabla, botón de copiar) vienen en español. Cámbialos para todo el sitio con `setMessages()` o al inicializar:",
+        "attrs": "O solo para un elemento, con atributos. El atributo gana sobre el texto global:",
+        "keys": "Claves disponibles. Las llaves `{nombre}` se reemplazan por el valor correspondiente:",
+        "headers": [
+          "Clave",
+          "Atributo",
+          "Valor por defecto"
+        ],
+        "cdn": "Con el script del CDN, agrega `data-cb-manual` y llama a `cobalto.setMessages()` antes de `cobalto.init()`."
+      },
+      "fuente": {
+        "title": "Fuente",
+        "desc": "Cobalto no carga ninguna fuente por su cuenta. Si no agregas nada, usa la monoespaciada del sistema. Para JetBrains Mono desde Google Fonts:",
+        "self": "Para alojarla tú mismo (sin peticiones a Google), instala `@fontsource-variable/jetbrains-mono` o declara tu propio `@font-face`, y si quieres otra familia cambia el token:"
+      },
+      "paquete": {
+        "title": "Qué incluye el paquete",
+        "headers": [
+          "Import",
+          "Archivo",
+          "Uso"
+        ],
+        "uses": [
+          "JS completo (ESM).",
+          "Fuente CSS para importar después de Tailwind.",
+          "Solo tokens, temas y variantes `dark:`/`light:`.",
+          "CSS precompilado (también `dist/cobalto.min.css`).",
+          "JS de un componente suelto.",
+          "Script para `<script>` que expone `window.cobalto`."
+        ]
+      }
+    },
+    "personalizacion": {
+      "title": "Personalización",
+      "description": "Cambia los colores de Cobalto: una variable, un tema predefinido o un tema propio. Incluye un personalizador en vivo.",
+      "keywords": "colores tema acento dark light oscuro claro tokens variables personalizador",
+      "lead": "Todos los colores pasan por variables CSS. Cambia una y se recolorea toda la librería, sin tocar los componentes.",
+      "customizer": {
+        "title": "Personalizador en vivo",
+        "desc": "Elige un color y mira cómo cambia esta página. El CSS de abajo está listo para pegar en tu proyecto. Los colores se ajustan solos para mantener contraste AA en ambos modos.",
+        "color": "Color de acento",
+        "hex": "Color en hexadecimal",
+        "hint": "Acepta cualquier color en hexadecimal.",
+        "tint": "Teñir los neutros",
+        "tintHint": "Fondos y bordes toman un poco del acento.",
+        "mode": "Modo",
+        "dark": "Oscuro",
+        "light": "Claro",
+        "system": "Sistema",
+        "reset": "Restablecer",
+        "primary": "Primario ↗",
+        "outline": "Outline",
+        "soft": "Soft",
+        "active": "Activo",
+        "pro": "Pro",
+        "previewTitle": "Vista previa",
+        "previewText": "Los componentes de toda la página usan el nuevo color.",
+        "previewLink": "Un enlace",
+        "progress": "Ejemplo",
+        "contrast": "Contraste (mín. 4.5)",
+        "darkColumn": "Oscuro",
+        "lightColumn": "Claro",
+        "rows": [
+          "Texto sobre fondo",
+          "Texto atenuado",
+          "Acento sobre fondo",
+          "Botón primario"
+        ],
+        "copy": "Copiar CSS"
+      },
+      "levels": {
+        "title": "Tres niveles",
+        "one": "**1. Una variable.** Cambia `--cb-accent` y se recalculan la escala 50–950, el relleno de botones, los fondos suaves y el foco.",
+        "two": "**2. Un tema predefinido.** Seis temas, cada uno con su versión clara y oscura.",
+        "three": "**3. Un tema propio.** Define los valores de cada modo con los prefijos `--cb-dark-*` y `--cb-light-*`. Mira el ejemplo completo en [Crear un tema propio](#tema-propio)."
+      },
+      "themes": {
+        "title": "Temas predefinidos",
+        "desc": "Haz clic para aplicarlo a esta página. La elección se guarda en `localStorage`. Los puntos de color usan `data-cb-accent` anidado: un tema también se puede aplicar solo a una parte de la página.",
+        "card": "Sección con `data-cb-accent=\"{accent}\"`.",
+        "button": "Botón"
+      },
+      "mode": {
+        "title": "Claro y oscuro",
+        "desc": "Sin atributo, Cobalto sigue `prefers-color-scheme` (oscuro si el sistema no indica nada). `data-cb-theme` lo fija, en `html` o en cualquier sección.",
+        "variants": "Las variantes `dark:` y `light:` de Tailwind siguen las mismas reglas:",
+        "js": "Desde JS:"
+      },
+      "scale": {
+        "title": "Escala de acento",
+        "desc": "Generada con `color-mix(in oklab)` a partir de `--cb-accent`. Disponible como variables (`--cb-accent-500`) y utilidades (`bg-cb-accent-200`)."
+      },
+      "tokens": {
+        "title": "Tokens de color",
+        "desc": "Cada token existe como variable `--cb-*` y como utilidad de Tailwind: `bg-cb-bg-2`, `text-cb-muted`, `border-cb-line`, `bg-cb-accent/20`...",
+        "items": {
+          "bg": "Fondo de la página",
+          "bg-2": "Superficie elevada (cards en hover, paneles)",
+          "bg-3": "Superficie más elevada (hover de menús, kbd)",
+          "line": "Bordes y divisiones",
+          "line-2": "Bordes de controles",
+          "text": "Texto principal",
+          "muted": "Texto secundario",
+          "dim": "Texto atenuado (metadatos)",
+          "accent": "Color de marca",
+          "accent-ink": "Texto sobre relleno de acento",
+          "accent-bg": "Relleno de acento (botón primario)",
+          "accent-soft": "Fondo suave de acento",
+          "success": "Éxito",
+          "warning": "Aviso",
+          "danger": "Error",
+          "info": "Información"
+        }
+      },
+      "custom": {
+        "title": "Crear un tema propio",
+        "desc": "Copia este bloque, cambia los valores y actívalo con `data-cb-accent=\"marca\"`. Si omites un token, se usa el de Cobalto. Revisa que el texto tenga al menos 4.5:1 de contraste con el fondo.",
+        "status": "Los colores de estado también se pueden cambiar por modo: `--cb-dark-success`, `--cb-light-danger`, etc."
+      },
+      "other": {
+        "title": "Otros tokens",
+        "desc": "Definidos en `@theme`, así que también generan utilidades (`font-cb-mono`, `rounded-cb-lg`, `py-cb-section`, `text-cb-4xl`...).",
+        "headers": [
+          "Grupo",
+          "Tokens"
+        ],
+        "groups": [
+          "Fuentes",
+          "Tipografía",
+          "Tracking",
+          "Radios",
+          "Espaciado",
+          "Contenedor",
+          "Breakpoints",
+          "Sombras",
+          "Movimiento",
+          "Capas"
+        ]
+      }
+    }
+  },
+  "components": {
+    "topbar": {
+      "title": "Barra de anuncio",
+      "description": "Franja superior para estados, avisos cortos o información de contacto. Va antes de la navbar.",
+      "examples": {
+        "con-estado": {
+          "title": "Con estado",
+          "description": "El punto `cb-dot` pulsa con el color de acento. Usa `cb-dot--static` para quitar la animación."
+        },
+        "estados-de-color": {
+          "title": "Estados de color"
+        }
+      },
+      "classes": [
+        [
+          "`.cb-topbar`",
+          "Contenedor con borde inferior y texto pequeño."
+        ],
+        [
+          "`.cb-topbar__inner`",
+          "Fila centrada con el ancho máximo del contenedor."
+        ],
+        [
+          "`.cb-topbar__status`",
+          "Texto principal con espacio para el punto."
+        ],
+        [
+          "`.cb-topbar__aside`",
+          "Texto secundario. Se oculta por debajo de 600px."
+        ],
+        [
+          "`.cb-topbar__link`",
+          "Enlace subrayado dentro de la barra."
+        ],
+        [
+          "`.cb-dot`",
+          "Indicador que pulsa. Variantes `--success`, `--warning`, `--danger`, `--static`."
+        ]
+      ],
+      "a11y": [
+        "Marca el punto con `aria-hidden=\"true\"`: el texto ya comunica el estado.",
+        "La animación del punto se detiene con `prefers-reduced-motion`."
+      ]
+    },
+    "navbar": {
+      "title": "Navbar",
+      "description": "Barra fija con logo, menú con submenús (hover y clic), búsqueda, cambio de tema y llamada a la acción.",
+      "examples": {
+        "completa": {
+          "title": "Completa",
+          "description": "Los submenús usan el mismo componente que el dropdown. Con `data-cb-dropdown-hover` también se abren al pasar el mouse en dispositivos que lo permiten."
+        }
+      },
+      "classes": [
+        [
+          "`.cb-nav`",
+          "Barra fija arriba con fondo translúcido y desenfoque."
+        ],
+        [
+          "`.cb-nav__inner`",
+          "Fila con el ancho máximo del contenedor y 64px de alto."
+        ],
+        [
+          "`.cb-logo`, `.cb-logo__mark`",
+          "Logo con marca cuadrada en color de acento."
+        ],
+        [
+          "`.cb-nav__menu`",
+          "Lista de enlaces. Se oculta por debajo de 960px."
+        ],
+        [
+          "`.cb-nav__item`, `.cb-nav__link`",
+          "Elemento y enlace o botón del menú. `aria-current=\"page\"` lo marca activo."
+        ],
+        [
+          "`.cb-nav__chevron`",
+          "Flecha que gira cuando el submenú está abierto."
+        ],
+        [
+          "`.cb-nav__actions`",
+          "Grupo de acciones alineado a la derecha."
+        ],
+        [
+          "`.cb-nav__collapse`",
+          "Se oculta por debajo de 960px."
+        ],
+        [
+          "`.cb-nav__collapse-sm`",
+          "Se oculta por debajo de 600px."
+        ],
+        [
+          "`.cb-nav__burger`",
+          "Botón del menú móvil, visible solo por debajo de 960px."
+        ],
+        [
+          "`.cb-search-btn`",
+          "Botón de búsqueda con atajo de teclado."
+        ],
+        [
+          "`.cb-theme-toggle__sun`, `.cb-theme-toggle__moon`",
+          "Iconos que se alternan solos según el modo."
+        ]
+      ],
+      "attributes": [
+        [
+          "`data-cb-dropdown`",
+          "Convierte el `li` en un submenú."
+        ],
+        [
+          "`data-cb-dropdown-hover`",
+          "Abre el submenú con hover en dispositivos con mouse."
+        ],
+        [
+          "`data-cb-theme-toggle`",
+          "Alterna entre claro y oscuro y lo guarda."
+        ],
+        [
+          "`data-cb-kbd-mod=\"K\"`",
+          "Muestra ⌘K en Mac y Ctrl K en el resto."
+        ]
+      ],
+      "events": [
+        [
+          "`cb:open` / `cb:close`",
+          "En el `li` del submenú al abrir o cerrar."
+        ],
+        [
+          "`cb:theme`",
+          "En `document` al cambiar el modo. `detail.theme` y `detail.resolved`."
+        ]
+      ],
+      "a11y": [
+        "Los submenús son botones con `aria-expanded` y `aria-controls`; Esc los cierra y devuelve el foco.",
+        "Flecha abajo en el botón abre el submenú y enfoca el primer enlace.",
+        "El botón de tema necesita `aria-label`; los iconos van con `aria-hidden`."
+      ]
+    },
+    "menu-movil": {
+      "title": "Menú móvil",
+      "description": "Menú a pantalla completa que entra desde la derecha debajo de la navbar. Se cierra al elegir un enlace, con Esc o al pasar a escritorio.",
+      "examples": {
+        "boton-y-panel": {
+          "title": "Botón y panel",
+          "description": "El botón apunta al id del panel con `data-cb-mobile-toggle`. Achica la ventana por debajo de 960px para verlo funcionar."
+        }
+      },
+      "classes": [
+        [
+          "`.cb-mobile-menu`",
+          "Panel fijo bajo la navbar. `.is-open` lo muestra."
+        ],
+        [
+          "`.cb-mobile-menu__link`",
+          "Enlace grande con borde inferior."
+        ],
+        [
+          "`.cb-mobile-menu__meta`",
+          "Número o flecha a la derecha del enlace."
+        ],
+        [
+          "`.cb-mobile-menu__label`",
+          "Separador de sección (se combina con `.cb-label`)."
+        ],
+        [
+          "`.cb-mobile-menu__cta`",
+          "Botón de ancho completo al final."
+        ],
+        [
+          "`.cb-burger__open`, `.cb-burger__close`",
+          "Iconos que se alternan según `aria-expanded`."
+        ]
+      ],
+      "attributes": [
+        [
+          "`data-cb-mobile-menu`",
+          "Marca el panel. Necesita `id`."
+        ],
+        [
+          "`data-cb-mobile-toggle=\"id\"`",
+          "Botón que abre y cierra el panel."
+        ]
+      ],
+      "events": [
+        [
+          "`cb:open` / `cb:close`",
+          "En el panel. `cb:open` se puede cancelar."
+        ]
+      ],
+      "a11y": [
+        "El botón recibe `aria-expanded` y `aria-controls` automáticamente.",
+        "Cerrado queda con `visibility: hidden`, así sus enlaces no reciben foco.",
+        "Esc cierra el menú y devuelve el foco al botón."
+      ]
+    },
+    "hero": {
+      "title": "Hero",
+      "description": "Portada con etiqueta numerada, titular grande, texto, acciones, nota y chips. La cuadrícula de fondo es opcional.",
+      "examples": {
+        "con-cuadricula": {
+          "title": "Con cuadrícula"
+        },
+        "centrado-y-sin-cuadricula": {
+          "title": "Centrado y sin cuadrícula"
+        }
+      },
+      "classes": [
+        [
+          "`.cb-hero`",
+          "Espaciado de portada (96/80px, 64/56px en móvil)."
+        ],
+        [
+          "`.cb-hero--grid`",
+          "Agrega la cuadrícula de fondo con máscara radial."
+        ],
+        [
+          "`.cb-h1`",
+          "Titular con `clamp(40px, 7.4vw, 92px)` y tracking -0.06em. `em` lo atenúa."
+        ],
+        [
+          "`.cb-lead`",
+          "Párrafo introductorio, máximo 640px."
+        ],
+        [
+          "`.cb-actions`",
+          "Fila de botones. En móvil ocupan todo el ancho."
+        ],
+        [
+          "`.cb-note`",
+          "Nota pequeña bajo las acciones."
+        ],
+        [
+          "`.cb-hero__chips`",
+          "Margen superior para la fila de chips."
+        ],
+        [
+          "`cb-grid-bg`",
+          "Utilidad: la cuadrícula en cualquier contenedor. Tamaño con `--cb-grid-size`."
+        ]
+      ],
+      "a11y": [
+        "Usa un solo `h1` por página.",
+        "La cuadrícula es un pseudoelemento decorativo sin contenido."
+      ]
+    },
+    "section-header": {
+      "title": "Encabezado de sección",
+      "description": "Etiqueta numerada, título h2 y párrafo. Es la pieza que da el ritmo editorial a cada sección.",
+      "examples": {
+        "basico": {
+          "title": "Básico"
+        },
+        "centrado": {
+          "title": "Centrado"
+        },
+        "seccion-completa": {
+          "title": "Sección completa",
+          "description": "`cb-section` da el padding vertical de 110px (80px en móvil) y la línea inferior."
+        }
+      },
+      "classes": [
+        [
+          "`.cb-section`",
+          "Sección con padding vertical y borde inferior. `--flush` quita el borde."
+        ],
+        [
+          "`.cb-wrap`",
+          "Utilidad de contenedor: ancho `--cb-max` y gutter de 24px (16px en móvil)."
+        ],
+        [
+          "`.cb-section-head--center`",
+          "Centra el bloque y el párrafo."
+        ],
+        [
+          "`.cb-label`",
+          "Etiqueta en mayúsculas. `b` va en color de acento; la línea se quita con `--plain`."
+        ],
+        [
+          "`.cb-h2`",
+          "Título con `clamp(30px, 4.6vw, 54px)` y tracking -0.05em."
+        ],
+        [
+          "`.cb-h3`",
+          "Título de tarjeta o bloque, 17px."
+        ]
+      ],
+      "a11y": [
+        "Respeta el orden de títulos: h1 en el hero, h2 por sección, h3 dentro de cada sección."
+      ]
+    },
+    "footer": {
+      "title": "Footer",
+      "description": "Pie con columnas de enlaces, texto gigante decorativo y una fila inferior.",
+      "examples": {
+        "completo": {
+          "title": "Completo"
+        }
+      },
+      "classes": [
+        [
+          "`.cb-footer`",
+          "Padding del pie."
+        ],
+        [
+          "`.cb-footer__grid`",
+          "Columnas 1.6fr + 3. Dos columnas por debajo de 960px."
+        ],
+        [
+          "`.cb-footer__text`",
+          "Descripción bajo el logo."
+        ],
+        [
+          "`.cb-footer__title`, `.cb-footer__links`",
+          "Título y lista de cada columna."
+        ],
+        [
+          "`.cb-footer__huge`",
+          "Texto gigante con contorno, `clamp(64px, 17vw, 230px)`."
+        ],
+        [
+          "`.cb-footer__bottom`",
+          "Fila final con copyright."
+        ],
+        [
+          "`.cb-footer__credit`",
+          "Texto de autoría con enlaces subrayados."
+        ]
+      ],
+      "a11y": [
+        "El texto gigante es decorativo: usa `aria-hidden=\"true\"`.",
+        "Si el sitio tiene varios `nav`, dale a cada uno un `aria-label` distinto."
+      ]
+    },
+    "sidebar-docs": {
+      "title": "Sidebar de documentación",
+      "description": "Navegación lateral con grupos, enlace activo, selector de versión y tabla de contenidos que sigue el scroll.",
+      "examples": {
+        "sidebar": {
+          "title": "Sidebar"
+        },
+        "tabla-de-contenidos": {
+          "title": "Tabla de contenidos",
+          "description": "Con `data-cb-scrollspy` el enlace de la sección visible se marca solo. Es la columna de la derecha en esta página."
+        }
+      },
+      "classes": [
+        [
+          "`.cb-sidenav`",
+          "Columna de grupos. `--sticky` la fija al hacer scroll."
+        ],
+        [
+          "`.cb-sidenav__version`",
+          "Fila del selector de versión."
+        ],
+        [
+          "`.cb-sidenav__group`, `.cb-sidenav__title`, `.cb-sidenav__list`",
+          "Grupo, título y lista."
+        ],
+        [
+          "`.cb-sidenav__link`",
+          "Enlace con línea izquierda; `aria-current=\"page\"` lo marca."
+        ],
+        [
+          "`.cb-sidenav__badge`",
+          "Etiqueta pequeña en color de acento."
+        ],
+        [
+          "`.cb-toc`, `.cb-toc__link`",
+          "Tabla de contenidos de la página."
+        ]
+      ],
+      "attributes": [
+        [
+          "`data-cb-scrollspy`",
+          "Marca el enlace cuya sección está en pantalla."
+        ],
+        [
+          "`data-cb-version-select`",
+          "Al cambiar el `select` navega a la URL del `value`."
+        ]
+      ],
+      "events": [
+        [
+          "`cb:change`",
+          "En el `nav` con scrollspy cuando cambia la sección activa (`detail.id`)."
+        ]
+      ],
+      "a11y": [
+        "La página actual usa `aria-current=\"page\"`; la sección activa usa `aria-current=\"true\"`.",
+        "El `select` de versión necesita una etiqueta, aunque sea `cb-sr-only`."
+      ]
+    },
+    "dashboard": {
+      "title": "Layout de dashboard",
+      "description": "Sidebar fija, topbar y área de contenido. En móvil la sidebar se vuelve un panel lateral.",
+      "examples": {
+        "estructura": {
+          "title": "Estructura",
+          "description": "Mira la plantilla completa en `examples/dashboard.html`."
+        }
+      },
+      "classes": [
+        [
+          "`.cb-dash`",
+          "Grilla sidebar + contenido. El ancho se cambia con `--cb-dash-sidebar`."
+        ],
+        [
+          "`.cb-dash__sidebar`",
+          "Columna fija. Por debajo de 960px es un panel fuera de pantalla."
+        ],
+        [
+          "`.cb-dash__scrim`",
+          "Fondo oscuro detrás de la sidebar en móvil."
+        ],
+        [
+          "`.cb-dash__link`",
+          "Enlace con icono; `aria-current=\"page\"` marca la línea de acento."
+        ],
+        [
+          "`.cb-dash__topbar`",
+          "Barra superior fija del contenido."
+        ],
+        [
+          "`.cb-dash__toggle`",
+          "Botón visible solo en móvil."
+        ],
+        [
+          "`.cb-dash__content`, `.cb-dash__header`, `.cb-dash__title`",
+          "Área principal y su encabezado."
+        ],
+        [
+          "`.cb-panel`, `.cb-panel__head`, `.cb-panel__body`",
+          "Caja con borde para agrupar contenido."
+        ]
+      ],
+      "attributes": [
+        [
+          "`data-cb-dash-sidebar`",
+          "Marca la sidebar. Necesita `id`."
+        ],
+        [
+          "`data-cb-dash-toggle=\"id\"`",
+          "Botón que la abre en móvil."
+        ],
+        [
+          "`data-cb-dash-scrim=\"id\"`",
+          "Fondo que la cierra al hacer clic."
+        ]
+      ],
+      "events": [
+        [
+          "`cb:open` / `cb:close`",
+          "En la sidebar al abrirse o cerrarse en móvil."
+        ]
+      ],
+      "a11y": [
+        "En móvil la sidebar atrapa el foco y se cierra con Esc.",
+        "Usa `main` para el contenido y `aria-label` en la sidebar."
+      ]
+    },
+    "card": {
+      "title": "Card",
+      "description": "Tarjeta plana con visual, etiqueta de estado, texto, meta y una flecha que aparece en hover.",
+      "examples": {
+        "con-visual": {
+          "title": "Con visual",
+          "description": "Si la card es un enlace, la flecha `cb-card__go` reemplaza a la etiqueta al pasar el mouse."
+        },
+        "visuales-decorativos": {
+          "title": "Visuales decorativos",
+          "description": "Seis mini visuales listos: `rows`, `bars`, `shop`, `phone`, `term` y `nodes`. Todos usan los tokens de color."
+        },
+        "destacada-y-compacta": {
+          "title": "Destacada y compacta"
+        }
+      },
+      "classes": [
+        [
+          "`.cb-card`",
+          "Tarjeta con borde de 1px, sin sombra. Si es `a` o `button` cambia de fondo en hover."
+        ],
+        [
+          "`.cb-card--featured`",
+          "Borde de acento y fondo elevado."
+        ],
+        [
+          "`.cb-card--compact`",
+          "Quita la altura mínima."
+        ],
+        [
+          "`.cb-card--hover`",
+          "Activa el hover en una card que no es enlace."
+        ],
+        [
+          "`.cb-card__top`",
+          "Fila superior con número y etiqueta."
+        ],
+        [
+          "`.cb-card__go`",
+          "Flecha ↗ que aparece en hover y foco."
+        ],
+        [
+          "`.cb-card__visual`",
+          "Caja de 110px para el visual."
+        ],
+        [
+          "`.cb-card__title`, `.cb-card__text`",
+          "Título y descripción."
+        ],
+        [
+          "`.cb-card__meta`",
+          "Etiquetas al pie, empujadas al fondo."
+        ],
+        [
+          "`.cb-viz--rows|bars|shop|phone|term|nodes`",
+          "Visuales decorativos. En `bars`, `i.is-accent` resalta una barra."
+        ]
+      ],
+      "a11y": [
+        "Cuando toda la card es enlace, el texto del enlace es todo su contenido: mantén el título corto y claro.",
+        "Los visuales son decorativos; no necesitan texto alternativo."
+      ]
+    },
+    "grid": {
+      "title": "Grid de cards",
+      "description": "Grilla con bordes compartidos: el contenedor dibuja arriba e izquierda y cada celda derecha y abajo.",
+      "examples": {
+        "tres-columnas": {
+          "title": "Tres columnas",
+          "description": "Pasa a dos columnas por debajo de 960px y a una por debajo de 600px."
+        },
+        "dos-y-cuatro-columnas": {
+          "title": "Dos y cuatro columnas"
+        }
+      },
+      "classes": [
+        [
+          "`.cb-grid`",
+          "Tres columnas con bordes compartidos y 56px de margen superior."
+        ],
+        [
+          "`.cb-grid--2`, `.cb-grid--4`",
+          "Dos o cuatro columnas."
+        ],
+        [
+          "`.cb-grid--flush`",
+          "Quita el margen superior."
+        ]
+      ],
+      "a11y": [
+        "Si las cards forman una lista, puedes usar `ul` con la clase `cb-grid` y `li` como celdas."
+      ]
+    },
+    "principios": {
+      "title": "Lista de principios",
+      "description": "Lista numerada en tres columnas con línea superior. Sirve para valores, características o pasos.",
+      "examples": {
+        "seis-principios": {
+          "title": "Seis principios"
+        }
+      },
+      "classes": [
+        [
+          "`.cb-principles`",
+          "Lista en grilla de 3 columnas (2 y 1 en pantallas chicas)."
+        ],
+        [
+          "`.cb-principles__item`",
+          "Elemento con línea superior."
+        ],
+        [
+          "`.cb-principles__num`",
+          "Número en color de acento."
+        ],
+        [
+          "`.cb-principles__title`, `.cb-principles__text`",
+          "Título y texto."
+        ]
+      ],
+      "a11y": [
+        "Usa `ol` para que el orden también se anuncie en lectores de pantalla."
+      ]
+    },
+    "stats": {
+      "title": "Stats",
+      "description": "Cifras grandes con etiqueta, en una caja con divisiones de 1px.",
+      "examples": {
+        "cuatro-cifras": {
+          "title": "Cuatro cifras"
+        },
+        "con-variacion": {
+          "title": "Con variación"
+        }
+      },
+      "classes": [
+        [
+          "`.cb-stats`",
+          "Caja de 4 columnas (2 por debajo de 960px). Las líneas internas no dependen de la cantidad de celdas."
+        ],
+        [
+          "`.cb-stats--2`, `.cb-stats--3`",
+          "Dos o tres columnas."
+        ],
+        [
+          "`.cb-stat`",
+          "Celda."
+        ],
+        [
+          "`.cb-stat__value`",
+          "Cifra con `clamp(28px, 3.4vw, 40px)`."
+        ],
+        [
+          "`.cb-stat__label`",
+          "Etiqueta."
+        ],
+        [
+          "`.cb-stat__delta`",
+          "Variación en verde; `--down` en rojo."
+        ]
+      ],
+      "a11y": [
+        "No dependas solo del color en la variación: incluye el signo o el texto."
+      ]
+    },
+    "cta": {
+      "title": "CTA",
+      "description": "Bloque centrado de llamada a la acción para cerrar una página.",
+      "examples": {
+        "centrado": {
+          "title": "Centrado"
+        }
+      },
+      "classes": [
+        [
+          "`.cb-cta`",
+          "Centra el texto, el `cb-lead` y las `cb-actions` que contiene."
+        ]
+      ],
+      "a11y": [
+        "El texto de los enlaces debe decir a dónde llevan, no solo \"clic aquí\"."
+      ]
+    },
+    "pricing": {
+      "title": "Pricing",
+      "description": "Tarjetas de precio con plan destacado, lista de características y cambio entre pago mensual y anual.",
+      "examples": {
+        "tres-planes": {
+          "title": "Tres planes",
+          "description": "Los botones `data-cb-billing` cambian los precios marcados con `data-cb-price-monthly` y `data-cb-price-yearly`."
+        }
+      },
+      "classes": [
+        [
+          "`.cb-pricing`",
+          "Grilla de 3 planes con bordes compartidos. `--2` y `--4` para otras cantidades."
+        ],
+        [
+          "`.cb-price`",
+          "Plan. `--featured` agrega fondo y línea superior de acento."
+        ],
+        [
+          "`.cb-price__name`, `.cb-price__value`, `.cb-price__period`",
+          "Nombre, precio y periodo."
+        ],
+        [
+          "`.cb-price__features`",
+          "Lista con ✓. `li.is-off` la tacha."
+        ],
+        [
+          "`.cb-price__cta`",
+          "Botón empujado al fondo."
+        ],
+        [
+          "`.cb-billing`, `.cb-billing__option`",
+          "Selector de periodo."
+        ]
+      ],
+      "attributes": [
+        [
+          "`data-cb-pricing`",
+          "Contenedor que agrupa selector y precios."
+        ],
+        [
+          "`data-cb-billing=\"monthly|yearly\"`",
+          "Botón que cambia el periodo."
+        ],
+        [
+          "`data-cb-price-monthly` / `data-cb-price-yearly`",
+          "Valores del precio para cada periodo."
+        ],
+        [
+          "`data-cb-billing-show=\"periodo\"`",
+          "Elemento visible solo en ese periodo."
+        ]
+      ],
+      "events": [
+        [
+          "`cb:change`",
+          "En el contenedor al cambiar de periodo (`detail.period`)."
+        ]
+      ],
+      "a11y": [
+        "El selector es un grupo de botones con `aria-pressed`.",
+        "Las características desactivadas no deben comunicarse solo con el tachado; usa un texto claro."
+      ]
+    },
+    "testimonios": {
+      "title": "Testimonios",
+      "description": "Citas con autor, cargo y avatar. Se combinan con `cb-grid` para mostrar varias.",
+      "examples": {
+        "en-grilla": {
+          "title": "En grilla"
+        },
+        "grande": {
+          "title": "Grande"
+        }
+      },
+      "classes": [
+        [
+          "`.cb-testimonial`",
+          "Bloque `figure`. `--large` aumenta la cita."
+        ],
+        [
+          "`.cb-testimonial__quote`",
+          "Cita con comillas de acento."
+        ],
+        [
+          "`.cb-testimonial__author`",
+          "Fila del autor al pie."
+        ],
+        [
+          "`.cb-testimonial__name`, `.cb-testimonial__role`",
+          "Nombre y cargo."
+        ]
+      ],
+      "a11y": [
+        "`figure` + `blockquote` + `figcaption` relacionan la cita con su autor."
+      ]
+    },
+    "timeline": {
+      "title": "Timeline y changelog",
+      "description": "Línea de tiempo con fecha a la izquierda. En móvil la fecha queda arriba de cada entrada.",
+      "examples": {
+        "changelog": {
+          "title": "Changelog"
+        }
+      },
+      "classes": [
+        [
+          "`.cb-timeline`",
+          "Lista ordenada."
+        ],
+        [
+          "`.cb-timeline__item`",
+          "Entrada con punto y línea. `.is-current` resalta el punto."
+        ],
+        [
+          "`.cb-timeline__date`",
+          "Fecha (usa `time` con `datetime`)."
+        ],
+        [
+          "`.cb-timeline__title`, `.cb-timeline__text`",
+          "Título y detalle. Las listas internas usan guiones."
+        ]
+      ],
+      "a11y": [
+        "Usa `time datetime=\"...\"` para que la fecha sea legible por máquinas."
+      ]
+    },
+    "empty-state": {
+      "title": "Empty state",
+      "description": "Estado vacío con icono, texto y acciones para cuando una lista o búsqueda no tiene resultados.",
+      "examples": {
+        "con-accion": {
+          "title": "Con acción"
+        }
+      },
+      "classes": [
+        [
+          "`.cb-empty`",
+          "Caja con borde punteado y contenido centrado."
+        ],
+        [
+          "`.cb-empty__icon`",
+          "Icono enmarcado."
+        ],
+        [
+          "`.cb-empty__title`, `.cb-empty__text`",
+          "Título y explicación."
+        ],
+        [
+          "`.cb-empty__actions`",
+          "Botones."
+        ]
+      ],
+      "a11y": [
+        "Si el estado vacío aparece después de filtrar, anúncialo con una región `aria-live`."
+      ]
+    },
+    "codigo": {
+      "title": "Bloque de código",
+      "description": "Código con cabecera, botón de copiar y colores de sintaxis que siguen el tema.",
+      "examples": {
+        "con-cabecera": {
+          "title": "Con cabecera"
+        },
+        "copiar-un-texto": {
+          "title": "Copiar un texto",
+          "description": "Con un valor, `data-cb-copy` copia ese texto o el elemento con ese id."
+        }
+      },
+      "classes": [
+        [
+          "`.cb-code`",
+          "Contenedor del bloque."
+        ],
+        [
+          "`.cb-code__head`",
+          "Cabecera con nombre de archivo y botón."
+        ],
+        [
+          "`.cb-code__copy`",
+          "Botón de copiar. `.is-copied` lo pinta de verde. `--floating` lo pone encima del código."
+        ],
+        [
+          "`.cb-code__pre`",
+          "Área con scroll horizontal."
+        ],
+        [
+          "`.cb-code--inline`",
+          "Código en línea."
+        ],
+        [
+          "`.cb-tok-tag|attr|str|com|key`",
+          "Colores de sintaxis basados en tokens."
+        ]
+      ],
+      "attributes": [
+        [
+          "`data-cb-copy`",
+          "Sin valor copia el `pre` del bloque; con id o selector copia ese elemento; con otro texto, el texto."
+        ],
+        [
+          "`data-cb-copy-label`",
+          "Elemento cuyo texto cambia a \"Copiado\"."
+        ],
+        [
+          "`data-cb-copy-done`",
+          "Texto alternativo para el estado copiado."
+        ],
+        [
+          "`data-cb-copy-error`",
+          "Texto si no se pudo copiar. Por defecto: \"Error al copiar\"."
+        ]
+      ],
+      "events": [
+        [
+          "`cb:copy`",
+          "En el botón después de copiar (`detail.text`)."
+        ]
+      ],
+      "a11y": [
+        "El botón cambia su texto a \"Copiado\", que los lectores de pantalla anuncian al tener foco.",
+        "Sin HTTPS usa un método alternativo para copiar."
+      ]
+    },
+    "botones": {
+      "title": "Botones",
+      "description": "Cuatro variantes principales, tres tamaños, iconos y estados de deshabilitado y carga.",
+      "examples": {
+        "variantes": {
+          "title": "Variantes"
+        },
+        "tamanos": {
+          "title": "Tamaños"
+        },
+        "con-icono": {
+          "title": "Con icono"
+        },
+        "deshabilitado-y-cargando": {
+          "title": "Deshabilitado y cargando",
+          "description": "Para un enlace deshabilitado usa `aria-disabled=\"true\"`. El estado de carga mantiene el ancho y muestra un spinner; usa `aria-busy=\"true\"` o la clase `is-loading`."
+        },
+        "grupo-de-acciones": {
+          "title": "Grupo de acciones",
+          "description": "`cb-actions` separa los botones y en móvil los estira a todo el ancho."
+        }
+      },
+      "classes": [
+        [
+          "`.cb-btn`",
+          "Base: 38px de alto, 13px, semibold."
+        ],
+        [
+          "`.cb-btn--primary`",
+          "Relleno de acento con `--cb-accent-bg` y texto `--cb-accent-ink`."
+        ],
+        [
+          "`.cb-btn--outline`",
+          "Borde fino (el \"ghost\" del diseño original)."
+        ],
+        [
+          "`.cb-btn--ghost`",
+          "Sin borde, fondo solo en hover."
+        ],
+        [
+          "`.cb-btn--soft`",
+          "Fondo de acento suave."
+        ],
+        [
+          "`.cb-btn--danger`",
+          "Acción destructiva."
+        ],
+        [
+          "`.cb-btn--link`",
+          "Parece un enlace subrayado."
+        ],
+        [
+          "`.cb-btn--sm`, `.cb-btn--lg`",
+          "Tamaños de 30px y 44px."
+        ],
+        [
+          "`.cb-btn--icon`",
+          "Botón cuadrado solo con icono."
+        ],
+        [
+          "`.cb-btn--block`",
+          "Ancho completo."
+        ],
+        [
+          "`.is-loading`",
+          "Estado de carga (equivale a `aria-busy=\"true\"`)."
+        ],
+        [
+          "`.cb-icon-btn`",
+          "Botón de icono con borde de 36px."
+        ],
+        [
+          "`.cb-actions`",
+          "Fila de botones; `--center` los centra."
+        ]
+      ],
+      "a11y": [
+        "Los botones solo con icono necesitan `aria-label`.",
+        "Usa `button` para acciones y `a` para navegación.",
+        "`aria-busy=\"true\"` comunica que la acción está en curso.",
+        "El foco visible usa el color de acento con 2px de contorno."
+      ]
+    },
+    "chips-tags": {
+      "title": "Chips y tags",
+      "description": "Chips con muestra de color para filtros o tecnologías, tags de estado y la tecla `kbd`.",
+      "examples": {
+        "chips": {
+          "title": "Chips",
+          "description": "El color de la muestra sale de `--cb-chip-color`; por defecto es el acento."
+        },
+        "tags-de-estado": {
+          "title": "Tags de estado"
+        },
+        "atajos-de-teclado": {
+          "title": "Atajos de teclado"
+        }
+      },
+      "classes": [
+        [
+          "`.cb-chips`",
+          "Fila de chips con salto de línea."
+        ],
+        [
+          "`.cb-chip`",
+          "Chip redondeado. `.is-active` o `aria-pressed=\"true\"` lo resalta."
+        ],
+        [
+          "`.cb-chip__swatch`",
+          "Muestra de color (`--cb-chip-color`)."
+        ],
+        [
+          "`.cb-tag`",
+          "Etiqueta de estado."
+        ],
+        [
+          "`.cb-tag--live|accent|success|warning|danger|info`",
+          "Variantes de color."
+        ],
+        [
+          "`kbd`, `.cb-kbd`",
+          "Tecla de atajo."
+        ]
+      ],
+      "a11y": [
+        "Si un chip filtra contenido, hazlo `button` con `aria-pressed`.",
+        "Las variantes de tag tienen contraste AA en todos los temas."
+      ]
+    },
+    "badge-avatar": {
+      "title": "Badge y avatar",
+      "description": "Contadores, puntos de estado y avatares con iniciales o imagen, solos o en grupo.",
+      "examples": {
+        "badges": {
+          "title": "Badges"
+        },
+        "avatares": {
+          "title": "Avatares"
+        },
+        "grupo-y-usuario": {
+          "title": "Grupo y usuario"
+        }
+      },
+      "classes": [
+        [
+          "`.cb-badge`",
+          "Contador o etiqueta corta."
+        ],
+        [
+          "`.cb-badge--accent|success|warning|danger|info`",
+          "Tonos suaves."
+        ],
+        [
+          "`.cb-badge--solid`",
+          "Relleno de acento."
+        ],
+        [
+          "`.cb-badge--dot`",
+          "Solo un punto."
+        ],
+        [
+          "`.cb-avatar`",
+          "Avatar de 36px. Acepta texto o `img`."
+        ],
+        [
+          "`.cb-avatar--sm|lg|xl`",
+          "Tamaños de 28, 48 y 64px."
+        ],
+        [
+          "`.cb-avatar--square`, `.cb-avatar--accent`",
+          "Forma cuadrada y tono de acento."
+        ],
+        [
+          "`.cb-avatar__status--online|busy|away`",
+          "Punto de estado."
+        ],
+        [
+          "`.cb-avatar-group`",
+          "Avatares superpuestos."
+        ],
+        [
+          "`.cb-user`, `.cb-user__name`, `.cb-user__meta`",
+          "Avatar con nombre y detalle."
+        ]
+      ],
+      "a11y": [
+        "Un punto de estado sin texto necesita `role=\"img\"` y `aria-label`.",
+        "Si el avatar es una imagen, su `alt` debe ser el nombre de la persona."
+      ]
+    },
+    "dropdown": {
+      "title": "Dropdown",
+      "description": "Menú desplegable genérico con navegación por teclado, atajos, separadores y acciones destructivas.",
+      "examples": {
+        "menu-de-acciones": {
+          "title": "Menú de acciones",
+          "description": "Con `role=\"menu\"` en el panel, las flechas recorren los elementos y Home/End van al inicio y al final."
+        },
+        "alineado-a-la-derecha": {
+          "title": "Alineado a la derecha"
+        }
+      },
+      "classes": [
+        [
+          "`.cb-dropdown`",
+          "Contenedor relativo."
+        ],
+        [
+          "`.cb-dropdown__panel`",
+          "Panel flotante. `--end` lo alinea a la derecha, `--up` lo abre hacia arriba, `--wide` lo ensancha."
+        ],
+        [
+          "`.cb-dropdown__item`",
+          "Elemento. `--rich` para número + título + descripción; `--danger` para acciones destructivas."
+        ],
+        [
+          "`.cb-dropdown__num`, `.cb-dropdown__title`, `.cb-dropdown__desc`",
+          "Partes del elemento enriquecido."
+        ],
+        [
+          "`.cb-dropdown__shortcut`",
+          "Atajo alineado a la derecha."
+        ],
+        [
+          "`.cb-dropdown__label`, `.cb-dropdown__divider`",
+          "Título de grupo y separador."
+        ]
+      ],
+      "attributes": [
+        [
+          "`data-cb-dropdown`",
+          "Activa el componente."
+        ],
+        [
+          "`data-cb-dropdown-trigger`",
+          "Botón que abre (por defecto, el primer `button`)."
+        ],
+        [
+          "`data-cb-dropdown-panel`",
+          "Panel (por defecto, `.cb-dropdown__panel`)."
+        ],
+        [
+          "`data-cb-dropdown-hover`",
+          "También abre con hover."
+        ],
+        [
+          "`data-cb-dropdown-close`",
+          "Cualquier elemento dentro del panel que deba cerrarlo."
+        ]
+      ],
+      "events": [
+        [
+          "`cb:open` / `cb:close`",
+          "Al abrir o cerrar. `cb:open` se puede cancelar."
+        ],
+        [
+          "`cb:select`",
+          "Al elegir un `menuitem` (`detail.item`, `detail.value`)."
+        ]
+      ],
+      "a11y": [
+        "El botón recibe `aria-expanded`, `aria-controls` y `aria-haspopup=\"menu\"`.",
+        "Esc cierra y devuelve el foco al botón; un clic fuera también cierra.",
+        "Usa `role=\"menu\"` solo para acciones. Para enlaces de navegación deja el panel sin rol."
+      ],
+      "snippets": [
+        "Escuchar la selección:"
+      ]
+    },
+    "breadcrumb": {
+      "title": "Breadcrumb",
+      "description": "Ruta de navegación con separadores.",
+      "examples": {
+        "basico": {
+          "title": "Básico"
+        }
+      },
+      "classes": [
+        [
+          "`.cb-breadcrumb`",
+          "Lista en fila."
+        ],
+        [
+          "`.cb-breadcrumb__item`",
+          "Elemento; el separador \"/\" se agrega solo."
+        ]
+      ],
+      "a11y": [
+        "Envuélvelo en `nav aria-label=\"Ruta\"`.",
+        "Marca la página actual con `aria-current=\"page\"`."
+      ]
+    },
+    "paginacion": {
+      "title": "Paginación",
+      "description": "Botones de página con anterior, siguiente y elipsis.",
+      "examples": {
+        "basica": {
+          "title": "Básica"
+        }
+      },
+      "classes": [
+        [
+          "`.cb-pagination`",
+          "Lista en fila."
+        ],
+        [
+          "`.cb-pagination__item`",
+          "Página. `aria-current=\"page\"` o `.is-active` la marca."
+        ],
+        [
+          "`.cb-pagination__ellipsis`",
+          "Puntos suspensivos."
+        ],
+        [
+          "`.cb-pagination__label`",
+          "Texto que se oculta en móvil."
+        ]
+      ],
+      "a11y": [
+        "Envuélvela en `nav aria-label=\"Paginación\"`.",
+        "Las flechas necesitan `aria-label` cuando el texto se oculta."
+      ]
+    },
+    "formularios": {
+      "title": "Formularios",
+      "description": "Input, textarea, select, checkbox, radio, switch y archivo, con texto de ayuda y estados de error y éxito.",
+      "examples": {
+        "campos-de-texto": {
+          "title": "Campos de texto"
+        },
+        "error-y-exito": {
+          "title": "Error y éxito",
+          "description": "El estado de error se activa con `aria-invalid=\"true\"` en el input o con `cb-field--error`. El mensaje solo se muestra en estado de error o éxito."
+        },
+        "checkbox-radio-y-switch": {
+          "title": "Checkbox, radio y switch"
+        },
+        "archivo-y-tamanos": {
+          "title": "Archivo y tamaños"
+        }
+      },
+      "classes": [
+        [
+          "`.cb-field`",
+          "Agrupa etiqueta, control, ayuda y mensaje."
+        ],
+        [
+          "`.cb-field__label`, `.cb-field__optional`",
+          "Etiqueta y marca de opcional."
+        ],
+        [
+          "`.cb-field__hint`",
+          "Texto de ayuda."
+        ],
+        [
+          "`.cb-field__message`",
+          "Mensaje visible solo con error o éxito."
+        ],
+        [
+          "`.cb-field--error`, `.cb-field--success`",
+          "Estados. El error también se activa con `aria-invalid=\"true\"`."
+        ],
+        [
+          "`.cb-input`",
+          "Input, select o textarea. `--sm` y `--lg` para tamaños."
+        ],
+        [
+          "`.cb-textarea`",
+          "Altura automática y redimensión vertical."
+        ],
+        [
+          "`.cb-select`",
+          "Envoltorio del `select` con flecha propia."
+        ],
+        [
+          "`.cb-input-group`, `.cb-input-group__addon`",
+          "Input con prefijo o sufijo."
+        ],
+        [
+          "`.cb-check`, `.cb-check__text`, `.cb-check__hint`",
+          "Etiqueta clicable para checkbox, radio y switch."
+        ],
+        [
+          "`.cb-checkbox`, `.cb-radio`, `.cb-switch`",
+          "Controles con estilo propio, nativos por debajo."
+        ],
+        [
+          "`.cb-file`",
+          "Input de archivo."
+        ],
+        [
+          "`.cb-fieldset`, `.cb-fieldset__legend`",
+          "Grupo de opciones."
+        ]
+      ],
+      "a11y": [
+        "Cada control necesita un `label` asociado o `aria-label`.",
+        "Relaciona ayuda y errores con `aria-describedby`.",
+        "El switch es un checkbox con `role=\"switch\"`: funciona con teclado sin JS.",
+        "El color no es la única señal de error: el mensaje lo explica en texto."
+      ]
+    },
+    "tabla": {
+      "title": "Tabla de datos",
+      "description": "Tabla con orden por columna, búsqueda, filtro, paginación y selección de filas. Sin JS se ve como una tabla normal.",
+      "examples": {
+        "completa": {
+          "title": "Completa",
+          "description": "Prueba ordenar por monto o fecha, buscar, filtrar por estado y seleccionar filas."
+        },
+        "simple": {
+          "title": "Simple",
+          "description": "Sin `data-cb-table` es solo estilo. `cb-table--compact` reduce el padding."
+        }
+      },
+      "classes": [
+        [
+          "`.cb-table-wrap`",
+          "Caja con borde."
+        ],
+        [
+          "`.cb-table-toolbar`, `.cb-table-toolbar__filters`",
+          "Barra superior con búsqueda y filtros."
+        ],
+        [
+          "`.cb-table-scroll`",
+          "Scroll horizontal en pantallas chicas."
+        ],
+        [
+          "`.cb-table`",
+          "Tabla. `--compact` reduce el espaciado."
+        ],
+        [
+          "`.cb-table__strong`, `.cb-table__num`, `.cb-table__check`",
+          "Celda destacada, numérica (alineada a la derecha) y de selección."
+        ],
+        [
+          "`.cb-table__sort`",
+          "Botón de orden que el JS crea dentro del `th`."
+        ],
+        [
+          "`.cb-table-footer`",
+          "Pie con estado y paginación."
+        ]
+      ],
+      "attributes": [
+        [
+          "`data-cb-table`",
+          "Activa el comportamiento."
+        ],
+        [
+          "`data-cb-page-size=\"n\"`",
+          "Filas por página. Sin él no hay paginación."
+        ],
+        [
+          "`data-cb-sort` / `data-cb-sort=\"number|date\"`",
+          "En un `th`, permite ordenar esa columna."
+        ],
+        [
+          "`data-value`",
+          "En una celda, valor usado para ordenar en lugar del texto."
+        ],
+        [
+          "`data-cb-table-search`",
+          "Input que busca en todas las columnas (ignora tildes)."
+        ],
+        [
+          "`data-cb-table-filter=\"clave\"`",
+          "Select que compara su valor con `data-clave` de cada fila."
+        ],
+        [
+          "`data-cb-table-select` / `data-cb-table-select-all`",
+          "Checkboxes de fila y de encabezado."
+        ],
+        [
+          "`data-cb-table-status`, `data-cb-table-pagination`",
+          "Dónde escribir el estado y la paginación."
+        ],
+        [
+          "`data-cb-table-empty`",
+          "Texto cuando no hay resultados. Por defecto: \"Sin resultados\"."
+        ],
+        [
+          "`data-cb-table-status-text`",
+          "Plantilla del estado, con `{start}`, `{end}` y `{total}`."
+        ],
+        [
+          "`data-cb-table-selected-text`",
+          "Plantilla de la selección, con `{count}`."
+        ],
+        [
+          "`data-cb-pagination-prev` / `data-cb-pagination-next`",
+          "aria-label de las flechas de la paginación."
+        ],
+        [
+          "`data-cb-pagination-page`",
+          "aria-label de cada página, con `{page}`."
+        ]
+      ],
+      "events": [
+        [
+          "`cb:sort`",
+          "Al ordenar (`detail.column`, `detail.direction`)."
+        ],
+        [
+          "`cb:filter`",
+          "Al buscar o filtrar."
+        ],
+        [
+          "`cb:page`",
+          "Al cambiar de página (`detail.page`)."
+        ],
+        [
+          "`cb:select`",
+          "Al cambiar la selección (`detail.rows`)."
+        ]
+      ],
+      "a11y": [
+        "Los encabezados ordenables reciben `aria-sort` y un botón para usarlos con teclado.",
+        "Las filas seleccionadas llevan `aria-selected=\"true\"`.",
+        "El estado (\"Mostrando 1–5 de 8\") está en una región `aria-live`.",
+        "Cada checkbox de fila necesita `aria-label` con el nombre del registro."
+      ],
+      "snippets": [
+        "Leer las filas seleccionadas:"
+      ]
+    },
+    "modal": {
+      "title": "Modal",
+      "description": "Diálogo centrado con foco atrapado, cierre con Esc, clic en el fondo y botones `data-cb-close`.",
+      "examples": {
+        "confirmacion": {
+          "title": "Confirmación"
+        },
+        "tamanos-y-estatico": {
+          "title": "Tamaños y estático",
+          "description": "Con `data-cb-static` el clic en el fondo no lo cierra. `cb-modal--center` lo centra verticalmente."
+        }
+      },
+      "classes": [
+        [
+          "`.cb-modal`",
+          "Fondo con desenfoque. `.is-open` lo muestra."
+        ],
+        [
+          "`.cb-modal--sm`, `.cb-modal--lg`",
+          "Anchos de 400 y 760px (por defecto 520)."
+        ],
+        [
+          "`.cb-modal--center`",
+          "Centrado vertical."
+        ],
+        [
+          "`.cb-modal__panel`",
+          "Caja del diálogo."
+        ],
+        [
+          "`.cb-modal__head`, `.cb-modal__title`, `.cb-modal__desc`",
+          "Cabecera, título y descripción."
+        ],
+        [
+          "`.cb-modal__close`",
+          "Botón de cerrar."
+        ],
+        [
+          "`.cb-modal__body`, `.cb-modal__foot`",
+          "Contenido y acciones."
+        ]
+      ],
+      "attributes": [
+        [
+          "`data-cb-modal`",
+          "Activa el modal. Necesita `id`."
+        ],
+        [
+          "`data-cb-open=\"id\"`",
+          "En cualquier botón, abre ese modal o drawer."
+        ],
+        [
+          "`data-cb-close`",
+          "Dentro del modal, lo cierra."
+        ],
+        [
+          "`data-cb-static`",
+          "Ignora el clic en el fondo."
+        ],
+        [
+          "`data-cb-open-on-load`",
+          "Lo abre al cargar."
+        ],
+        [
+          "`data-cb-role=\"alertdialog\"`",
+          "Cambia el rol para confirmaciones críticas."
+        ]
+      ],
+      "events": [
+        [
+          "`cb:open`",
+          "Antes de abrir. Se puede cancelar con `preventDefault()`."
+        ],
+        [
+          "`cb:close`",
+          "Antes de cerrar. También se puede cancelar."
+        ]
+      ],
+      "a11y": [
+        "El panel recibe `role=\"dialog\"`, `aria-modal=\"true\"` y `aria-labelledby` apuntando al título.",
+        "El foco entra al primer control (o al que tenga `autofocus`), queda atrapado y vuelve al botón al cerrar.",
+        "Esc cierra solo el overlay de más arriba si hay varios abiertos.",
+        "El scroll del body se bloquea mientras está abierto."
+      ],
+      "snippets": [
+        "Abrir y cerrar desde JS:",
+        "Con Livewire, abre el modal desde el servidor despachando un evento del navegador:"
+      ]
+    },
+    "drawer": {
+      "title": "Drawer",
+      "description": "Panel lateral (derecha, izquierda o abajo) con el mismo comportamiento que el modal.",
+      "examples": {
+        "lados": {
+          "title": "Lados"
+        }
+      },
+      "classes": [
+        [
+          "`.cb-drawer`",
+          "Fondo. `.is-open` lo muestra."
+        ],
+        [
+          "`.cb-drawer--left`, `.cb-drawer--bottom`",
+          "Lado del panel (por defecto, derecha)."
+        ],
+        [
+          "`.cb-drawer__panel`",
+          "Panel de 420px (máximo el ancho de pantalla menos 48px)."
+        ],
+        [
+          "`.cb-drawer__head`, `.cb-drawer__title`, `.cb-drawer__desc`, `.cb-drawer__close`",
+          "Cabecera."
+        ],
+        [
+          "`.cb-drawer__body`, `.cb-drawer__foot`",
+          "Contenido con scroll y acciones."
+        ]
+      ],
+      "attributes": [
+        [
+          "`data-cb-drawer`",
+          "Activa el drawer. Necesita `id`."
+        ],
+        [
+          "`data-cb-open=\"id\"`, `data-cb-close`, `data-cb-static`",
+          "Igual que en el modal."
+        ]
+      ],
+      "events": [
+        [
+          "`cb:open` / `cb:close`",
+          "Antes de abrir o cerrar; ambos se pueden cancelar."
+        ]
+      ],
+      "a11y": [
+        "Mismo comportamiento que el modal: rol de diálogo, foco atrapado, Esc y retorno del foco."
+      ],
+      "snippets": [
+        ""
+      ]
+    },
+    "command-palette": {
+      "title": "Command palette",
+      "description": "Búsqueda ⌘K con grupos, navegación con flechas y búsqueda que ignora tildes. Es la misma que usa esta documentación.",
+      "examples": {
+        "paleta": {
+          "title": "Paleta",
+          "description": "Los resultados se leen de un `script type=\"application/json\"` dentro de la paleta."
+        }
+      },
+      "classes": [
+        [
+          "`.cb-command`",
+          "Fondo. `.is-open` lo muestra."
+        ],
+        [
+          "`.cb-command__panel`",
+          "Caja de la paleta."
+        ],
+        [
+          "`.cb-command__head`, `.cb-command__input`",
+          "Cabecera con el campo de búsqueda."
+        ],
+        [
+          "`.cb-command__results`, `.cb-command__group`, `.cb-command__item`",
+          "Lista, títulos de grupo y resultados (`.is-active` el seleccionado)."
+        ],
+        [
+          "`.cb-command__hint`, `.cb-command__empty`, `.cb-command__foot`",
+          "Indicador, estado vacío y pie con atajos."
+        ]
+      ],
+      "attributes": [
+        [
+          "`data-cb-command`",
+          "Activa la paleta."
+        ],
+        [
+          "`data-cb-command-hotkey=\"k\"`",
+          "Atajo con ⌘ o Ctrl. Sin valor usa K."
+        ],
+        [
+          "`data-cb-command-open=\"id\"`",
+          "Botón que la abre."
+        ],
+        [
+          "`data-cb-command-items`",
+          "JSON con `label`, `href`, `group`, `keywords` y `hint`."
+        ],
+        [
+          "`data-cb-command-empty`",
+          "Texto antes de la búsqueda cuando no hay resultados. Por defecto: \"Sin resultados para\"."
+        ]
+      ],
+      "events": [
+        [
+          "`cb:open` / `cb:close`",
+          "Al abrir o cerrar."
+        ],
+        [
+          "`cb:select`",
+          "Al elegir un resultado (`detail.item`). Cancelable para manejar la navegación tú mismo."
+        ]
+      ],
+      "a11y": [
+        "El input es un `combobox` con `aria-activedescendant` apuntando al resultado activo.",
+        "Los resultados forman un `listbox` con opciones `aria-selected`.",
+        "Foco atrapado dentro de la paleta; Esc la cierra y devuelve el foco."
+      ],
+      "snippets": [
+        "Cargar resultados desde JS (por ejemplo, desde una API):"
+      ]
+    },
+    "tooltip-popover": {
+      "title": "Tooltip y popover",
+      "description": "Tooltip de texto con hover y foco, y popover con contenido interactivo que se abre con clic.",
+      "examples": {
+        "tooltip": {
+          "title": "Tooltip",
+          "description": "Con `data-cb-tooltip-placement` eliges el lado; si no cabe, se voltea solo."
+        },
+        "popover": {
+          "title": "Popover"
+        }
+      },
+      "classes": [
+        [
+          "`.cb-tooltip`",
+          "Globo de texto que el JS crea en el `body`."
+        ],
+        [
+          "`.cb-popover`, `.cb-popover__panel`",
+          "Contenedor y panel. `--end` alinea a la derecha."
+        ],
+        [
+          "`.cb-popover__title`",
+          "Título del panel."
+        ]
+      ],
+      "attributes": [
+        [
+          "`data-cb-tooltip=\"texto\"`",
+          "Texto del tooltip."
+        ],
+        [
+          "`data-cb-tooltip-placement=\"top|bottom|left|right\"`",
+          "Lado preferido."
+        ],
+        [
+          "`data-cb-popover`",
+          "Activa el popover."
+        ],
+        [
+          "`data-cb-popover-trigger`",
+          "Botón que abre (por defecto, el primer `button`)."
+        ]
+      ],
+      "events": [
+        [
+          "`cb:open` / `cb:close`",
+          "En el popover al abrir o cerrar."
+        ]
+      ],
+      "a11y": [
+        "El tooltip se enlaza con `aria-describedby` mientras está visible y se cierra con Esc (WCAG 1.4.13).",
+        "No pongas información esencial solo en un tooltip: no se ve en pantallas táctiles.",
+        "El panel del popover tiene `role=\"dialog\"` y el botón `aria-expanded`."
+      ]
+    },
+    "tabs": {
+      "title": "Tabs",
+      "description": "Pestañas con navegación por flechas, Home y End. Dos estilos: línea y pastillas.",
+      "examples": {
+        "linea": {
+          "title": "Línea"
+        },
+        "pastillas": {
+          "title": "Pastillas"
+        }
+      },
+      "classes": [
+        [
+          "`.cb-tabs`",
+          "Contenedor. `--pills` cambia al estilo de pastillas."
+        ],
+        [
+          "`.cb-tabs__list`",
+          "Fila de pestañas con scroll horizontal si no caben."
+        ],
+        [
+          "`.cb-tabs__tab`",
+          "Pestaña; `aria-selected=\"true\"` la marca."
+        ],
+        [
+          "`.cb-tabs__count`",
+          "Contador dentro de la pestaña."
+        ],
+        [
+          "`.cb-tabs__panel`",
+          "Panel; se empareja con la pestaña por orden."
+        ]
+      ],
+      "attributes": [
+        [
+          "`data-cb-tabs`",
+          "Activa el componente."
+        ],
+        [
+          "`data-cb-tabs-manual`",
+          "Las flechas solo mueven el foco; Enter o Espacio activan."
+        ]
+      ],
+      "events": [
+        [
+          "`cb:change`",
+          "Al cambiar de pestaña (`detail.index`, `detail.tab`, `detail.panel`)."
+        ]
+      ],
+      "a11y": [
+        "El JS agrega `role=\"tablist|tab|tabpanel\"`, `aria-controls` y `aria-labelledby`.",
+        "Solo la pestaña activa está en el orden de tabulación (roving tabindex).",
+        "Las pestañas deshabilitadas se saltan al navegar con flechas."
+      ],
+      "snippets": [
+        ""
+      ]
+    },
+    "accordion": {
+      "title": "Accordion / FAQ",
+      "description": "Basado en `details` y `summary`: funciona sin JS. El JS agrega el modo de un solo elemento abierto y eventos.",
+      "examples": {
+        "preguntas-frecuentes": {
+          "title": "Preguntas frecuentes"
+        }
+      },
+      "classes": [
+        [
+          "`.cb-accordion`",
+          "Contenedor con línea superior."
+        ],
+        [
+          "`.cb-accordion__item`",
+          "Cada `details`. La altura se anima en navegadores con `::details-content`."
+        ],
+        [
+          "`.cb-accordion__trigger`",
+          "El `summary`."
+        ],
+        [
+          "`.cb-accordion__num`, `.cb-accordion__icon`",
+          "Número opcional e icono +/−."
+        ],
+        [
+          "`.cb-accordion__content`",
+          "Contenido."
+        ]
+      ],
+      "attributes": [
+        [
+          "`data-cb-accordion=\"single\"`",
+          "Al abrir uno se cierran los demás. Sin valor, todos son independientes."
+        ]
+      ],
+      "events": [
+        [
+          "`cb:open` / `cb:close`",
+          "En cada `details` al abrirse o cerrarse."
+        ]
+      ],
+      "a11y": [
+        "`details`/`summary` ya son accesibles con teclado y lectores de pantalla.",
+        "El icono es decorativo (`aria-hidden`); el estado lo anuncia el navegador."
+      ]
+    },
+    "toast": {
+      "title": "Toast",
+      "description": "Notificaciones temporales con la API `cobalto.toast()`. Se pausan con hover o foco.",
+      "examples": {
+        "variantes": {
+          "title": "Variantes",
+          "description": "Los botones usan `data-cb-toast` con la configuración en JSON, para probar sin escribir JS."
+        }
+      },
+      "classes": [
+        [
+          "`.cb-toaster`",
+          "Contenedor fijo. `--top` y `--left` para otras esquinas."
+        ],
+        [
+          "`.cb-toast`",
+          "Notificación con línea lateral de color."
+        ],
+        [
+          "`.cb-toast--success|warning|danger|info`",
+          "Variantes."
+        ],
+        [
+          "`.cb-toast__icon`, `.cb-toast__title`, `.cb-toast__message`, `.cb-toast__action`, `.cb-toast__close`",
+          "Partes."
+        ]
+      ],
+      "attributes": [
+        [
+          "`data-cb-toast`",
+          "En un botón: JSON con las opciones o un texto simple."
+        ]
+      ],
+      "events": [
+        [
+          "`cb:open` / `cb:close`",
+          "En el toast al aparecer y al cerrarse."
+        ]
+      ],
+      "a11y": [
+        "Los toasts usan `role=\"status\"`; los de error, `role=\"alert\"` para anunciarse de inmediato.",
+        "El tiempo se pausa con hover y con foco, para dar tiempo a leer o usar la acción.",
+        "Para mensajes importantes usa `duration: 0` y deja que la persona lo cierre.",
+        "El botón de cerrar usa \"Cerrar notificación\"; cámbialo con la opción `closeLabel` o con `cobalto.setMessages({ toastClose })`."
+      ],
+      "snippets": [
+        "API completa:",
+        "Desde Livewire, con un evento del navegador:"
+      ]
+    },
+    "alert": {
+      "title": "Alert y banner",
+      "description": "Mensajes en línea con cuatro tonos y banners de ancho completo. Se pueden cerrar y recordar.",
+      "examples": {
+        "alertas": {
+          "title": "Alertas"
+        },
+        "banner": {
+          "title": "Banner",
+          "description": "Con `data-cb-dismiss-key` se recuerda que ya se cerró (en `localStorage`)."
+        }
+      },
+      "classes": [
+        [
+          "`.cb-alert`",
+          "Alerta con borde y fondo del tono."
+        ],
+        [
+          "`.cb-alert--info|success|warning|danger`",
+          "Tonos (por defecto, acento)."
+        ],
+        [
+          "`.cb-alert__icon`, `.cb-alert__title`, `.cb-alert__text`, `.cb-alert__actions`, `.cb-alert__close`",
+          "Partes."
+        ],
+        [
+          "`.cb-banner`",
+          "Franja de ancho completo en color de acento. `--subtle` la hace neutra."
+        ],
+        [
+          "`.is-dismissed`",
+          "Oculta el elemento cerrado."
+        ]
+      ],
+      "attributes": [
+        [
+          "`data-cb-dismiss`",
+          "Botón que cierra la alerta o banner que lo contiene."
+        ],
+        [
+          "`data-cb-dismissible`",
+          "Marca otro contenedor como cerrable."
+        ],
+        [
+          "`data-cb-dismiss-key=\"clave\"`",
+          "Recuerda el cierre en `localStorage`."
+        ]
+      ],
+      "events": [
+        [
+          "`cb:close`",
+          "En el contenedor antes de ocultarlo; cancelable."
+        ]
+      ],
+      "a11y": [
+        "Usa `role=\"alert\"` solo para errores urgentes; para el resto, `role=\"status\"`.",
+        "El botón de cerrar necesita `aria-label`."
+      ]
+    },
+    "progress": {
+      "title": "Progress bar",
+      "description": "Barra de progreso determinada o indeterminada, con etiqueta y valor.",
+      "examples": {
+        "con-etiqueta": {
+          "title": "Con etiqueta"
+        }
+      },
+      "classes": [
+        [
+          "`.cb-progress`",
+          "Contenedor."
+        ],
+        [
+          "`.cb-progress__head`, `.cb-progress__label`, `.cb-progress__value`",
+          "Fila superior."
+        ],
+        [
+          "`.cb-progress__track`, `.cb-progress__bar`",
+          "Pista y barra. El ancho sale de `--cb-progress`."
+        ],
+        [
+          "`.cb-progress--success|warning|danger`",
+          "Colores."
+        ],
+        [
+          "`.cb-progress--sm|lg`",
+          "Grosor."
+        ],
+        [
+          "`.cb-progress--indeterminate`",
+          "Animación sin valor conocido."
+        ]
+      ],
+      "a11y": [
+        "La pista lleva `role=\"progressbar\"` con `aria-valuenow`, `aria-valuemin` y `aria-valuemax`.",
+        "En el modo indeterminado omite `aria-valuenow`."
+      ],
+      "snippets": [
+        "Actualizar desde JS:"
+      ]
+    },
+    "skeleton-spinner": {
+      "title": "Skeleton y spinner",
+      "description": "Placeholders de carga y un spinner que toma el color del texto o del acento.",
+      "examples": {
+        "skeleton": {
+          "title": "Skeleton"
+        },
+        "spinner": {
+          "title": "Spinner"
+        }
+      },
+      "classes": [
+        [
+          "`.cb-skeleton`",
+          "Bloque que parpadea suavemente."
+        ],
+        [
+          "`.cb-skeleton--text|title|circle|block`",
+          "Formas comunes."
+        ],
+        [
+          "`.cb-skeleton-stack`",
+          "Líneas de texto apiladas; la última es más corta."
+        ],
+        [
+          "`.cb-spinner`",
+          "Spinner circular. `--sm` y `--lg` para tamaños."
+        ],
+        [
+          "`.cb-loading`",
+          "Spinner con texto."
+        ]
+      ],
+      "a11y": [
+        "Marca el contenedor que carga con `aria-busy=\"true\"`.",
+        "Un spinner solo necesita `role=\"status\"` y `aria-label`.",
+        "Las animaciones se detienen con `prefers-reduced-motion`."
+      ]
+    },
+    "stepper": {
+      "title": "Stepper",
+      "description": "Pasos de un proceso, horizontal o vertical. En móvil el horizontal se apila.",
+      "examples": {
+        "horizontal": {
+          "title": "Horizontal"
+        },
+        "vertical": {
+          "title": "Vertical"
+        }
+      },
+      "classes": [
+        [
+          "`.cb-stepper`",
+          "Lista de pasos. `--vertical` para la versión vertical."
+        ],
+        [
+          "`.cb-stepper__step`",
+          "Paso. `.is-complete` lo marca hecho; `aria-current=\"step\"` es el actual."
+        ],
+        [
+          "`.cb-stepper__marker`",
+          "Número o marca."
+        ],
+        [
+          "`.cb-stepper__label`, `.cb-stepper__desc`",
+          "Texto del paso."
+        ]
+      ],
+      "a11y": [
+        "Usa `ol` y `aria-current=\"step\"` en el paso actual.",
+        "Si el marcador de completado es \"✓\", agrega texto oculto como \"completado\" en `cb-sr-only`."
+      ]
+    }
+  }
+}

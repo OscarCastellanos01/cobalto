@@ -1,4 +1,4 @@
-import { bind, emit, focusableWhenScrollable, queryAll, resolveTarget } from '../core.js';
+import { bind, emit, focusableWhenScrollable, message, queryAll, resolveTarget } from '../core.js';
 
 const RESET_DELAY = 1600;
 
@@ -56,12 +56,12 @@ export function init(root = document) {
       try {
         await writeClipboard(text.replace(/\n$/, ''));
       } catch {
-        setLabel(button, 'Error');
+        setLabel(button, message('copyError', { el: button, attr: 'data-cb-copy-error' }));
         return;
       }
       clearTimeout(timer);
       button.classList.add('is-copied');
-      setLabel(button, button.getAttribute('data-cb-copy-done') || 'Copiado');
+      setLabel(button, message('copyDone', { el: button, attr: 'data-cb-copy-done' }));
       emit(button, 'copy', { text });
       timer = setTimeout(() => {
         button.classList.remove('is-copied');
