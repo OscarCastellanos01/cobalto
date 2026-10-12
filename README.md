@@ -153,6 +153,8 @@ Todos los colores pasan por variables `--cb-*`. Hay tres formas de cambiarlos.
 }
 ```
 
+Este CSS va en tu propia hoja de estilos, después de importar Cobalto (en Laravel, `resources/css/app.css`). Ojo: un bloque en `:root` gana siempre, incluso sobre `data-cb-accent`; si quieres tu tema y además poder cambiar entre los predefinidos, usa la forma con nombre y actívala con `<html data-cb-accent="marca">` o `cobalto.theme.setAccent('marca')`.
+
 La documentación incluye un personalizador en vivo que ajusta el color para mantener contraste AA y genera el CSS.
 
 ### Claro y oscuro

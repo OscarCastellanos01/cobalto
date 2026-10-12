@@ -44,6 +44,7 @@ export default {
     const ids = [
       ['personalizador', 'customizer'],
       ['niveles', 'levels'],
+      ['donde', 'where'],
       ['temas', 'themes'],
       ['modo', 'mode'],
       ['escala', 'scale'],
@@ -161,6 +162,50 @@ export default {
   ${desc('levels.two', ' mt-8')}
   ${codeBlock(`<html data-cb-accent="esmeralda">`)}
   ${desc('levels.three', ' mt-8')}
+</section>
+
+<section class="docs-section" id="donde">
+  ${title('where')}
+  ${desc('where.desc')}
+  ${codeBlock(
+    `
+    @import 'tailwindcss';
+    @import 'cobalto/tailwind';
+
+    :root {
+      --cb-dark-accent: #808080;
+      --cb-light-accent: #000000;
+    }
+  `,
+    { lang: 'css', file: 'resources/css/app.css' }
+  )}
+  ${desc('where.cdn', ' mt-6')}
+  ${codeBlock(`
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cobalto@0.1.0/dist/cobalto.min.css">
+    <link rel="stylesheet" href="/css/mi-tema.css">
+  `)}
+  ${desc('where.warn', ' mt-6')}
+  ${codeBlock(
+    `
+    [data-cb-accent="marca"] {
+      --cb-dark-accent: #808080;
+      --cb-light-accent: #000000;
+    }
+  `,
+    { lang: 'css', file: 'resources/css/app.css' }
+  )}
+  ${desc('where.activate', ' mt-6')}
+  ${codeBlock(`
+    <html data-cb-accent="marca">
+  `)}
+  <div class="mt-4">
+  ${codeBlock(
+    `
+    cobalto.theme.setAccent('marca');
+  `,
+    { lang: 'js' }
+  )}
+  </div>
 </section>
 
 <section class="docs-section" id="temas">

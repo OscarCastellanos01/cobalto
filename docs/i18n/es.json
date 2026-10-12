@@ -304,6 +304,13 @@
           "Movimiento",
           "Capas"
         ]
+      },
+      "where": {
+        "title": "Dónde va este CSS",
+        "desc": "Es CSS normal, así que funciona igual en Laravel, Vite, TypeScript o un HTML sin build. Pégalo en tu propia hoja de estilos, después de importar Cobalto. En Laravel es `resources/css/app.css`:",
+        "cdn": "Sin build, ponlo en un archivo o en un `<style>` que cargue después del CSS de Cobalto:",
+        "warn": "Un bloque en `:root` gana siempre, incluso sobre `data-cb-accent`: mientras esté, los temas predefinidos no cambian el color. Si quieres tu tema y además poder cambiar entre temas, dale un nombre:",
+        "activate": "Y actívalo en el HTML, o desde JS cuando el usuario lo elija. Queda guardado igual que los temas predefinidos:"
       }
     }
   },

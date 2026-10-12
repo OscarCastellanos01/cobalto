@@ -332,6 +332,46 @@
   <p class="docs-section__desc mt-8" data-i18n="pages.personalizacion.levels.three"><strong class="text-cb-text">3. Un tema propio.</strong> Define los valores de cada modo con los prefijos <code>--cb-dark-*</code> y <code>--cb-light-*</code>. Mira el ejemplo completo en <a class="cb-link" href="#tema-propio">Crear un tema propio</a>.</p>
 </section>
 
+<section class="docs-section" id="donde">
+  <h2 class="docs-section__title" data-i18n="pages.personalizacion.where.title">Dónde va este CSS</h2>
+  <p class="docs-section__desc" data-i18n="pages.personalizacion.where.desc">Es CSS normal, así que funciona igual en Laravel, Vite, TypeScript o un HTML sin build. Pégalo en tu propia hoja de estilos, después de importar Cobalto. En Laravel es <code>resources/css/app.css</code>:</p>
+  <div class="cb-code">
+  <div class="cb-code__head"><span>resources/css/app.css</span><button class="cb-code__copy" type="button" data-cb-copy data-cb-copy-done="Copiado" data-i18n-attr="data-cb-copy-done:ui.code.copied"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span data-cb-copy-label data-i18n="ui.code.copy">Copiar</span></button></div>
+  <pre class="cb-code__pre"><code><span class="cb-tok-key">@import</span> 'tailwindcss';
+<span class="cb-tok-key">@import</span> 'cobalto/tailwind';
+
+:root {
+  <span class="cb-tok-attr">--cb-dark-accent</span>: #808080;
+  <span class="cb-tok-attr">--cb-light-accent</span>: #000000;
+}</code></pre>
+</div>
+  <p class="docs-section__desc mt-6" data-i18n="pages.personalizacion.where.cdn">Sin build, ponlo en un archivo o en un <code>&lt;style&gt;</code> que cargue después del CSS de Cobalto:</p>
+  <div class="cb-code">
+  <div class="cb-code__head"><span>HTML</span><button class="cb-code__copy" type="button" data-cb-copy data-cb-copy-done="Copiado" data-i18n-attr="data-cb-copy-done:ui.code.copied"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span data-cb-copy-label data-i18n="ui.code.copy">Copiar</span></button></div>
+  <pre class="cb-code__pre"><code><span class="cb-tok-tag">&lt;link</span> <span class="cb-tok-attr">rel</span>=<span class="cb-tok-str">&quot;stylesheet&quot;</span> <span class="cb-tok-attr">href</span>=<span class="cb-tok-str">&quot;https://cdn.jsdelivr.net/npm/cobalto@0.1.0/dist/cobalto.min.css&quot;</span><span class="cb-tok-tag">&gt;</span>
+<span class="cb-tok-tag">&lt;link</span> <span class="cb-tok-attr">rel</span>=<span class="cb-tok-str">&quot;stylesheet&quot;</span> <span class="cb-tok-attr">href</span>=<span class="cb-tok-str">&quot;/css/mi-tema.css&quot;</span><span class="cb-tok-tag">&gt;</span></code></pre>
+</div>
+  <p class="docs-section__desc mt-6" data-i18n="pages.personalizacion.where.warn">Un bloque en <code>:root</code> gana siempre, incluso sobre <code>data-cb-accent</code>: mientras esté, los temas predefinidos no cambian el color. Si quieres tu tema y además poder cambiar entre temas, dale un nombre:</p>
+  <div class="cb-code">
+  <div class="cb-code__head"><span>resources/css/app.css</span><button class="cb-code__copy" type="button" data-cb-copy data-cb-copy-done="Copiado" data-i18n-attr="data-cb-copy-done:ui.code.copied"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span data-cb-copy-label data-i18n="ui.code.copy">Copiar</span></button></div>
+  <pre class="cb-code__pre"><code>[data-cb-accent=<span class="cb-tok-str">&quot;marca&quot;</span>] {
+  <span class="cb-tok-attr">--cb-dark-accent</span>: #808080;
+  <span class="cb-tok-attr">--cb-light-accent</span>: #000000;
+}</code></pre>
+</div>
+  <p class="docs-section__desc mt-6" data-i18n="pages.personalizacion.where.activate">Y actívalo en el HTML, o desde JS cuando el usuario lo elija. Queda guardado igual que los temas predefinidos:</p>
+  <div class="cb-code">
+  <div class="cb-code__head"><span>HTML</span><button class="cb-code__copy" type="button" data-cb-copy data-cb-copy-done="Copiado" data-i18n-attr="data-cb-copy-done:ui.code.copied"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span data-cb-copy-label data-i18n="ui.code.copy">Copiar</span></button></div>
+  <pre class="cb-code__pre"><code><span class="cb-tok-tag">&lt;html</span> <span class="cb-tok-attr">data-cb-accent</span>=<span class="cb-tok-str">&quot;marca&quot;</span><span class="cb-tok-tag">&gt;</span></code></pre>
+</div>
+  <div class="mt-4">
+  <div class="cb-code">
+  <div class="cb-code__head"><span>JS</span><button class="cb-code__copy" type="button" data-cb-copy data-cb-copy-done="Copiado" data-i18n-attr="data-cb-copy-done:ui.code.copied"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span data-cb-copy-label data-i18n="ui.code.copy">Copiar</span></button></div>
+  <pre class="cb-code__pre"><code>cobalto.theme.setAccent(<span class="cb-tok-str">'marca'</span>);</code></pre>
+</div>
+  </div>
+</section>
+
 <section class="docs-section" id="temas">
   <h2 class="docs-section__title" data-i18n="pages.personalizacion.themes.title">Temas predefinidos</h2>
   <p class="docs-section__desc" data-i18n="pages.personalizacion.themes.desc">Haz clic para aplicarlo a esta página. La elección se guarda en <code>localStorage</code>. Los puntos de color usan <code>data-cb-accent</code> anidado: un tema también se puede aplicar solo a una parte de la página.</p>
@@ -459,6 +499,7 @@ document.addEventListener(<span class="cb-tok-str">'cb:theme'</span>, (event) =&
   </main>
   <aside class="docs-toc"><nav class="cb-toc" aria-label="En esta página" data-i18n-attr="aria-label:ui.toc.label" data-cb-scrollspy><p class="cb-toc__title" data-i18n="ui.toc.title">En esta página</p><a class="cb-toc__link" href="#personalizador" data-i18n="pages.personalizacion.customizer.title">Personalizador en vivo</a>
 <a class="cb-toc__link" href="#niveles" data-i18n="pages.personalizacion.levels.title">Tres niveles</a>
+<a class="cb-toc__link" href="#donde" data-i18n="pages.personalizacion.where.title">Dónde va este CSS</a>
 <a class="cb-toc__link" href="#temas" data-i18n="pages.personalizacion.themes.title">Temas predefinidos</a>
 <a class="cb-toc__link" href="#modo" data-i18n="pages.personalizacion.mode.title">Claro y oscuro</a>
 <a class="cb-toc__link" href="#escala" data-i18n="pages.personalizacion.scale.title">Escala de acento</a>
