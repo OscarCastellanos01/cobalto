@@ -1,0 +1,30 @@
+@layer components {
+  .cb-testimonial {
+    @apply m-0 flex flex-col gap-6 p-cb-card;
+  }
+
+  .cb-testimonial__quote {
+    @apply m-0 text-cb-lg leading-cb-relaxed tracking-cb-tight text-cb-text;
+
+    &::before {
+      content: "\201c";
+      @apply mb-2 block text-cb-4xl leading-none text-cb-accent;
+    }
+  }
+
+  .cb-testimonial--large .cb-testimonial__quote {
+    @apply text-cb-lead font-medium;
+  }
+
+  .cb-testimonial__author {
+    @apply mt-auto flex items-center gap-3;
+  }
+
+  .cb-testimonial__name {
+    @apply block text-cb-base font-semibold;
+  }
+
+  .cb-testimonial__role {
+    @apply block text-cb-sm text-cb-dim;
+  }
+}

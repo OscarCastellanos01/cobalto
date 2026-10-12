@@ -1,8 +1,8 @@
 node_modules/
 dist/
 .tmp/
-docs/assets/site.css
 *.log
 *.tgz
 .DS_Store
 Thumbs.db
+docs/assets/

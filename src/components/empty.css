@@ -1,0 +1,25 @@
+@layer components {
+  .cb-empty {
+    @apply flex flex-col items-center gap-3 rounded-cb-lg border border-dashed border-cb-line-2 px-6 py-14 text-center;
+  }
+
+  .cb-empty__icon {
+    @apply mb-2 grid size-12 place-items-center rounded-cb-lg border border-cb-line-2 bg-cb-bg-2 text-cb-muted;
+
+    & > svg {
+      @apply size-5;
+    }
+  }
+
+  .cb-empty__title {
+    @apply text-cb-xl font-semibold;
+  }
+
+  .cb-empty__text {
+    @apply max-w-[420px] text-cb-base text-cb-muted;
+  }
+
+  .cb-empty__actions {
+    @apply mt-3 flex flex-wrap justify-center gap-2;
+  }
+}

@@ -1,0 +1,108 @@
+@layer components {
+  .cb-table-wrap {
+    @apply overflow-hidden rounded-cb-lg border border-cb-line;
+  }
+
+  .cb-table-toolbar {
+    @apply flex flex-wrap items-center justify-between gap-3 border-b border-cb-line p-3;
+  }
+
+  .cb-table-toolbar__filters {
+    @apply flex flex-wrap items-center gap-2;
+
+    & > .cb-input,
+    & > .cb-select {
+      @apply w-auto min-w-[180px] max-cb-sm:w-full;
+    }
+  }
+
+  .cb-table-toolbar__meta {
+    @apply text-cb-sm text-cb-dim;
+  }
+
+  .cb-table-scroll {
+    @apply overflow-x-auto;
+  }
+
+  .cb-table {
+    @apply w-full border-collapse text-left text-cb-base;
+
+    & th {
+      @apply border-b border-cb-line bg-cb-bg-2 px-4 py-2.5 text-cb-xs font-medium tracking-cb-wider whitespace-nowrap text-cb-dim uppercase;
+    }
+
+    & td {
+      @apply border-b border-cb-line px-4 py-3 align-middle text-cb-muted;
+    }
+
+    & tbody tr:last-child td {
+      @apply border-b-0;
+    }
+
+    & tbody tr {
+      transition: background-color var(--cb-duration-fast) var(--ease-cb);
+    }
+
+    & tbody tr:hover {
+      @apply bg-cb-bg-2;
+    }
+
+    & tbody tr[aria-selected="true"],
+    & tbody tr.is-selected {
+      @apply bg-cb-accent-soft;
+    }
+  }
+
+  .cb-table__strong {
+    @apply font-medium text-cb-text;
+  }
+
+  .cb-table__num {
+    @apply text-right cb-tabular;
+  }
+
+  .cb-table__check {
+    @apply w-10;
+  }
+
+  .cb-table--compact {
+    & th,
+    & td {
+      @apply px-3 py-2;
+    }
+  }
+
+  .cb-table__sort {
+    @apply -mx-1 inline-flex items-center gap-1.5 rounded-cb-xs px-1 uppercase transition-colors duration-(--cb-duration-fast) hover:text-cb-text;
+
+    &::after {
+      content: "\2195";
+      @apply text-cb-xs opacity-50;
+    }
+  }
+
+  [aria-sort="ascending"] > .cb-table__sort,
+  [aria-sort="descending"] > .cb-table__sort {
+    @apply text-cb-text;
+
+    &::after {
+      @apply text-cb-accent opacity-100;
+    }
+  }
+
+  [aria-sort="ascending"] > .cb-table__sort::after {
+    content: "\2191";
+  }
+
+  [aria-sort="descending"] > .cb-table__sort::after {
+    content: "\2193";
+  }
+
+  .cb-table__empty {
+    @apply py-10 text-center text-cb-dim;
+  }
+
+  .cb-table-footer {
+    @apply flex flex-wrap items-center justify-between gap-3 border-t border-cb-line p-3 text-cb-sm text-cb-dim;
+  }
+}

@@ -7,7 +7,7 @@
   }
 
   .cb-nav__inner {
-    @apply mx-auto flex h-cb-nav w-full max-w-cb items-center gap-7 px-cb-gutter max-cb-sm:px-cb-gutter-sm;
+    @apply mx-auto flex h-cb-nav w-full max-w-cb items-center gap-7 px-cb-gutter max-cb-sm:gap-3 max-cb-sm:px-cb-gutter-sm;
   }
 
   .cb-logo {
@@ -75,6 +75,15 @@
 
     & > svg {
       @apply size-3.5 shrink-0;
+    }
+
+    /* en pantallas tactiles el atajo no sirve y solo ocupa espacio */
+    & > kbd {
+      @apply max-cb-sm:hidden;
+    }
+
+    @variant max-cb-sm {
+      @apply w-9 justify-center p-0;
     }
   }
 

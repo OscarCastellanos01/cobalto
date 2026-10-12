@@ -1,0 +1,56 @@
+@layer components {
+  .cb-tabs__list {
+    @apply flex gap-1 overflow-x-auto border-b border-cb-line;
+    scrollbar-width: none;
+  }
+
+  .cb-tabs__tab {
+    @apply relative -mb-px shrink-0 border-b border-transparent px-3 py-2.5 text-cb-base whitespace-nowrap text-cb-muted;
+    transition:
+      color var(--cb-duration-fast) var(--ease-cb),
+      border-color var(--cb-duration-fast) var(--ease-cb);
+
+    &:hover {
+      @apply text-cb-text;
+    }
+
+    &[aria-selected="true"] {
+      @apply border-cb-accent text-cb-text;
+    }
+
+    &:focus-visible {
+      @apply outline-offset-[-2px];
+    }
+
+    &:disabled {
+      @apply pointer-events-none opacity-50;
+    }
+  }
+
+  .cb-tabs__count {
+    @apply ml-1.5 text-cb-xs text-cb-dim;
+  }
+
+  .cb-tabs__panel {
+    @apply pt-6;
+
+    &[hidden] {
+      @apply hidden;
+    }
+  }
+
+  .cb-tabs--pills {
+    & .cb-tabs__list {
+      @apply inline-flex max-w-full rounded-cb border border-cb-line bg-cb-bg-2 p-1;
+    }
+
+    & .cb-tabs__tab {
+      @apply mb-0 rounded-cb-md border-0 px-3 py-1.5;
+
+      &[aria-selected="true"],
+      &[aria-pressed="true"] {
+        @apply bg-cb-bg-3 text-cb-text;
+      }
+    }
+  }
+}

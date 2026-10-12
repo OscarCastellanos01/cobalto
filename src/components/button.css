@@ -90,8 +90,9 @@
   .cb-btn[aria-busy="true"] {
     @apply pointer-events-none text-transparent;
 
+    /* opacity y no visibility, para que el texto siga siendo el nombre accesible */
     & > * {
-      @apply invisible;
+      @apply opacity-0;
     }
 
     &::after {

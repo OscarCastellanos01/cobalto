@@ -4,6 +4,19 @@ import dropdown from './components/dropdown.js';
 import mobileMenu from './components/mobile-menu.js';
 import command from './components/command.js';
 import reveal from './components/reveal.js';
+import tabs from './components/tabs.js';
+import accordion from './components/accordion.js';
+import modal from './components/modal.js';
+import drawer from './components/drawer.js';
+import toastComponent, { toast } from './components/toast.js';
+import dismiss from './components/dismiss.js';
+import tooltip from './components/tooltip.js';
+import popover from './components/popover.js';
+import table from './components/table.js';
+import code from './components/code.js';
+import sidenav from './components/sidenav.js';
+import pricing from './components/pricing.js';
+import dashboard from './components/dashboard.js';
 
 export const components = {
   theme: themeControls,
@@ -11,6 +24,19 @@ export const components = {
   mobileMenu,
   command,
   reveal,
+  tabs,
+  accordion,
+  modal,
+  drawer,
+  toast: toastComponent,
+  dismiss,
+  tooltip,
+  popover,
+  table,
+  code,
+  sidenav,
+  pricing,
+  dashboard,
 };
 
 let autoStarted = false;
@@ -67,12 +93,17 @@ export function autoInit(options = {}) {
   document.addEventListener('livewire:navigated', () => init(document));
 }
 
-export { theme };
-export * as core from './core.js';
+import * as core from './core.js';
+
+export { theme, toast, modal, drawer, core };
 
 export default {
   init,
   autoInit,
   theme,
+  toast,
+  modal,
+  drawer,
   components,
+  core,
 };

@@ -1,0 +1,58 @@
+@layer components {
+  .cb-code {
+    @apply relative overflow-hidden rounded-cb-lg border border-cb-line bg-cb-bg-2 text-cb-sm;
+  }
+
+  .cb-code__head {
+    @apply flex items-center justify-between gap-3 border-b border-cb-line py-1.5 pr-1.5 pl-4 text-cb-xs text-cb-dim;
+  }
+
+  .cb-code__copy {
+    @apply inline-flex h-7 items-center gap-1.5 rounded-cb-md px-2 text-cb-xs text-cb-muted transition-colors duration-(--cb-duration-fast) hover:bg-cb-bg-3 hover:text-cb-text;
+
+    & > svg {
+      @apply size-3.5;
+    }
+
+    &.is-copied {
+      @apply text-cb-success;
+    }
+  }
+
+  .cb-code__copy--floating {
+    @apply absolute top-2 right-2 border border-cb-line bg-cb-bg-2;
+  }
+
+  .cb-code__pre {
+    @apply m-0 overflow-x-auto p-4 font-cb-mono leading-[1.7] text-cb-text;
+    tab-size: 2;
+
+    & > code {
+      font-family: inherit;
+    }
+  }
+
+  .cb-code--inline {
+    @apply rounded-cb-xs bg-cb-bg-3 px-1.5 py-0.5 text-[0.9em] text-cb-text;
+  }
+
+  .cb-tok-tag {
+    @apply text-cb-accent;
+  }
+
+  .cb-tok-attr {
+    @apply text-cb-muted;
+  }
+
+  .cb-tok-str {
+    @apply text-cb-success;
+  }
+
+  .cb-tok-com {
+    @apply text-cb-dim italic;
+  }
+
+  .cb-tok-key {
+    @apply text-cb-info;
+  }
+}

@@ -1,0 +1,69 @@
+@layer components {
+  .cb-modal {
+    @apply invisible fixed inset-0 z-(--cb-z-overlay) flex items-start justify-center overflow-y-auto px-4 py-[10vh] opacity-0;
+    background: var(--cb-overlay);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition:
+      opacity var(--cb-duration) var(--ease-cb),
+      visibility 0s linear var(--cb-duration);
+
+    &.is-open {
+      @apply visible opacity-100;
+      transition-delay: 0s;
+    }
+  }
+
+  .cb-modal--center {
+    @apply items-center;
+  }
+
+  .cb-modal__panel {
+    @apply relative flex w-full max-w-[520px] -translate-y-1.5 scale-[0.98] flex-col rounded-cb-xl border border-cb-line-2 bg-cb-bg-2 shadow-cb-lg;
+    transition: transform var(--cb-duration) var(--ease-cb);
+
+    .is-open > & {
+      @apply translate-y-0 scale-100;
+    }
+
+    &:focus-visible {
+      @apply outline-none;
+    }
+  }
+
+  .cb-modal--sm .cb-modal__panel {
+    @apply max-w-[400px];
+  }
+
+  .cb-modal--lg .cb-modal__panel {
+    @apply max-w-[760px];
+  }
+
+  .cb-modal__head {
+    @apply flex items-start justify-between gap-4 border-b border-cb-line px-6 py-5;
+  }
+
+  .cb-modal__title {
+    @apply text-cb-xl font-semibold;
+  }
+
+  .cb-modal__desc {
+    @apply mt-1 text-cb-sm text-cb-muted;
+  }
+
+  .cb-modal__close {
+    @apply -mt-1 -mr-2 grid size-8 shrink-0 place-items-center rounded-cb-md text-cb-muted transition-colors duration-(--cb-duration-fast) hover:bg-cb-bg-3 hover:text-cb-text;
+
+    & > svg {
+      @apply size-4;
+    }
+  }
+
+  .cb-modal__body {
+    @apply px-6 py-5 text-cb-base text-cb-muted;
+  }
+
+  .cb-modal__foot {
+    @apply flex flex-wrap justify-end gap-2 border-t border-cb-line px-6 py-4;
+  }
+}

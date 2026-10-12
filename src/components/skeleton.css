@@ -1,0 +1,45 @@
+@layer components {
+  .cb-skeleton {
+    @apply block animate-cb-shimmer rounded-cb-sm bg-cb-bg-3;
+  }
+
+  .cb-skeleton--text {
+    @apply h-3 w-full;
+
+    &:last-child:not(:first-child) {
+      @apply w-3/5;
+    }
+  }
+
+  .cb-skeleton--title {
+    @apply h-5 w-2/5;
+  }
+
+  .cb-skeleton--circle {
+    @apply size-9 rounded-full;
+  }
+
+  .cb-skeleton--block {
+    @apply h-[110px] w-full rounded-cb;
+  }
+
+  .cb-skeleton-stack {
+    @apply flex flex-col gap-2.5;
+  }
+
+  .cb-spinner {
+    @apply inline-block size-4 shrink-0 animate-cb-spin rounded-full border-2 border-current border-r-transparent text-cb-accent;
+  }
+
+  .cb-spinner--sm {
+    @apply size-3 border-[1.5px];
+  }
+
+  .cb-spinner--lg {
+    @apply size-7;
+  }
+
+  .cb-loading {
+    @apply inline-flex items-center gap-2.5 text-cb-sm text-cb-muted;
+  }
+}

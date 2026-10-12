@@ -39,12 +39,13 @@
       scroll-behavior: auto;
     }
 
+    /* 0s y no 0.01ms: con una duracion minima visibility sigue oculta en el primer frame y el foco no entra */
     *,
     ::before,
     ::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
+      transition-duration: 0s !important;
       transition-delay: 0s !important;
     }
   }

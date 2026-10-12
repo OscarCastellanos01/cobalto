@@ -1,0 +1,64 @@
+@layer components {
+  .cb-stepper {
+    @apply flex list-none max-cb-sm:flex-col max-cb-sm:gap-4;
+  }
+
+  .cb-stepper__step {
+    @apply relative flex flex-1 items-start gap-3;
+
+    &:not(:last-child)::after {
+      content: "";
+      @apply mt-3.5 mr-3 h-px min-w-6 flex-1 bg-cb-line max-cb-sm:hidden;
+    }
+
+    &:last-child {
+      @apply flex-none;
+    }
+
+    &.is-complete:not(:last-child)::after {
+      @apply bg-cb-accent;
+    }
+  }
+
+  .cb-stepper__marker {
+    @apply relative z-1 grid size-7 shrink-0 place-items-center rounded-full border border-cb-line-2 bg-cb-bg text-cb-xs text-cb-muted cb-tabular;
+
+    .is-complete > & {
+      @apply border-cb-accent-bg bg-cb-accent-bg text-cb-accent-ink;
+    }
+
+    [aria-current="step"] > & {
+      @apply border-cb-accent text-cb-accent;
+      box-shadow: 0 0 0 3px var(--cb-accent-soft);
+    }
+  }
+
+  .cb-stepper__body {
+    @apply flex flex-col pt-1;
+  }
+
+  .cb-stepper__label {
+    @apply text-cb-base font-medium text-cb-muted;
+
+    [aria-current="step"] &,
+    .is-complete & {
+      @apply text-cb-text;
+    }
+  }
+
+  .cb-stepper__desc {
+    @apply text-cb-sm text-cb-dim;
+  }
+
+  .cb-stepper--vertical {
+    @apply flex-col gap-0;
+
+    & .cb-stepper__step {
+      @apply pb-8;
+
+      &:not(:last-child)::after {
+        @apply absolute top-9 bottom-1 left-3.5 m-0 block h-auto w-px min-w-0;
+      }
+    }
+  }
+}

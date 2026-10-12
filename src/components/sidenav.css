@@ -1,0 +1,72 @@
+@layer components {
+  .cb-sidenav {
+    @apply flex flex-col gap-6 text-cb-base;
+  }
+
+  .cb-sidenav--sticky {
+    @apply sticky top-[calc(var(--spacing-cb-nav)+24px)] max-h-[calc(100vh-var(--spacing-cb-nav)-48px)] overflow-y-auto pr-2;
+    scrollbar-width: thin;
+  }
+
+  .cb-sidenav__version {
+    @apply flex items-center gap-2;
+
+    & > .cb-select {
+      @apply flex-1;
+    }
+  }
+
+  .cb-sidenav__group {
+    @apply flex flex-col gap-1;
+  }
+
+  .cb-sidenav__title {
+    @apply mb-1 text-cb-xs tracking-cb-wider text-cb-dim uppercase;
+  }
+
+  .cb-sidenav__list {
+    @apply flex list-none flex-col border-l border-cb-line;
+  }
+
+  .cb-sidenav__link {
+    @apply -ml-px flex items-center justify-between gap-2 border-l border-transparent py-1.5 pl-4 text-cb-muted;
+    transition:
+      color var(--cb-duration-fast) var(--ease-cb),
+      border-color var(--cb-duration-fast) var(--ease-cb);
+
+    &:hover {
+      @apply border-cb-dim text-cb-text;
+    }
+
+    &[aria-current="page"],
+    &[aria-current="true"],
+    &.is-active {
+      @apply border-cb-accent text-cb-text;
+    }
+
+    &:focus-visible {
+      @apply outline-offset-[-2px];
+    }
+  }
+
+  .cb-sidenav__badge {
+    @apply text-cb-xs text-cb-accent;
+  }
+
+  .cb-toc {
+    @apply flex flex-col gap-2 text-cb-sm;
+  }
+
+  .cb-toc__title {
+    @apply text-cb-xs tracking-cb-wider text-cb-dim uppercase;
+  }
+
+  .cb-toc__link {
+    @apply block text-cb-muted transition-colors duration-(--cb-duration-fast) hover:text-cb-text;
+
+    &.is-active,
+    &[aria-current="true"] {
+      @apply text-cb-accent;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@layer components {
+  .cb-tooltip {
+    @apply pointer-events-none fixed top-0 left-0 z-(--cb-z-tooltip) max-w-[260px] rounded-cb-md border border-cb-line-2 bg-cb-bg-3 px-2.5 py-1.5 text-cb-xs text-cb-text opacity-0 shadow-cb-md;
+    transition: opacity var(--cb-duration-fast) var(--ease-cb);
+
+    &.is-visible {
+      @apply opacity-100;
+    }
+  }
+
+  .cb-popover {
+    @apply relative inline-block;
+  }
+
+  .cb-popover__panel {
+    @apply invisible absolute top-[calc(100%+10px)] left-0 z-(--cb-z-dropdown) w-[300px] max-w-[calc(100vw-32px)] -translate-y-1.5 rounded-cb-lg border border-cb-line-2 bg-cb-bg-2 p-4 text-cb-sm text-cb-muted opacity-0 shadow-cb-md;
+    transition:
+      opacity var(--cb-duration-pop) var(--ease-cb),
+      transform var(--cb-duration-pop) var(--ease-cb),
+      visibility 0s linear var(--cb-duration-pop);
+
+    .is-open > & {
+      @apply visible translate-y-0 opacity-100;
+      transition-delay: 0s;
+    }
+  }
+
+  .cb-popover__panel--end {
+    @apply right-0 left-auto;
+  }
+
+  .cb-popover__title {
+    @apply mb-1 text-cb-base font-semibold text-cb-text;
+  }
+}

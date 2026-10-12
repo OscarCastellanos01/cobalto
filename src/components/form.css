@@ -1,0 +1,252 @@
+@layer components {
+  .cb-field {
+    @apply flex flex-col gap-1.5;
+  }
+
+  .cb-field__label {
+    @apply text-cb-sm font-medium text-cb-text;
+  }
+
+  .cb-field__optional {
+    @apply ml-1 font-normal text-cb-dim;
+  }
+
+  .cb-field__hint {
+    @apply text-cb-sm text-cb-dim;
+  }
+
+  .cb-field__message {
+    @apply hidden text-cb-sm;
+  }
+
+  .cb-input {
+    @apply h-cb-control w-full min-w-0 rounded-cb border border-cb-line-2 bg-cb-bg-2 px-3 text-cb-base text-cb-text placeholder:text-cb-dim;
+    transition:
+      border-color var(--cb-duration-fast) var(--ease-cb),
+      box-shadow var(--cb-duration-fast) var(--ease-cb);
+
+    &:hover {
+      @apply border-cb-dim;
+    }
+
+    &:focus,
+    &:focus-visible {
+      @apply border-cb-accent outline-none;
+      box-shadow: 0 0 0 3px var(--cb-accent-soft);
+    }
+
+    &:disabled {
+      @apply cursor-not-allowed opacity-50;
+    }
+
+    &[readonly] {
+      @apply bg-cb-bg-3;
+    }
+  }
+
+  .cb-input--sm {
+    @apply h-cb-control-sm px-2.5 text-cb-sm;
+  }
+
+  .cb-input--lg {
+    @apply h-cb-control-lg px-4 text-cb-md;
+  }
+
+  .cb-textarea {
+    @apply h-auto min-h-24 resize-y py-2.5 leading-cb-normal;
+  }
+
+  .cb-select {
+    @apply relative block;
+
+    & > select {
+      @apply appearance-none pr-9;
+    }
+
+    /* el chevron va con mask para que tome el color del tema, un svg en background no puede */
+    &::after {
+      content: "";
+      @apply pointer-events-none absolute top-1/2 right-3 size-2.5 -translate-y-1/2 bg-cb-muted;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M2 3.5 5 6.5 8 3.5' fill='none' stroke='black' stroke-width='1.5'/%3E%3C/svg%3E")
+        center / contain no-repeat;
+    }
+  }
+
+  .cb-field--error,
+  .cb-field:has([aria-invalid="true"]) {
+    --cb-field-state: var(--cb-danger);
+  }
+
+  .cb-field--success {
+    --cb-field-state: var(--cb-success);
+  }
+
+  .cb-field--error,
+  .cb-field--success,
+  .cb-field:has([aria-invalid="true"]) {
+    & .cb-input {
+      border-color: var(--cb-field-state);
+    }
+
+    & .cb-input:focus {
+      box-shadow: 0 0 0 3px color-mix(in oklab, var(--cb-field-state) 18%, transparent);
+    }
+
+    & .cb-field__message {
+      @apply block;
+      color: var(--cb-field-state);
+    }
+  }
+
+  .cb-input-group {
+    @apply flex items-stretch;
+
+    & > .cb-input {
+      @apply rounded-none;
+    }
+
+    & > :first-child {
+      @apply rounded-l-cb;
+    }
+
+    & > :last-child {
+      @apply rounded-r-cb;
+    }
+
+    & > :not(:first-child) {
+      @apply -ml-px;
+    }
+
+    & > .cb-input:focus {
+      @apply z-10;
+    }
+  }
+
+  .cb-input-group__addon {
+    @apply flex shrink-0 items-center border border-cb-line-2 bg-cb-bg-3 px-3 text-cb-sm whitespace-nowrap text-cb-muted;
+  }
+
+  .cb-check {
+    @apply inline-flex cursor-pointer items-start gap-2.5 text-cb-base text-cb-text;
+
+    &:has(:disabled) {
+      @apply cursor-not-allowed opacity-50;
+    }
+  }
+
+  .cb-check__text {
+    @apply flex flex-col;
+  }
+
+  .cb-check__hint {
+    @apply text-cb-sm text-cb-dim;
+  }
+
+  .cb-checkbox,
+  .cb-radio {
+    @apply relative mt-[2px] grid size-4 shrink-0 cursor-pointer appearance-none place-items-center border border-cb-line-2 bg-cb-bg-2;
+    transition:
+      background-color var(--cb-duration-fast) var(--ease-cb),
+      border-color var(--cb-duration-fast) var(--ease-cb);
+
+    &:hover {
+      @apply border-cb-dim;
+    }
+
+    &:checked,
+    &:indeterminate {
+      @apply border-cb-accent-bg bg-cb-accent-bg;
+    }
+
+    &:disabled {
+      @apply cursor-not-allowed;
+    }
+  }
+
+  .cb-checkbox {
+    @apply rounded-cb-xs;
+
+    &::after {
+      content: "";
+      @apply size-3 scale-0 bg-cb-accent-ink transition-transform duration-(--cb-duration-fast);
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='m2.5 6.2 2.3 2.3 4.7-5' fill='none' stroke='black' stroke-width='1.8'/%3E%3C/svg%3E")
+        center / contain no-repeat;
+    }
+
+    &:checked::after {
+      @apply scale-100;
+    }
+
+    &:indeterminate::after {
+      @apply scale-100;
+      mask: none;
+      height: 2px;
+      width: 8px;
+    }
+  }
+
+  .cb-radio {
+    @apply rounded-full;
+
+    &::after {
+      content: "";
+      @apply size-1.5 scale-0 rounded-full bg-cb-accent-ink transition-transform duration-(--cb-duration-fast);
+    }
+
+    &:checked::after {
+      @apply scale-100;
+    }
+  }
+
+  .cb-switch {
+    @apply relative mt-px h-5 w-[34px] shrink-0 cursor-pointer appearance-none rounded-cb-full border border-cb-line-2 bg-cb-bg-3;
+    transition:
+      background-color var(--cb-duration) var(--ease-cb),
+      border-color var(--cb-duration) var(--ease-cb);
+
+    &::before {
+      content: "";
+      @apply absolute top-[2px] left-[2px] size-3.5 rounded-full bg-cb-muted;
+      transition:
+        transform var(--cb-duration) var(--ease-cb),
+        background-color var(--cb-duration) var(--ease-cb);
+    }
+
+    &:checked {
+      @apply border-cb-accent-bg bg-cb-accent-bg;
+    }
+
+    &:checked::before {
+      @apply translate-x-3.5 bg-cb-accent-ink;
+    }
+
+    &:disabled {
+      @apply cursor-not-allowed;
+    }
+  }
+
+  .cb-file {
+    @apply w-full rounded-cb border border-dashed border-cb-line-2 bg-cb-bg-2 p-1.5 text-cb-sm text-cb-muted;
+
+    &::file-selector-button {
+      @apply mr-3 h-cb-control-sm cursor-pointer rounded-cb-md border border-cb-line-2 bg-cb-bg-3 px-3 font-cb-sans text-cb-sm font-semibold text-cb-text;
+      transition: border-color var(--cb-duration-fast) var(--ease-cb);
+    }
+
+    &:hover::file-selector-button {
+      @apply border-cb-dim;
+    }
+
+    &:focus-visible {
+      @apply border-cb-accent;
+    }
+  }
+
+  .cb-fieldset {
+    @apply flex flex-col gap-3 border-0 p-0;
+  }
+
+  .cb-fieldset__legend {
+    @apply mb-1 text-cb-sm font-medium text-cb-text;
+  }
+}

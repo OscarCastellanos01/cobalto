@@ -386,3 +386,108 @@ export const theme = {
     syncMetaThemeColor();
   },
 };
+
+const dialogTriggers = { listening: false };
+
+function listenDialogTriggers() {
+  if (dialogTriggers.listening) return;
+  dialogTriggers.listening = true;
+  // delegado en document para que funcione con botones que Livewire o Alpine agregan despues
+  document.addEventListener('click', (event) => {
+    const trigger = event.target.closest('[data-cb-open]');
+    if (!trigger) return;
+    const target = resolveTarget(trigger.getAttribute('data-cb-open'));
+    if (!target?.cbDialog) return;
+    event.preventDefault();
+    target.cbDialog.open();
+  });
+}
+
+/**
+ * Crea el controlador de un overlay con foco atrapado (modal, drawer).
+ * @param {HTMLElement} el contenedor con el fondo
+ * @param {{ panel: string, title: string }} selectors
+ * @returns {{ open: () => void, close: () => void, toggle: () => void, isOpen: () => boolean }}
+ */
+export function createDialog(el, selectors) {
+  listenDialogTriggers();
+  const panel = el.querySelector(selectors.panel) || el;
+  const title = el.querySelector(`[data-cb-dialog-title], ${selectors.title}`);
+  let release = null;
+  let removeLayer = null;
+
+  panel.setAttribute('role', el.getAttribute('data-cb-role') || 'dialog');
+  panel.setAttribute('aria-modal', 'true');
+  if (title && !panel.hasAttribute('aria-label')) {
+    panel.setAttribute('aria-labelledby', ensureId(title, 'cb-dialog-title'));
+  }
+
+  function isOpen() {
+    return el.classList.contains('is-open');
+  }
+
+  function open() {
+    if (isOpen() || emit(el, 'open').defaultPrevented) return;
+    el.classList.add('is-open');
+    lockScroll();
+    release = trapFocus(panel);
+    removeLayer = pushLayer(close);
+  }
+
+  function close() {
+    if (!isOpen() || emit(el, 'close').defaultPrevented) return;
+    el.classList.remove('is-open');
+    unlockScroll();
+    if (removeLayer) removeLayer();
+    if (release) release();
+    release = null;
+    removeLayer = null;
+  }
+
+  function toggle() {
+    if (isOpen()) close();
+    else open();
+  }
+
+  el.addEventListener('mousedown', (event) => {
+    if (event.target === el && !el.hasAttribute('data-cb-static')) close();
+  });
+
+  el.addEventListener('click', (event) => {
+    if (event.target.closest('[data-cb-close]')) close();
+  });
+
+  const instance = { el, open, close, toggle, isOpen };
+  el.cbDialog = instance;
+  if (el.hasAttribute('data-cb-open-on-load')) requestAnimationFrame(open);
+  return instance;
+}
+
+let scrollObserver = null;
+
+function syncScrollable(el) {
+  const overflowing = el.scrollWidth > el.clientWidth || el.scrollHeight > el.clientHeight;
+  if (overflowing && !el.hasAttribute('tabindex')) {
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('data-cb-scrollable', '');
+  } else if (!overflowing && el.hasAttribute('data-cb-scrollable')) {
+    el.removeAttribute('tabindex');
+    el.removeAttribute('data-cb-scrollable');
+  }
+}
+
+/**
+ * Hace enfocable un contenedor con scroll solo mientras desborda,
+ * para que se pueda recorrer con el teclado.
+ * @param {HTMLElement} el
+ */
+export function focusableWhenScrollable(el) {
+  syncScrollable(el);
+  // el contenido cambia de ancho cuando carga la fuente aunque la caja no cambie
+  document.fonts?.ready.then(() => syncScrollable(el));
+  if (!('ResizeObserver' in window)) return;
+  scrollObserver ||= new ResizeObserver((entries) => {
+    entries.forEach((entry) => syncScrollable(entry.target));
+  });
+  scrollObserver.observe(el);
+}

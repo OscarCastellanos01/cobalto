@@ -1,0 +1,85 @@
+@layer components {
+  .cb-alert {
+    --cb-tone: var(--cb-accent);
+    @apply flex gap-3 rounded-cb-lg border p-4 text-cb-base;
+    border-color: color-mix(in oklab, var(--cb-tone) 40%, transparent);
+    background: color-mix(in oklab, var(--cb-tone) 7%, transparent);
+  }
+
+  .cb-alert--success {
+    --cb-tone: var(--cb-success);
+  }
+
+  .cb-alert--warning {
+    --cb-tone: var(--cb-warning);
+  }
+
+  .cb-alert--danger {
+    --cb-tone: var(--cb-danger);
+  }
+
+  .cb-alert--info {
+    --cb-tone: var(--cb-info);
+  }
+
+  .cb-alert__icon {
+    @apply mt-px size-4 shrink-0;
+    color: var(--cb-tone);
+  }
+
+  .cb-alert__body {
+    @apply flex min-w-0 flex-1 flex-col gap-1;
+  }
+
+  .cb-alert__title {
+    @apply font-semibold text-cb-text;
+  }
+
+  .cb-alert__text {
+    @apply text-cb-sm text-cb-muted;
+
+    & a {
+      @apply text-cb-text underline underline-offset-4;
+    }
+  }
+
+  .cb-alert__actions {
+    @apply mt-2 flex flex-wrap gap-2;
+  }
+
+  .cb-alert__close {
+    @apply -mt-1 -mr-1 grid size-6 shrink-0 place-items-center rounded-cb-xs text-cb-dim transition-colors duration-(--cb-duration-fast) hover:text-cb-text;
+
+    & > svg {
+      @apply size-3.5;
+    }
+  }
+
+  .cb-banner {
+    @apply flex items-center justify-center gap-3 bg-cb-accent-bg px-4 py-2.5 text-center text-cb-sm text-cb-accent-ink;
+
+    & a {
+      @apply font-semibold underline underline-offset-4;
+    }
+  }
+
+  .cb-banner--subtle {
+    @apply border-b border-cb-line bg-cb-bg-2 text-cb-muted;
+
+    & a {
+      @apply text-cb-accent;
+    }
+  }
+
+  .cb-banner__close {
+    @apply grid size-6 shrink-0 place-items-center rounded-cb-xs opacity-80 hover:opacity-100;
+
+    & > svg {
+      @apply size-3.5;
+    }
+  }
+
+  .is-dismissed {
+    @apply hidden;
+  }
+}

@@ -1,0 +1,73 @@
+@layer components {
+  .cb-avatar {
+    @apply relative inline-grid size-9 shrink-0 place-items-center rounded-full border border-cb-line-2 bg-cb-bg-3 text-cb-sm font-semibold text-cb-muted uppercase select-none;
+
+    & > img {
+      @apply size-full rounded-full object-cover;
+    }
+  }
+
+  .cb-avatar--sm {
+    @apply size-7 text-cb-xs;
+  }
+
+  .cb-avatar--lg {
+    @apply size-12 text-cb-base;
+  }
+
+  .cb-avatar--xl {
+    @apply size-16 text-cb-xl;
+  }
+
+  .cb-avatar--square {
+    @apply rounded-cb;
+
+    & > img {
+      @apply rounded-cb;
+    }
+  }
+
+  .cb-avatar--accent {
+    @apply border-cb-accent-line bg-cb-accent-soft text-cb-accent;
+  }
+
+  .cb-avatar__status {
+    @apply absolute -right-px -bottom-px size-2.5 rounded-full border-2 border-cb-bg bg-cb-dim;
+  }
+
+  .cb-avatar__status--online {
+    @apply bg-cb-success;
+  }
+
+  .cb-avatar__status--busy {
+    @apply bg-cb-danger;
+  }
+
+  .cb-avatar__status--away {
+    @apply bg-cb-warning;
+  }
+
+  .cb-avatar-group {
+    @apply flex items-center;
+
+    & > .cb-avatar {
+      @apply -ml-2 ring-2 ring-cb-bg first:ml-0;
+    }
+  }
+
+  .cb-avatar-group__more {
+    @apply text-cb-xs text-cb-dim;
+  }
+
+  .cb-user {
+    @apply flex min-w-0 items-center gap-3;
+  }
+
+  .cb-user__name {
+    @apply block truncate text-cb-base font-medium text-cb-text;
+  }
+
+  .cb-user__meta {
+    @apply block truncate text-cb-sm text-cb-dim;
+  }
+}

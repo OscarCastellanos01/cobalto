@@ -1,0 +1,22 @@
+@layer components {
+  .cb-breadcrumb {
+    @apply flex list-none flex-wrap items-center gap-2 text-cb-sm text-cb-dim;
+  }
+
+  .cb-breadcrumb__item {
+    @apply flex items-center gap-2;
+
+    & + &::before {
+      content: "/";
+      @apply text-cb-line-2;
+    }
+
+    & > a {
+      @apply text-cb-muted transition-colors duration-(--cb-duration-fast) hover:text-cb-text;
+    }
+
+    & > [aria-current="page"] {
+      @apply text-cb-text;
+    }
+  }
+}

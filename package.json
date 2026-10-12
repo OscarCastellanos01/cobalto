@@ -64,15 +64,18 @@
   ],
   "scripts": {
     "build": "npm run build:css && npm run build:js && npm run build:site",
-    "build:css": "tailwindcss -i ./scripts/dist.css -o ./dist/cobalto.css && tailwindcss -i ./scripts/dist.css -o ./dist/cobalto.min.css --minify",
+    "build:css": "tailwindcss -i ./scripts/dist.css -o ./dist/cobalto.css --optimize && tailwindcss -i ./scripts/dist.css -o ./dist/cobalto.min.css --minify",
     "build:js": "node ./scripts/build-js.mjs",
     "build:site": "node ./scripts/build-docs.mjs && tailwindcss -i ./docs/src/site.css -o ./docs/assets/site.css --minify",
     "dev": "tailwindcss -i ./docs/src/site.css -o ./docs/assets/site.css --watch",
-    "format": "prettier --write \"src/**/*.{css,js}\" \"scripts/**/*.{mjs,css}\" \"docs/src/**/*.{mjs,css}\"",
-    "format:check": "prettier --check \"src/**/*.{css,js}\" \"scripts/**/*.{mjs,css}\" \"docs/src/**/*.{mjs,css}\"",
+    "format": "prettier --write \"src/**/*.{css,js}\" \"scripts/**/*.{mjs,css}\" \"docs/src/**/*.{mjs,css,js}\"",
+    "format:check": "prettier --check \"src/**/*.{css,js}\" \"scripts/**/*.{mjs,css}\" \"docs/src/**/*.{mjs,css,js}\"",
     "lint:style": "node ./scripts/lint-style.mjs",
-    "test:visual": "node ./scripts/check-pages.mjs",
-    "prepublishOnly": "npm run build && npm run lint:style"
+    "test:contrast": "node ./scripts/check-contrast.mjs",
+    "test:a11y": "node ./scripts/check-pages.mjs examples/landing.html docs/index.html docs/personalizacion.html --all-themes --mobile --no-shots",
+    "test:smoke": "node ./scripts/smoke.mjs",
+    "test": "npm run lint:style && npm run test:contrast && npm run test:smoke",
+    "prepublishOnly": "npm run build && npm run lint:style && npm run test:contrast"
   },
   "peerDependencies": {
     "tailwindcss": "^4.0.0"

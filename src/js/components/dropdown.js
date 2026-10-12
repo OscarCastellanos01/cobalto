@@ -26,10 +26,15 @@ function focusItem(panel, index) {
   items[next].focus();
 }
 
-function createInstance(el) {
-  const trigger = el.querySelector('[data-cb-dropdown-trigger]') || el.querySelector('button');
-  const panel =
-    el.querySelector('[data-cb-dropdown-panel]') || el.querySelector('.cb-dropdown__panel');
+/**
+ * Panel que se abre desde un boton y se cierra con Esc o clic afuera.
+ * Lo usan el dropdown y el popover.
+ * @param {HTMLElement} el contenedor
+ * @param {{ trigger: HTMLElement, panel: HTMLElement, arrows?: boolean }} parts
+ * @returns {object | null}
+ */
+export function createDisclosure(el, { trigger, panel, arrows = true }) {
+  listenDocument();
   if (!trigger || !panel) return null;
 
   const isMenu = panel.getAttribute('role') === 'menu';
@@ -40,6 +45,7 @@ function createInstance(el) {
   trigger.setAttribute('aria-expanded', 'false');
   trigger.setAttribute('aria-controls', ensureId(panel, 'cb-dropdown'));
   if (isMenu) trigger.setAttribute('aria-haspopup', 'menu');
+  if (panel.getAttribute('role') === 'dialog') trigger.setAttribute('aria-haspopup', 'dialog');
 
   function isOpen() {
     return el.classList.contains('is-open');
@@ -82,6 +88,7 @@ function createInstance(el) {
   });
 
   trigger.addEventListener('keydown', (event) => {
+    if (!arrows) return;
     if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
       event.preventDefault();
       open();
@@ -90,6 +97,7 @@ function createInstance(el) {
   });
 
   panel.addEventListener('keydown', (event) => {
+    if (!arrows) return;
     const items = getItems(panel);
     const index = items.indexOf(document.activeElement);
     if (event.key === 'ArrowDown') {
@@ -136,6 +144,7 @@ function createInstance(el) {
   }
 
   const instance = { el, open, close, toggle, isOpen };
+  instances.add(instance);
   return instance;
 }
 
@@ -144,14 +153,21 @@ function createInstance(el) {
  * @param {ParentNode} [root]
  */
 export function init(root = document) {
-  listenDocument();
   queryAll(root, '[data-cb-dropdown]').forEach((el) => {
     if (!bind(el, 'dropdown')) return;
-    const instance = createInstance(el);
-    if (!instance) return;
-    instances.add(instance);
-    el.cbDropdown = instance;
+    const trigger = el.querySelector('[data-cb-dropdown-trigger]') || el.querySelector('button');
+    const panel =
+      el.querySelector('[data-cb-dropdown-panel]') || el.querySelector('.cb-dropdown__panel');
+    const instance = createDisclosure(el, { trigger, panel });
+    if (instance) el.cbDropdown = instance;
   });
+  forgetDisconnected();
+}
+
+/**
+ * Suelta las instancias cuyo elemento ya no esta en el documento.
+ */
+export function forgetDisconnected() {
   instances.forEach((instance) => {
     if (!instance.el.isConnected) instances.delete(instance);
   });

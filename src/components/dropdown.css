@@ -8,7 +8,7 @@
     transition:
       opacity var(--cb-duration-pop) var(--ease-cb),
       transform var(--cb-duration-pop) var(--ease-cb),
-      visibility var(--cb-duration-pop) var(--ease-cb);
+      visibility 0s linear var(--cb-duration-pop);
   }
 
   .cb-dropdown__panel--wide {
@@ -23,8 +23,10 @@
     @apply top-auto bottom-[calc(100%+10px)] translate-y-1.5;
   }
 
+  /* al abrir la visibilidad cambia ya, si no el foco no entra en el primer frame */
   .is-open > .cb-dropdown__panel {
     @apply visible translate-y-0 opacity-100;
+    transition-delay: 0s;
   }
 
   .cb-dropdown__item {
