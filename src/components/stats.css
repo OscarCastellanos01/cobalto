@@ -13,7 +13,7 @@
 
   /* el margen negativo esconde el borde de la ultima fila y columna sin depender de nth-child */
   .cb-stat {
-    @apply -mr-px -mb-px border-r border-b border-cb-line p-cb-card;
+    @apply -mr-px -mb-px border-r border-b border-cb-line p-cb-card max-cb-sm:p-5;
   }
 
   .cb-stat__value {

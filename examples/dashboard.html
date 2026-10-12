@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel · Cobalto</title>
+  <meta name="theme-color" content="#060b18">
+  <script>
+    try {
+      var t = localStorage.getItem('cb-theme');
+      var a = localStorage.getItem('cb-accent');
+      if (t) document.documentElement.setAttribute('data-cb-theme', t);
+      if (a) document.documentElement.setAttribute('data-cb-accent', a);
+    } catch (e) {}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../docs/assets/site.css">
+  <script src="../dist/cobalto.umd.js" defer></script>
+</head>
+<body>
+
+<div class="cb-dash">
+  <aside class="cb-dash__sidebar" id="sidebar" data-cb-dash-sidebar aria-label="Menú del panel">
+    <a href="#" class="cb-logo cb-dash__brand"><span class="cb-logo__mark" aria-hidden="true">N</span>Norte</a>
+    <nav class="cb-dash__nav" aria-label="Secciones">
+      <div class="cb-dash__group">
+        <p class="cb-dash__group-title">General</p>
+        <a class="cb-dash__link" href="#" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11 12 4l9 7v9H3z"/></svg>Resumen
+        </a>
+        <a class="cb-dash__link" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4zM4 9h16M9 9v11"/></svg>Pedidos<span class="cb-badge cb-badge--accent">8</span>
+        </a>
+        <a class="cb-dash__link" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/></svg>Clientes
+        </a>
+        <a class="cb-dash__link" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Reportes
+        </a>
+      </div>
+      <div class="cb-dash__group">
+        <p class="cb-dash__group-title">Inventario</p>
+        <a class="cb-dash__link" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5zM3 8l9 5 9-5M12 13v8"/></svg>Productos
+        </a>
+        <a class="cb-dash__link" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 7h13l5 5v5h-3M3 7v10h2M8 17h7"/><circle cx="6.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/></svg>Envíos<span class="cb-badge cb-badge--warning">2</span>
+        </a>
+      </div>
+    </nav>
+    <div class="cb-dash__sidebar-foot">
+      <div class="cb-user">
+        <span class="cb-avatar cb-avatar--accent">MR<span class="cb-avatar__status cb-avatar__status--online" role="img" aria-label="En línea"></span></span>
+        <span class="min-w-0"><span class="cb-user__name">María Ramírez</span><span class="cb-user__meta">Administradora</span></span>
+      </div>
+    </div>
+  </aside>
+  <div class="cb-dash__scrim" data-cb-dash-scrim="sidebar"></div>
+
+  <div class="cb-dash__main">
+    <header class="cb-dash__topbar">
+      <button class="cb-icon-btn cb-dash__toggle" type="button" data-cb-dash-toggle="sidebar" aria-label="Abrir menú">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav aria-label="Ruta">
+        <ol class="cb-breadcrumb">
+          <li class="cb-breadcrumb__item"><a href="#">Panel</a></li>
+          <li class="cb-breadcrumb__item"><span aria-current="page">Resumen</span></li>
+        </ol>
+      </nav>
+      <div class="cb-dash__topbar-actions">
+        <button class="cb-search-btn" type="button" data-cb-command-open="search" aria-label="Buscar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <span class="cb-search-btn__text">Buscar</span><kbd data-cb-kbd-mod="K">⌘K</kbd>
+        </button>
+        <button class="cb-icon-btn" type="button" data-cb-theme-toggle aria-label="Cambiar tema">
+          <svg class="cb-theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="cb-theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <div class="cb-dropdown" data-cb-dropdown>
+          <button class="cb-icon-btn" type="button" data-cb-dropdown-trigger aria-label="Cuenta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+          </button>
+          <div class="cb-dropdown__panel cb-dropdown__panel--end" role="menu" aria-label="Cuenta">
+            <p class="cb-dropdown__label">María Ramírez</p>
+            <a class="cb-dropdown__item" href="#" role="menuitem">Perfil</a>
+            <a class="cb-dropdown__item" href="#" role="menuitem">Configuración</a>
+            <hr class="cb-dropdown__divider">
+            <a class="cb-dropdown__item cb-dropdown__item--danger" href="#" role="menuitem">Cerrar sesión</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="cb-dash__content" id="contenido">
+      <div class="cb-dash__header">
+        <div>
+          <div class="cb-label"><b>01/</b>Octubre 2026</div>
+          <h1 class="cb-dash__title mt-2">Resumen</h1>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <button class="cb-btn cb-btn--outline" type="button" data-cb-toast='{"title": "Reporte en camino", "message": "Te lo enviaremos por correo en unos minutos.", "variant": "info"}'>Exportar</button>
+          <button class="cb-btn cb-btn--primary" type="button" data-cb-open="new-order">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Nuevo pedido
+          </button>
+        </div>
+      </div>
+
+      <div class="cb-alert cb-alert--warning" role="status">
+        <svg class="cb-alert__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg>
+        <div class="cb-alert__body"><p class="cb-alert__title">Dos envíos con retraso</p><p class="cb-alert__text">La transportadora reportó un atraso en la ruta a Quetzaltenango. <a href="#">Ver envíos</a></p></div>
+        <button class="cb-alert__close" type="button" data-cb-dismiss aria-label="Cerrar aviso"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      </div>
+
+      <div class="cb-stats mt-0">
+        <div class="cb-stat"><span class="cb-stat__label">Ventas del mes</span><strong class="cb-stat__value">Q 48,210</strong><span class="cb-stat__delta">+12.4% vs. septiembre</span></div>
+        <div class="cb-stat"><span class="cb-stat__label">Pedidos</span><strong class="cb-stat__value">312</strong><span class="cb-stat__delta">+3.1%</span></div>
+        <div class="cb-stat"><span class="cb-stat__label">Ticket promedio</span><strong class="cb-stat__value">Q 154</strong><span class="cb-stat__delta">+8.9%</span></div>
+        <div class="cb-stat"><span class="cb-stat__label">Devoluciones</span><strong class="cb-stat__value">9</strong><span class="cb-stat__delta cb-stat__delta--down">+2 casos</span></div>
+      </div>
+
+      <div class="grid gap-6 xl:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+        <section class="cb-panel" aria-labelledby="sales-title">
+          <div class="cb-panel__head">
+            <h2 class="cb-panel__title" id="sales-title">Ventas por semana</h2>
+            <div class="cb-tabs cb-tabs--pills" data-cb-tabs>
+              <div class="cb-tabs__list" aria-label="Periodo">
+                <button class="cb-tabs__tab" type="button">Mes</button>
+                <button class="cb-tabs__tab" type="button">Trimestre</button>
+              </div>
+            </div>
+          </div>
+          <div class="cb-panel__body">
+            <div class="relative h-[220px]" role="img" aria-label="Ventas semanales: subieron de forma constante y la semana 5 fue la más alta">
+              <div class="cb-viz cb-viz--bars inset-x-0 bottom-0 h-full gap-3">
+                <i style="height: 38%"></i><i style="height: 52%"></i><i style="height: 47%"></i><i style="height: 66%"></i><i class="is-accent" style="height: 92%"></i><i style="height: 71%"></i><i style="height: 63%"></i><i style="height: 78%"></i>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cb-panel" aria-labelledby="goals-title">
+          <div class="cb-panel__head"><h2 class="cb-panel__title" id="goals-title">Metas</h2><span class="cb-tag cb-tag--live">En curso</span></div>
+          <div class="cb-panel__body flex flex-col gap-6">
+            <div class="cb-progress">
+              <div class="cb-progress__head"><span class="cb-progress__label" id="g1">Ventas</span><span class="cb-progress__value">80%</span></div>
+              <div class="cb-progress__track" role="progressbar" aria-labelledby="g1" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"><div class="cb-progress__bar" style="--cb-progress: 80%"></div></div>
+            </div>
+            <div class="cb-progress cb-progress--success">
+              <div class="cb-progress__head"><span class="cb-progress__label" id="g2">Clientes nuevos</span><span class="cb-progress__value">42 de 50</span></div>
+              <div class="cb-progress__track" role="progressbar" aria-labelledby="g2" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100"><div class="cb-progress__bar" style="--cb-progress: 84%"></div></div>
+            </div>
+            <div class="cb-progress cb-progress--warning">
+              <div class="cb-progress__head"><span class="cb-progress__label" id="g3">Envíos a tiempo</span><span class="cb-progress__value">61%</span></div>
+              <div class="cb-progress__track" role="progressbar" aria-labelledby="g3" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"><div class="cb-progress__bar" style="--cb-progress: 61%"></div></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="cb-table-wrap" aria-labelledby="orders-title" data-cb-table data-cb-page-size="6">
+        <div class="cb-table-toolbar">
+          <h2 class="cb-panel__title" id="orders-title">Últimos pedidos</h2>
+          <div class="cb-table-toolbar__filters">
+            <input class="cb-input cb-input--sm" type="search" placeholder="Buscar pedido o cliente" aria-label="Buscar pedidos" data-cb-table-search>
+            <div class="cb-select"><select class="cb-input cb-input--sm" aria-label="Filtrar por estado" data-cb-table-filter="estado"><option value="">Todos</option><option value="pagado">Pagado</option><option value="pendiente">Pendiente</option><option value="vencido">Vencido</option></select></div>
+          </div>
+        </div>
+        <div class="cb-table-scroll">
+          <table class="cb-table">
+            <thead>
+              <tr>
+                <th class="cb-table__check"><input class="cb-checkbox" type="checkbox" data-cb-table-select-all aria-label="Seleccionar página"></th>
+                <th scope="col" data-cb-sort>Pedido</th>
+                <th scope="col" data-cb-sort>Cliente</th>
+                <th scope="col">Estado</th>
+                <th scope="col" class="cb-table__num" data-cb-sort="number">Total</th>
+                <th scope="col" data-cb-sort="date">Fecha</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-estado="pagado"><td><input class="cb-checkbox" type="checkbox" data-cb-table-select aria-label="Seleccionar pedido 1042"></td><td class="cb-table__strong">#1042</td><td>Ferretería El Centro</td><td><span class="cb-tag cb-tag--success">Pagado</span></td><td class="cb-table__num" data-value="1250">Q 1,250</td><td data-value="2026-10-11">11 oct</td></tr>
+              <tr data-estado="pendiente"><td><input class="cb-checkbox" type="checkbox" data-cb-table-select aria-label="Seleccionar pedido 1041"></td><td class="cb-table__strong">#1041</td><td>Logística Norte</td><td><span class="cb-tag cb-tag--warning">Pendiente</span></td><td class="cb-table__num" data-value="3480">Q 3,480</td><td data-value="2026-10-10">10 oct</td></tr>
+              <tr data-estado="pagado"><td><input class="cb-checkbox" type="checkbox" data-cb-table-select aria-label="Seleccionar pedido 1040"></td><td class="cb-table__strong">#1040</td><td>Café Altura</td><td><span class="cb-tag cb-tag--success">Pagado</span></td><td class="cb-table__num" data-value="640">Q 640</td><td data-value="2026-10-10">10 oct</td></tr>
+              <tr data-estado="vencido"><td><input class="cb-checkbox" type="checkbox" data-cb-table-select aria-label="Seleccionar pedido 1039"></td><td class="cb-table__strong">#1039</td><td>Clínica San José</td><td><span class="cb-tag cb-tag--danger">Vencido</span></td><td class="cb-table__num" data-value="2100">Q 2,100</td><td data-value="2026-09-28">28 sep</td></tr>
+              <tr data-estado="pagado"><td><input class="cb-checkbox" type="checkbox" data-cb-table-select aria-label="Seleccionar pedido 1038"></td><td class="cb-table__strong">#1038</td><td>Panadería Doña Tere</td><td><span class="cb-tag cb-tag--success">Pagado</span></td><td class="cb-table__num" data-value="380">Q 380</td><td data-value="2026-10-08">8 oct</td></tr>
+              <tr data-estado="pendiente"><td><input class="cb-checkbox" type="checkbox" data-cb-table-select aria-label="Seleccionar pedido 1037"></td><td class="cb-table__strong">#1037</td><td>Colegio Las Rosas</td><td><span class="cb-tag cb-tag--warning">Pendiente</span></td><td class="cb-table__num" data-value="5200">Q 5,200</td><td data-value="2026-10-07">7 oct</td></tr>
+              <tr data-estado="pagado"><td><input class="cb-checkbox" type="checkbox" data-cb-table-select aria-label="Seleccionar pedido 1036"></td><td class="cb-table__strong">#1036</td><td>Taller Méndez</td><td><span class="cb-tag cb-tag--success">Pagado</span></td><td class="cb-table__num" data-value="910">Q 910</td><td data-value="2026-10-05">5 oct</td></tr>
+              <tr data-estado="pagado"><td><input class="cb-checkbox" type="checkbox" data-cb-table-select aria-label="Seleccionar pedido 1035"></td><td class="cb-table__strong">#1035</td><td>Farmacia Vida</td><td><span class="cb-tag cb-tag--success">Pagado</span></td><td class="cb-table__num" data-value="1730">Q 1,730</td><td data-value="2026-10-03">3 oct</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="cb-table-footer">
+          <span data-cb-table-status aria-live="polite"></span>
+          <nav data-cb-table-pagination aria-label="Paginación de pedidos"></nav>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<div class="cb-modal" id="new-order" data-cb-modal>
+  <div class="cb-modal__panel">
+    <div class="cb-modal__head">
+      <div><h2 class="cb-modal__title">Nuevo pedido</h2><p class="cb-modal__desc">Se notificará al cliente por correo.</p></div>
+      <button class="cb-modal__close" type="button" data-cb-close aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <form class="cb-modal__body flex flex-col gap-4" id="order-form">
+      <div class="cb-field">
+        <label class="cb-field__label" for="order-client">Cliente</label>
+        <div class="cb-select"><select class="cb-input" id="order-client"><option>Ferretería El Centro</option><option>Logística Norte</option><option>Café Altura</option></select></div>
+      </div>
+      <div class="cb-field">
+        <label class="cb-field__label" for="order-total">Total</label>
+        <div class="cb-input-group"><span class="cb-input-group__addon">Q</span><input class="cb-input" id="order-total" inputmode="decimal" placeholder="0.00" required></div>
+      </div>
+      <label class="cb-check"><input class="cb-switch" type="checkbox" role="switch" checked>Enviar factura al guardar</label>
+    </form>
+    <div class="cb-modal__foot">
+      <button class="cb-btn cb-btn--outline" type="button" data-cb-close>Cancelar</button>
+      <button class="cb-btn cb-btn--primary" type="submit" form="order-form">Crear pedido</button>
+    </div>
+  </div>
+</div>
+
+<div class="cb-command" id="search" data-cb-command data-cb-command-hotkey="k">
+  <div class="cb-command__panel" aria-label="Buscar">
+    <div class="cb-command__head">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input class="cb-command__input" data-cb-command-input placeholder="Buscar pedidos, clientes, acciones..." aria-label="Buscar">
+      <kbd>Esc</kbd>
+    </div>
+    <div class="cb-command__results" data-cb-command-results></div>
+    <div class="cb-command__foot"><span><kbd>↑</kbd> <kbd>↓</kbd> navegar</span><span><kbd>↵</kbd> abrir</span><span><kbd>Esc</kbd> cerrar</span></div>
+  </div>
+  <script type="application/json" data-cb-command-items>
+    [
+      { "group": "Ir a", "label": "Resumen", "href": "#contenido" },
+      { "group": "Ir a", "label": "Pedidos", "href": "#orders-title" },
+      { "group": "Clientes", "label": "Ferretería El Centro", "href": "#" },
+      { "group": "Clientes", "label": "Logística Norte", "href": "#" },
+      { "group": "Acciones", "label": "Nuevo pedido", "hint": "N" }
+    ]
+  </script>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('order-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      cobalto.modal.close('new-order');
+      cobalto.toast({ title: 'Pedido creado', message: 'Se envió la factura al cliente.', variant: 'success' });
+    });
+    document.getElementById('search').addEventListener('cb:select', function (event) {
+      if (event.detail.item.label !== 'Nuevo pedido') return;
+      event.preventDefault();
+      setTimeout(function () { cobalto.modal.open('new-order'); });
+    });
+  });
+</script>
+</body>
+</html>

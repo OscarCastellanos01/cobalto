@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Progress bar · Cobalto</title>
+  <meta name="description" content="Barra de progreso determinada o indeterminada, con etiqueta y valor.">
+  <meta name="theme-color" content="#060b18">
+  <script>
+    try {
+      var t = localStorage.getItem('cb-theme');
+      var a = localStorage.getItem('cb-accent');
+      if (t) document.documentElement.setAttribute('data-cb-theme', t);
+      if (a) document.documentElement.setAttribute('data-cb-accent', a);
+    } catch (e) {}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/cobalto.umd.js" defer></script>
+  <script src="../assets/docs.js" defer></script>
+</head>
+<body>
+<a class="cb-btn cb-btn--primary sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[200]" href="#contenido">Saltar al contenido</a>
+
+<header class="cb-nav">
+  <div class="cb-nav__inner max-w-[1440px]">
+    <button class="cb-icon-btn cb-nav__burger" type="button" data-cb-open="docs-menu" aria-label="Abrir navegacion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a href="../index.html" class="cb-logo"><span class="cb-logo__mark" aria-hidden="true">C</span>Cobalto<span class="cb-badge cb-badge--accent max-cb-sm:hidden">v0.1.0</span></a>
+    <nav aria-label="Principal">
+      <ul class="cb-nav__menu">
+        <li class="cb-nav__item"><a class="cb-nav__link" href="../instalacion.html">Instalación</a></li>
+        <li class="cb-nav__item"><a class="cb-nav__link" href="../personalizacion.html">Personalización</a></li>
+        <li class="cb-nav__item"><a class="cb-nav__link" href="../componentes/botones.html" aria-current="page">Componentes</a></li>
+        <li class="cb-nav__item"><a class="cb-nav__link" href="../../examples/landing.html">Ejemplos</a></li>
+      </ul>
+    </nav>
+    <div class="cb-nav__actions">
+      <button class="cb-search-btn" type="button" data-cb-command-open="docs-search" aria-label="Buscar en la documentacion">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="cb-search-btn__text">Buscar</span><kbd data-cb-kbd-mod="K">⌘K</kbd>
+      </button>
+      <div class="cb-dropdown" data-cb-dropdown>
+    <button class="cb-icon-btn" type="button" data-cb-dropdown-trigger aria-label="Tema de color"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="8.5" cy="10" r="1.2"/><circle cx="12" cy="7.5" r="1.2"/><circle cx="15.5" cy="10" r="1.2"/></svg></button>
+    <div class="cb-dropdown__panel cb-dropdown__panel--end" role="menu" aria-label="Tema de color">
+      <p class="cb-dropdown__label">Tema de color</p>
+      <button class="cb-dropdown__item" type="button" role="menuitemradio" data-cb-accent-set="cobalto"><span class="docs-swatch-dot" data-cb-accent="cobalto" aria-hidden="true"></span>Cobalto</button>
+<button class="cb-dropdown__item" type="button" role="menuitemradio" data-cb-accent-set="esmeralda"><span class="docs-swatch-dot" data-cb-accent="esmeralda" aria-hidden="true"></span>Esmeralda</button>
+<button class="cb-dropdown__item" type="button" role="menuitemradio" data-cb-accent-set="ambar"><span class="docs-swatch-dot" data-cb-accent="ambar" aria-hidden="true"></span>Ámbar</button>
+<button class="cb-dropdown__item" type="button" role="menuitemradio" data-cb-accent-set="rubi"><span class="docs-swatch-dot" data-cb-accent="rubi" aria-hidden="true"></span>Rubí</button>
+<button class="cb-dropdown__item" type="button" role="menuitemradio" data-cb-accent-set="violeta"><span class="docs-swatch-dot" data-cb-accent="violeta" aria-hidden="true"></span>Violeta</button>
+<button class="cb-dropdown__item" type="button" role="menuitemradio" data-cb-accent-set="grafito"><span class="docs-swatch-dot" data-cb-accent="grafito" aria-hidden="true"></span>Grafito</button>
+    </div>
+  </div>
+      <button class="cb-icon-btn" type="button" data-cb-theme-toggle aria-label="Cambiar entre modo claro y oscuro">
+        <svg class="cb-theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="cb-theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a href="https://github.com/oscarcastellanos/cobalto" class="cb-btn cb-btn--outline cb-nav__collapse">GitHub ↗</a>
+    </div>
+  </div>
+</header>
+
+<div class="cb-drawer cb-drawer--left" id="docs-menu" data-cb-drawer>
+  <div class="cb-drawer__panel">
+    <div class="cb-drawer__head">
+      <p class="cb-drawer__title">Documentación</p>
+      <button class="cb-drawer__close" type="button" data-cb-close aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <div class="cb-drawer__body"><nav class="cb-sidenav" aria-label="Documentacion">
+    <div class="cb-sidenav__version">
+      <label class="cb-sr-only" for="drawer-version">Version</label>
+      <div class="cb-select"><select class="cb-input cb-input--sm" id="drawer-version" data-cb-version-select>
+        <option value="" selected>v0.1.0 (actual)</option>
+        <option value="https://github.com/oscarcastellanos/cobalto/blob/main/CHANGELOG.md">Changelog</option>
+      </select></div>
+    </div>
+    <div class="cb-sidenav__group">
+        <p class="cb-sidenav__title">Empezar</p>
+        <ul class="cb-sidenav__list">
+          <li><a class="cb-sidenav__link" href="../index.html">Introducción</a></li>
+<li><a class="cb-sidenav__link" href="../instalacion.html">Instalación</a></li>
+<li><a class="cb-sidenav__link" href="../personalizacion.html">Personalización</a></li>
+        </ul>
+      </div>
+<div class="cb-sidenav__group">
+        <p class="cb-sidenav__title">Estructura</p>
+        <ul class="cb-sidenav__list">
+          <li><a class="cb-sidenav__link" href="../componentes/topbar.html">Barra de anuncio</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/navbar.html">Navbar</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/menu-movil.html">Menú móvil</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/hero.html">Hero</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/section-header.html">Encabezado de sección</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/footer.html">Footer</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/sidebar-docs.html">Sidebar de documentación</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/dashboard.html">Layout de dashboard</a></li>
+        </ul>
+      </div>
+<div class="cb-sidenav__group">
+        <p class="cb-sidenav__title">Contenido</p>
+        <ul class="cb-sidenav__list">
+          <li><a class="cb-sidenav__link" href="../componentes/card.html">Card</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/grid.html">Grid de cards</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/principios.html">Lista de principios</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/stats.html">Stats</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/cta.html">CTA</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/pricing.html">Pricing</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/testimonios.html">Testimonios</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/timeline.html">Timeline y changelog</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/empty-state.html">Empty state</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/codigo.html">Bloque de código</a></li>
+        </ul>
+      </div>
+<div class="cb-sidenav__group">
+        <p class="cb-sidenav__title">Acciones y etiquetas</p>
+        <ul class="cb-sidenav__list">
+          <li><a class="cb-sidenav__link" href="../componentes/botones.html">Botones</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/chips-tags.html">Chips y tags</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/badge-avatar.html">Badge y avatar</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/dropdown.html">Dropdown</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/breadcrumb.html">Breadcrumb</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/paginacion.html">Paginación</a></li>
+        </ul>
+      </div>
+<div class="cb-sidenav__group">
+        <p class="cb-sidenav__title">Formularios y datos</p>
+        <ul class="cb-sidenav__list">
+          <li><a class="cb-sidenav__link" href="../componentes/formularios.html">Formularios</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/tabla.html">Tabla de datos</a></li>
+        </ul>
+      </div>
+<div class="cb-sidenav__group">
+        <p class="cb-sidenav__title">Overlays</p>
+        <ul class="cb-sidenav__list">
+          <li><a class="cb-sidenav__link" href="../componentes/modal.html">Modal</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/drawer.html">Drawer</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/command-palette.html">Command palette</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/tooltip-popover.html">Tooltip y popover</a></li>
+        </ul>
+      </div>
+<div class="cb-sidenav__group">
+        <p class="cb-sidenav__title">Interacción y estado</p>
+        <ul class="cb-sidenav__list">
+          <li><a class="cb-sidenav__link" href="../componentes/tabs.html">Tabs</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/accordion.html">Accordion / FAQ</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/toast.html">Toast</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/alert.html">Alert y banner</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/progress.html" aria-current="page">Progress bar</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/skeleton-spinner.html">Skeleton y spinner</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/stepper.html">Stepper</a></li>
+        </ul>
+      </div>
+  </nav></div>
+  </div>
+</div>
+
+<div class="docs-shell">
+  <aside class="docs-aside">
+    <div class="cb-sidenav--sticky"><nav class="cb-sidenav" aria-label="Documentacion">
+    <div class="cb-sidenav__version">
+      <label class="cb-sr-only" for="version">Version</label>
+      <div class="cb-select"><select class="cb-input cb-input--sm" id="version" data-cb-version-select>
+        <option value="" selected>v0.1.0 (actual)</option>
+        <option value="https://github.com/oscarcastellanos/cobalto/blob/main/CHANGELOG.md">Changelog</option>
+      </select></div>
+    </div>
+    <div class="cb-sidenav__group">
+        <p class="cb-sidenav__title">Empezar</p>
+        <ul class="cb-sidenav__list">
+          <li><a class="cb-sidenav__link" href="../index.html">Introducción</a></li>
+<li><a class="cb-sidenav__link" href="../instalacion.html">Instalación</a></li>
+<li><a class="cb-sidenav__link" href="../personalizacion.html">Personalización</a></li>
+        </ul>
+      </div>
+<div class="cb-sidenav__group">
+        <p class="cb-sidenav__title">Estructura</p>
+        <ul class="cb-sidenav__list">
+          <li><a class="cb-sidenav__link" href="../componentes/topbar.html">Barra de anuncio</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/navbar.html">Navbar</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/menu-movil.html">Menú móvil</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/hero.html">Hero</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/section-header.html">Encabezado de sección</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/footer.html">Footer</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/sidebar-docs.html">Sidebar de documentación</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/dashboard.html">Layout de dashboard</a></li>
+        </ul>
+      </div>
+<div class="cb-sidenav__group">
+        <p class="cb-sidenav__title">Contenido</p>
+        <ul class="cb-sidenav__list">
+          <li><a class="cb-sidenav__link" href="../componentes/card.html">Card</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/grid.html">Grid de cards</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/principios.html">Lista de principios</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/stats.html">Stats</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/cta.html">CTA</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/pricing.html">Pricing</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/testimonios.html">Testimonios</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/timeline.html">Timeline y changelog</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/empty-state.html">Empty state</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/codigo.html">Bloque de código</a></li>
+        </ul>
+      </div>
+<div class="cb-sidenav__group">
+        <p class="cb-sidenav__title">Acciones y etiquetas</p>
+        <ul class="cb-sidenav__list">
+          <li><a class="cb-sidenav__link" href="../componentes/botones.html">Botones</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/chips-tags.html">Chips y tags</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/badge-avatar.html">Badge y avatar</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/dropdown.html">Dropdown</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/breadcrumb.html">Breadcrumb</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/paginacion.html">Paginación</a></li>
+        </ul>
+      </div>
+<div class="cb-sidenav__group">
+        <p class="cb-sidenav__title">Formularios y datos</p>
+        <ul class="cb-sidenav__list">
+          <li><a class="cb-sidenav__link" href="../componentes/formularios.html">Formularios</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/tabla.html">Tabla de datos</a></li>
+        </ul>
+      </div>
+<div class="cb-sidenav__group">
+        <p class="cb-sidenav__title">Overlays</p>
+        <ul class="cb-sidenav__list">
+          <li><a class="cb-sidenav__link" href="../componentes/modal.html">Modal</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/drawer.html">Drawer</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/command-palette.html">Command palette</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/tooltip-popover.html">Tooltip y popover</a></li>
+        </ul>
+      </div>
+<div class="cb-sidenav__group">
+        <p class="cb-sidenav__title">Interacción y estado</p>
+        <ul class="cb-sidenav__list">
+          <li><a class="cb-sidenav__link" href="../componentes/tabs.html">Tabs</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/accordion.html">Accordion / FAQ</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/toast.html">Toast</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/alert.html">Alert y banner</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/progress.html" aria-current="page">Progress bar</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/skeleton-spinner.html">Skeleton y spinner</a></li>
+<li><a class="cb-sidenav__link" href="../componentes/stepper.html">Stepper</a></li>
+        </ul>
+      </div>
+  </nav></div>
+  </aside>
+  <main class="docs-main" id="contenido" tabindex="-1">
+<header class="docs-header">
+  <div class="cb-label"><b>35/</b>Interacción y estado</div>
+  <h1 class="cb-h2">Progress bar</h1>
+  <p class="cb-lead">Barra de progreso determinada o indeterminada, con etiqueta y valor.</p>
+</header><section class="docs-section" id="con-etiqueta">
+  <h2 class="docs-section__title">Con etiqueta</h2>
+  
+  <div class="docs-example">
+    <div class="docs-preview docs-preview--block">
+<div class="flex max-w-[520px] flex-col gap-6">
+  <div class="cb-progress">
+    <div class="cb-progress__head"><span class="cb-progress__label" id="p1">Subiendo archivo</span><span class="cb-progress__value">64%</span></div>
+    <div class="cb-progress__track" role="progressbar" aria-labelledby="p1" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100"><div class="cb-progress__bar" style="--cb-progress: 64%"></div></div>
+  </div>
+  <div class="cb-progress cb-progress--success cb-progress--sm">
+    <div class="cb-progress__head"><span class="cb-progress__label" id="p2">Almacenamiento</span><span class="cb-progress__value">2.1 de 10 GB</span></div>
+    <div class="cb-progress__track" role="progressbar" aria-labelledby="p2" aria-valuenow="21" aria-valuemin="0" aria-valuemax="100"><div class="cb-progress__bar" style="--cb-progress: 21%"></div></div>
+  </div>
+  <div class="cb-progress cb-progress--indeterminate">
+    <div class="cb-progress__head"><span class="cb-progress__label" id="p3">Procesando</span></div>
+    <div class="cb-progress__track" role="progressbar" aria-labelledby="p3"><div class="cb-progress__bar"></div></div>
+  </div>
+</div>
+    </div>
+    <div class="cb-code">
+  <div class="cb-code__head"><span>HTML</span><button class="cb-code__copy" type="button" data-cb-copy><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span data-cb-copy-label>Copiar</span></button></div>
+  <pre class="cb-code__pre"><code><span class="cb-tok-tag">&lt;div</span> <span class="cb-tok-attr">class</span>=<span class="cb-tok-str">&quot;flex max-w-[520px] flex-col gap-6&quot;</span><span class="cb-tok-tag">&gt;</span>
+  <span class="cb-tok-tag">&lt;div</span> <span class="cb-tok-attr">class</span>=<span class="cb-tok-str">&quot;cb-progress&quot;</span><span class="cb-tok-tag">&gt;</span>
+    <span class="cb-tok-tag">&lt;div</span> <span class="cb-tok-attr">class</span>=<span class="cb-tok-str">&quot;cb-progress__head&quot;</span><span class="cb-tok-tag">&gt;</span><span class="cb-tok-tag">&lt;span</span> <span class="cb-tok-attr">class</span>=<span class="cb-tok-str">&quot;cb-progress__label&quot;</span> <span class="cb-tok-attr">id</span>=<span class="cb-tok-str">&quot;p1&quot;</span><span class="cb-tok-tag">&gt;</span>Subiendo archivo<span class="cb-tok-tag">&lt;/span</span><span class="cb-tok-tag">&gt;</span><span class="cb-tok-tag">&lt;span</span> <span class="cb-tok-attr">class</span>=<span class="cb-tok-str">&quot;cb-progress__value&quot;</span><span class="cb-tok-tag">&gt;</span>64%<span class="cb-tok-tag">&lt;/span</span><span class="cb-tok-tag">&gt;</span><span class="cb-tok-tag">&lt;/div</span><span class="cb-tok-tag">&gt;</span>
+    <span class="cb-tok-tag">&lt;div</span> <span class="cb-tok-attr">class</span>=<span class="cb-tok-str">&quot;cb-progress__track&quot;</span> <span class="cb-tok-attr">role</span>=<span class="cb-tok-str">&quot;progressbar&quot;</span> <span class="cb-tok-attr">aria-labelledby</span>=<span class="cb-tok-str">&quot;p1&quot;</span> <span class="cb-tok-attr">aria-valuenow</span>=<span class="cb-tok-str">&quot;64&quot;</span> <span class="cb-tok-attr">aria-valuemin</span>=<span class="cb-tok-str">&quot;0&quot;</span> <span class="cb-tok-attr">aria-valuemax</span>=<span class="cb-tok-str">&quot;100&quot;</span><span class="cb-tok-tag">&gt;</span><span class="cb-tok-tag">&lt;div</span> <span class="cb-tok-attr">class</span>=<span class="cb-tok-str">&quot;cb-progress__bar&quot;</span> <span class="cb-tok-attr">style</span>=<span class="cb-tok-str">&quot;--cb-progress: 64%&quot;</span><span class="cb-tok-tag">&gt;</span><span class="cb-tok-tag">&lt;/div</span><span class="cb-tok-tag">&gt;</span><span class="cb-tok-tag">&lt;/div</span><span class="cb-tok-tag">&gt;</span>
+  <span class="cb-tok-tag">&lt;/div</span><span class="cb-tok-tag">&gt;</span>
+  <span class="cb-tok-tag">&lt;div</span> <span class="cb-tok-attr">class</span>=<span class="cb-tok-str">&quot;cb-progress cb-progress--success cb-progress--sm&quot;</span><span class="cb-tok-tag">&gt;</span>
+    <span class="cb-tok-tag">&lt;div</span> <span class="cb-tok-attr">class</span>=<span class="cb-tok-str">&quot;cb-progress__head&quot;</span><span class="cb-tok-tag">&gt;</span><span class="cb-tok-tag">&lt;span</span> <span class="cb-tok-attr">class</span>=<span class="cb-tok-str">&quot;cb-progress__label&quot;</span> <span class="cb-tok-attr">id</span>=<span class="cb-tok-str">&quot;p2&quot;</span><span class="cb-tok-tag">&gt;</span>Almacenamiento<span class="cb-tok-tag">&lt;/span</span><span class="cb-tok-tag">&gt;</span><span class="cb-tok-tag">&lt;span</span> <span class="cb-tok-attr">class</span>=<span class="cb-tok-str">&quot;cb-progress__value&quot;</span><span class="cb-tok-tag">&gt;</span>2.1 de 10 GB<span class="cb-tok-tag">&lt;/span</span><span class="cb-tok-tag">&gt;</span><span class="cb-tok-tag">&lt;/div</span><span class="cb-tok-tag">&gt;</span>
+    <span class="cb-tok-tag">&lt;div</span> <span class="cb-tok-attr">class</span>=<span class="cb-tok-str">&quot;cb-progress__track&quot;</span> <span class="cb-tok-attr">role</span>=<span class="cb-tok-str">&quot;progressbar&quot;</span> <span class="cb-tok-attr">aria-labelledby</span>=<span class="cb-tok-str">&quot;p2&quot;</span> <span class="cb-tok-attr">aria-valuenow</span>=<span class="cb-tok-str">&quot;21&quot;</span> <span class="cb-tok-attr">aria-valuemin</span>=<span class="cb-tok-str">&quot;0&quot;</span> <span class="cb-tok-attr">aria-valuemax</span>=<span class="cb-tok-str">&quot;100&quot;</span><span class="cb-tok-tag">&gt;</span><span class="cb-tok-tag">&lt;div</span> <span class="cb-tok-attr">class</span>=<span class="cb-tok-str">&quot;cb-progress__bar&quot;</span> <span class="cb-tok-attr">style</span>=<span class="cb-tok-str">&quot;--cb-progress: 21%&quot;</span><span class="cb-tok-tag">&gt;</span><span class="cb-tok-tag">&lt;/div</span><span class="cb-tok-tag">&gt;</span><span class="cb-tok-tag">&lt;/div</span><span class="cb-tok-tag">&gt;</span>
+  <span class="cb-tok-tag">&lt;/div</span><span class="cb-tok-tag">&gt;</span>
+  <span class="cb-tok-tag">&lt;div</span> <span class="cb-tok-attr">class</span>=<span class="cb-tok-str">&quot;cb-progress cb-progress--indeterminate&quot;</span><span class="cb-tok-tag">&gt;</span>
+    <span class="cb-tok-tag">&lt;div</span> <span class="cb-tok-attr">class</span>=<span class="cb-tok-str">&quot;cb-progress__head&quot;</span><span class="cb-tok-tag">&gt;</span><span class="cb-tok-tag">&lt;span</span> <span class="cb-tok-attr">class</span>=<span class="cb-tok-str">&quot;cb-progress__label&quot;</span> <span class="cb-tok-attr">id</span>=<span class="cb-tok-str">&quot;p3&quot;</span><span class="cb-tok-tag">&gt;</span>Procesando<span class="cb-tok-tag">&lt;/span</span><span class="cb-tok-tag">&gt;</span><span class="cb-tok-tag">&lt;/div</span><span class="cb-tok-tag">&gt;</span>
+    <span class="cb-tok-tag">&lt;div</span> <span class="cb-tok-attr">class</span>=<span class="cb-tok-str">&quot;cb-progress__track&quot;</span> <span class="cb-tok-attr">role</span>=<span class="cb-tok-str">&quot;progressbar&quot;</span> <span class="cb-tok-attr">aria-labelledby</span>=<span class="cb-tok-str">&quot;p3&quot;</span><span class="cb-tok-tag">&gt;</span><span class="cb-tok-tag">&lt;div</span> <span class="cb-tok-attr">class</span>=<span class="cb-tok-str">&quot;cb-progress__bar&quot;</span><span class="cb-tok-tag">&gt;</span><span class="cb-tok-tag">&lt;/div</span><span class="cb-tok-tag">&gt;</span><span class="cb-tok-tag">&lt;/div</span><span class="cb-tok-tag">&gt;</span>
+  <span class="cb-tok-tag">&lt;/div</span><span class="cb-tok-tag">&gt;</span>
+<span class="cb-tok-tag">&lt;/div</span><span class="cb-tok-tag">&gt;</span></code></pre>
+</div>
+  </div>
+</section>
+<section class="docs-section" id="clases"><h2 class="docs-section__title">Clases y modificadores</h2><div class="docs-table"><div class="cb-table-scroll"><table class="cb-table cb-table--compact"><thead><tr><th scope="col">Clase</th><th scope="col">Descripción</th></tr></thead><tbody><tr><td class="cb-table__strong"><code>.cb-progress</code></td><td>Contenedor.</td></tr>
+<tr><td class="cb-table__strong"><code>.cb-progress__head</code>, <code>.cb-progress__label</code>, <code>.cb-progress__value</code></td><td>Fila superior.</td></tr>
+<tr><td class="cb-table__strong"><code>.cb-progress__track</code>, <code>.cb-progress__bar</code></td><td>Pista y barra. El ancho sale de <code>--cb-progress</code>.</td></tr>
+<tr><td class="cb-table__strong"><code>.cb-progress--success|warning|danger</code></td><td>Colores.</td></tr>
+<tr><td class="cb-table__strong"><code>.cb-progress--sm|lg</code></td><td>Grosor.</td></tr>
+<tr><td class="cb-table__strong"><code>.cb-progress--indeterminate</code></td><td>Animación sin valor conocido.</td></tr></tbody></table></div></div></section>
+<section class="docs-section" id="javascript"><h2 class="docs-section__title">JavaScript</h2><p class="docs-section__desc mt-6">Actualizar desde JS:</p><div class="cb-code">
+  <div class="cb-code__head"><span>JS</span><button class="cb-code__copy" type="button" data-cb-copy><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span data-cb-copy-label>Copiar</span></button></div>
+  <pre class="cb-code__pre"><code>track.setAttribute(<span class="cb-tok-str">'aria-valuenow'</span>, 80);
+track.firstElementChild.style.setProperty(<span class="cb-tok-str">'--cb-progress'</span>, <span class="cb-tok-str">'80%'</span>);</code></pre>
+</div></section>
+<section class="docs-section" id="accesibilidad"><h2 class="docs-section__title">Accesibilidad</h2><ul class="docs-list"><li>La pista lleva <code>role=&quot;progressbar&quot;</code> con <code>aria-valuenow</code>, <code>aria-valuemin</code> y <code>aria-valuemax</code>.</li><li>En el modo indeterminado omite <code>aria-valuenow</code>.</li></ul></section>
+  </main>
+  <aside class="docs-toc"><nav class="cb-toc" aria-label="En esta pagina" data-cb-scrollspy><p class="cb-toc__title">En esta página</p><a class="cb-toc__link" href="#con-etiqueta">Con etiqueta</a>
+<a class="cb-toc__link" href="#clases">Clases y modificadores</a>
+<a class="cb-toc__link" href="#javascript">JavaScript</a>
+<a class="cb-toc__link" href="#accesibilidad">Accesibilidad</a></nav></aside>
+</div>
+
+<footer class="cb-footer border-t border-cb-line">
+  <div class="cb-wrap max-w-[1440px]">
+    <div class="cb-footer__bottom mt-0 border-0 pt-0"><span>© 2026 Oscar Castellanos · Licencia MIT</span><span>Cobalto v0.1.0</span></div>
+  </div>
+</footer>
+
+<div class="cb-command" id="docs-search" data-cb-command data-cb-command-hotkey="k">
+  <div class="cb-command__panel" aria-label="Buscar en la documentacion">
+    <div class="cb-command__head">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input class="cb-command__input" data-cb-command-input placeholder="Buscar componentes, clases, páginas..." aria-label="Buscar">
+      <kbd>Esc</kbd>
+    </div>
+    <div class="cb-command__results" data-cb-command-results></div>
+    <div class="cb-command__foot"><span><kbd>↑</kbd> <kbd>↓</kbd> navegar</span><span><kbd>↵</kbd> abrir</span><span><kbd>Esc</kbd> cerrar</span></div>
+  </div>
+  <script type="application/json" data-cb-command-items>[{"group":"Guías","label":"Introducción","href":"../index.html","keywords":"inicio cobalto"},{"group":"Guías","label":"Instalación","href":"../instalacion.html","keywords":"npm cdn laravel vite livewire alpine blade fuente instalar"},{"group":"Guías","label":"Personalización","href":"../personalizacion.html","keywords":"colores tema acento dark light oscuro claro tokens variables personalizador"},{"group":"Estructura","label":"Barra de anuncio","href":"../componentes/topbar.html","keywords":"topbar .cb-topbar .cb-topbar__inner .cb-topbar__status .cb-topbar__aside .cb-topbar__link .cb-dot"},{"group":"Estructura","label":"Navbar","href":"../componentes/navbar.html","keywords":"navbar .cb-nav .cb-nav__inner .cb-logo, .cb-logo__mark .cb-nav__menu .cb-nav__item, .cb-nav__link .cb-nav__chevron .cb-nav__actions .cb-nav__collapse .cb-nav__collapse-sm .cb-nav__burger .cb-search-btn .cb-theme-toggle__sun, .cb-theme-toggle__moon"},{"group":"Estructura","label":"Menú móvil","href":"../componentes/menu-movil.html","keywords":"menu-movil .cb-mobile-menu .cb-mobile-menu__link .cb-mobile-menu__meta .cb-mobile-menu__label .cb-mobile-menu__cta .cb-burger__open, .cb-burger__close"},{"group":"Estructura","label":"Hero","href":"../componentes/hero.html","keywords":"hero .cb-hero .cb-hero--grid .cb-h1 .cb-lead .cb-actions .cb-note .cb-hero__chips cb-grid-bg"},{"group":"Estructura","label":"Encabezado de sección","href":"../componentes/section-header.html","keywords":"section-header .cb-section .cb-wrap .cb-section-head--center .cb-label .cb-h2 .cb-h3"},{"group":"Estructura","label":"Footer","href":"../componentes/footer.html","keywords":"footer .cb-footer .cb-footer__grid .cb-footer__text .cb-footer__title, .cb-footer__links .cb-footer__huge .cb-footer__bottom"},{"group":"Estructura","label":"Sidebar de documentación","href":"../componentes/sidebar-docs.html","keywords":"sidebar-docs .cb-sidenav .cb-sidenav__version .cb-sidenav__group, .cb-sidenav__title, .cb-sidenav__list .cb-sidenav__link .cb-sidenav__badge .cb-toc, .cb-toc__link"},{"group":"Estructura","label":"Layout de dashboard","href":"../componentes/dashboard.html","keywords":"dashboard .cb-dash .cb-dash__sidebar .cb-dash__scrim .cb-dash__link .cb-dash__topbar .cb-dash__toggle .cb-dash__content, .cb-dash__header, .cb-dash__title .cb-panel, .cb-panel__head, .cb-panel__body"},{"group":"Contenido","label":"Card","href":"../componentes/card.html","keywords":"card .cb-card .cb-card--featured .cb-card--compact .cb-card--hover .cb-card__top .cb-card__go .cb-card__visual .cb-card__title, .cb-card__text .cb-card__meta .cb-viz--rows|bars|shop|phone|term|nodes"},{"group":"Contenido","label":"Grid de cards","href":"../componentes/grid.html","keywords":"grid .cb-grid .cb-grid--2, .cb-grid--4 .cb-grid--flush"},{"group":"Contenido","label":"Lista de principios","href":"../componentes/principios.html","keywords":"principios .cb-principles .cb-principles__item .cb-principles__num .cb-principles__title, .cb-principles__text"},{"group":"Contenido","label":"Stats","href":"../componentes/stats.html","keywords":"stats .cb-stats .cb-stats--2, .cb-stats--3 .cb-stat .cb-stat__value .cb-stat__label .cb-stat__delta"},{"group":"Contenido","label":"CTA","href":"../componentes/cta.html","keywords":"cta .cb-cta"},{"group":"Contenido","label":"Pricing","href":"../componentes/pricing.html","keywords":"pricing .cb-pricing .cb-price .cb-price__name, .cb-price__value, .cb-price__period .cb-price__features .cb-price__cta .cb-billing, .cb-billing__option"},{"group":"Contenido","label":"Testimonios","href":"../componentes/testimonios.html","keywords":"testimonios .cb-testimonial .cb-testimonial__quote .cb-testimonial__author .cb-testimonial__name, .cb-testimonial__role"},{"group":"Contenido","label":"Timeline y changelog","href":"../componentes/timeline.html","keywords":"timeline .cb-timeline .cb-timeline__item .cb-timeline__date .cb-timeline__title, .cb-timeline__text"},{"group":"Contenido","label":"Empty state","href":"../componentes/empty-state.html","keywords":"empty-state .cb-empty .cb-empty__icon .cb-empty__title, .cb-empty__text .cb-empty__actions"},{"group":"Contenido","label":"Bloque de código","href":"../componentes/codigo.html","keywords":"codigo .cb-code .cb-code__head .cb-code__copy .cb-code__pre .cb-code--inline .cb-tok-tag|attr|str|com|key"},{"group":"Acciones y etiquetas","label":"Botones","href":"../componentes/botones.html","keywords":"botones .cb-btn .cb-btn--primary .cb-btn--outline .cb-btn--ghost .cb-btn--soft .cb-btn--danger .cb-btn--link .cb-btn--sm, .cb-btn--lg .cb-btn--icon .cb-btn--block .is-loading .cb-icon-btn .cb-actions"},{"group":"Acciones y etiquetas","label":"Chips y tags","href":"../componentes/chips-tags.html","keywords":"chips-tags .cb-chips .cb-chip .cb-chip__swatch .cb-tag .cb-tag--live|accent|success|warning|danger|info kbd, .cb-kbd"},{"group":"Acciones y etiquetas","label":"Badge y avatar","href":"../componentes/badge-avatar.html","keywords":"badge-avatar .cb-badge .cb-badge--accent|success|warning|danger|info .cb-badge--solid .cb-badge--dot .cb-avatar .cb-avatar--sm|lg|xl .cb-avatar--square, .cb-avatar--accent .cb-avatar__status--online|busy|away .cb-avatar-group .cb-user, .cb-user__name, .cb-user__meta"},{"group":"Acciones y etiquetas","label":"Dropdown","href":"../componentes/dropdown.html","keywords":"dropdown .cb-dropdown .cb-dropdown__panel .cb-dropdown__item .cb-dropdown__num, .cb-dropdown__title, .cb-dropdown__desc .cb-dropdown__shortcut .cb-dropdown__label, .cb-dropdown__divider"},{"group":"Acciones y etiquetas","label":"Breadcrumb","href":"../componentes/breadcrumb.html","keywords":"breadcrumb .cb-breadcrumb .cb-breadcrumb__item"},{"group":"Acciones y etiquetas","label":"Paginación","href":"../componentes/paginacion.html","keywords":"paginacion .cb-pagination .cb-pagination__item .cb-pagination__ellipsis .cb-pagination__label"},{"group":"Formularios y datos","label":"Formularios","href":"../componentes/formularios.html","keywords":"formularios .cb-field .cb-field__label, .cb-field__optional .cb-field__hint .cb-field__message .cb-field--error, .cb-field--success .cb-input .cb-textarea .cb-select .cb-input-group, .cb-input-group__addon .cb-check, .cb-check__text, .cb-check__hint .cb-checkbox, .cb-radio, .cb-switch .cb-file .cb-fieldset, .cb-fieldset__legend"},{"group":"Formularios y datos","label":"Tabla de datos","href":"../componentes/tabla.html","keywords":"tabla .cb-table-wrap .cb-table-toolbar, .cb-table-toolbar__filters .cb-table-scroll .cb-table .cb-table__strong, .cb-table__num, .cb-table__check .cb-table__sort .cb-table-footer"},{"group":"Overlays","label":"Modal","href":"../componentes/modal.html","keywords":"modal .cb-modal .cb-modal--sm, .cb-modal--lg .cb-modal--center .cb-modal__panel .cb-modal__head, .cb-modal__title, .cb-modal__desc .cb-modal__close .cb-modal__body, .cb-modal__foot"},{"group":"Overlays","label":"Drawer","href":"../componentes/drawer.html","keywords":"drawer .cb-drawer .cb-drawer--left, .cb-drawer--bottom .cb-drawer__panel .cb-drawer__head, .cb-drawer__title, .cb-drawer__desc, .cb-drawer__close .cb-drawer__body, .cb-drawer__foot"},{"group":"Overlays","label":"Command palette","href":"../componentes/command-palette.html","keywords":"command-palette .cb-command .cb-command__panel .cb-command__head, .cb-command__input .cb-command__results, .cb-command__group, .cb-command__item .cb-command__hint, .cb-command__empty, .cb-command__foot"},{"group":"Overlays","label":"Tooltip y popover","href":"../componentes/tooltip-popover.html","keywords":"tooltip-popover .cb-tooltip .cb-popover, .cb-popover__panel .cb-popover__title"},{"group":"Interacción y estado","label":"Tabs","href":"../componentes/tabs.html","keywords":"tabs .cb-tabs .cb-tabs__list .cb-tabs__tab .cb-tabs__count .cb-tabs__panel"},{"group":"Interacción y estado","label":"Accordion / FAQ","href":"../componentes/accordion.html","keywords":"accordion .cb-accordion .cb-accordion__item .cb-accordion__trigger .cb-accordion__num, .cb-accordion__icon .cb-accordion__content"},{"group":"Interacción y estado","label":"Toast","href":"../componentes/toast.html","keywords":"toast .cb-toaster .cb-toast .cb-toast--success|warning|danger|info .cb-toast__icon, .cb-toast__title, .cb-toast__message, .cb-toast__action, .cb-toast__close"},{"group":"Interacción y estado","label":"Alert y banner","href":"../componentes/alert.html","keywords":"alert .cb-alert .cb-alert--info|success|warning|danger .cb-alert__icon, .cb-alert__title, .cb-alert__text, .cb-alert__actions, .cb-alert__close .cb-banner .is-dismissed"},{"group":"Interacción y estado","label":"Progress bar","href":"../componentes/progress.html","keywords":"progress .cb-progress .cb-progress__head, .cb-progress__label, .cb-progress__value .cb-progress__track, .cb-progress__bar .cb-progress--success|warning|danger .cb-progress--sm|lg .cb-progress--indeterminate"},{"group":"Interacción y estado","label":"Skeleton y spinner","href":"../componentes/skeleton-spinner.html","keywords":"skeleton-spinner .cb-skeleton .cb-skeleton--text|title|circle|block .cb-skeleton-stack .cb-spinner .cb-loading"},{"group":"Interacción y estado","label":"Stepper","href":"../componentes/stepper.html","keywords":"stepper .cb-stepper .cb-stepper__step .cb-stepper__marker .cb-stepper__label, .cb-stepper__desc"}]</script>
+</div>
+</body>
+</html>
