@@ -180,7 +180,7 @@ export default {
               <div class="cb-stat"><strong class="cb-stat__value">24h</strong><span class="cb-stat__label">Tiempo de respuesta</span></div>
               <div class="cb-stat"><strong class="cb-stat__value">100%</strong><span class="cb-stat__label">Código entregado</span></div>
               <div class="cb-stat"><strong class="cb-stat__value">2 sem</strong><span class="cb-stat__label">Ciclo de entregas</span></div>
-              <div class="cb-stat"><strong class="cb-stat__value">GT</strong><span class="cb-stat__label">Equipo local</span></div>
+              <div class="cb-stat"><strong class="cb-stat__value">1:1</strong><span class="cb-stat__label">Soporte directo</span></div>
             </div>
           `,
         },

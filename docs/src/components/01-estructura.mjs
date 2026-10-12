@@ -343,7 +343,7 @@ export default {
                   <div><h4 class="cb-footer__title">Comunidad</h4><ul class="cb-footer__links"><li><a href="#">GitHub ↗</a></li><li><a href="#">YouTube ↗</a></li></ul></div>
                 </div>
                 <div class="cb-footer__huge" aria-hidden="true">Acme</div>
-                <div class="cb-footer__bottom"><span class="cb-footer__credit">© 2026 Oscar Castellanos (<a href="https://trupermax.com">TruperMax</a>) · <a href="https://github.com/OscarCastellanos01/cobalto/blob/main/LICENSE">Licencia MIT</a></span><span>Hecho en Guatemala</span></div>
+                <div class="cb-footer__bottom"><span class="cb-footer__credit">© 2026 Oscar Castellanos (<a href="https://trupermax.com">TruperMax</a>) · <a href="https://github.com/OscarCastellanos01/cobalto/blob/main/LICENSE">Licencia MIT</a></span><span>Versión 2.4</span></div>
               </div>
             </footer>
           `,

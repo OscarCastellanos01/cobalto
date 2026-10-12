@@ -12,7 +12,7 @@ const people = [
 const statusTag = { activo: 'cb-tag--success', pausado: 'cb-tag--warning', inactivo: '' };
 
 function personRow([name, area, status, amount, date]) {
-  const formatted = Number(amount).toLocaleString('es-GT');
+  const formatted = Number(amount).toLocaleString('es');
   return `<tr data-estado="${status}">
                     <td><input class="cb-checkbox" type="checkbox" data-cb-table-select aria-label="Seleccionar a ${name}"></td>
                     <td class="cb-table__strong">${name}</td>
