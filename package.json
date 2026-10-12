@@ -80,7 +80,8 @@
     "test": "npm run lint:style && npm run test:contrast && node ./scripts/i18n-sync.mjs --check && npm run test:smoke",
     "prepublishOnly": "npm run build && npm run lint:style && npm run test:contrast",
     "i18n:sync": "node ./scripts/i18n-sync.mjs",
-    "test:i18n": "node ./scripts/check-i18n.mjs"
+    "test:i18n": "node ./scripts/check-i18n.mjs",
+    "build:deploy": "npm run build && node ./scripts/build-deploy.mjs"
   },
   "peerDependencies": {
     "tailwindcss": "^4.0.0"

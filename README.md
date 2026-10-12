@@ -266,6 +266,14 @@ Estilo de código:
 
 Para documentar un componente nuevo, agrega su estructura y ejemplos en `docs/src/components/` y sus textos en `docs/i18n/es.json`. Después corre `npm run i18n:sync` (crea las mismas claves vacías en `en.json`) y `npm run build:site`. La documentación nunca lleva textos escritos directamente en el HTML; `npm run test:i18n` lo verifica.
 
+## Publicar la documentación y los ejemplos
+
+```bash
+npm run build:deploy
+```
+
+Genera la carpeta `_site/` con la documentación, los ejemplos y los archivos de `dist/` que usan. Sube el **contenido** de esa carpeta tal cual a cualquier hosting estático (GitHub Pages, Netlify, Vercel, Cloudflare Pages o un servidor con cPanel). La raíz redirige a la landing. No subas solo los HTML: dependen de `docs/assets`, `docs/js`, `docs/i18n` y `dist`.
+
 ## Licencia
 
 MIT © 2026 Oscar Castellanos ([TruperMax](https://trupermax.com))
