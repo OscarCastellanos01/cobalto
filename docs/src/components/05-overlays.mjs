@@ -59,7 +59,9 @@ export default {
         },
         {
           code: `
-            window.addEventListener('abrir-modal', (event) => cobalto.modal.open(event.detail.id));
+            document.addEventListener('livewire:init', () => {
+              Livewire.on('abrir-modal', (event) => cobalto.modal.open(event.id));
+            });
           `,
         },
       ],

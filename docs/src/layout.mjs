@@ -3,6 +3,7 @@ import { attrs, availableLocales, format, plain, t, tr } from './i18n.mjs';
 
 export const VERSION = '0.1.0';
 export const REPO = 'https://github.com/OscarCastellanos01/cobalto';
+export const NPM = 'https://www.npmjs.com/package/cobalto';
 
 export const ICONS = {
   search: '<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
@@ -194,14 +195,15 @@ ${tr('a', 'ui.skip', 'class="cb-btn cb-btn--primary sr-only focus:not-sr-only fo
     </nav>
     <div class="cb-nav__actions">
       <button class="cb-search-btn" type="button" data-cb-command-open="docs-search" ${attrs({ 'aria-label': 'ui.search.label' })}>
-        ${icon('search')}${tr('span', 'ui.search.button', 'class="cb-search-btn__text"')}<kbd data-cb-kbd-mod="K">⌘K</kbd>
+        ${icon('search')}${tr('span', 'ui.search.button', 'class="cb-search-btn__text max-xl:hidden"')}<kbd data-cb-kbd-mod="K">⌘K</kbd>
       </button>
       ${accentMenu()}
       ${languageMenu(available)}
       <button class="cb-icon-btn" type="button" data-cb-theme-toggle ${attrs({ 'aria-label': 'ui.theme.toggle' })}>
         ${icon('moon', 'cb-theme-toggle__moon')}${icon('sun', 'cb-theme-toggle__sun')}
       </button>
-      ${tr('a', 'ui.nav.github', `href="${REPO}" class="cb-btn cb-btn--outline cb-nav__collapse"`)}
+      ${tr('a', 'ui.nav.npm', `href="${NPM}" class="cb-btn cb-btn--ghost max-xl:hidden"`)}
+      ${tr('a', 'ui.nav.github', `href="${REPO}" class="cb-btn cb-btn--outline max-xl:hidden"`)}
     </div>
   </div>
 </header>

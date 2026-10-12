@@ -213,8 +213,9 @@ async function main() {
     await writeFile(resolve(DOCS, `${page.slug}.html`), html);
   }
 
-  if (existsSync(resolve('dist/cobalto.umd.js'))) {
-    await copyFile(resolve('dist/cobalto.umd.js'), resolve(DOCS, 'assets/cobalto.umd.js'));
+  for (const file of ['cobalto.umd.js']) {
+    if (existsSync(resolve('dist', file)))
+      await copyFile(resolve('dist', file), resolve(DOCS, 'assets', file));
   }
   console.log(`docs: ${allComponents.length} componentes y ${pages.length} paginas`);
 }

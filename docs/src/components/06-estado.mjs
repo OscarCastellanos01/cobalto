@@ -101,7 +101,9 @@ export default {
         },
         {
           code: `
-            window.addEventListener('toast', (event) => cobalto.toast(event.detail));
+            document.addEventListener('livewire:init', () => {
+              Livewire.on('toast', (event) => cobalto.toast(event));
+            });
           `,
         },
       ],

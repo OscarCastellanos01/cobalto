@@ -1,5 +1,7 @@
 # Cobalto
 
+[![npm](https://img.shields.io/npm/v/cobalto)](https://www.npmjs.com/package/cobalto) [![licencia](https://img.shields.io/npm/l/cobalto)](LICENSE)
+
 Componentes UI editoriales para **Tailwind CSS v4**: tipografía monoespaciada, bordes finos en lugar de sombras, secciones numeradas y un sistema de color que cambias con una sola variable.
 
 - 36 componentes, de la navbar a la tabla de datos.
@@ -10,6 +12,8 @@ Componentes UI editoriales para **Tailwind CSS v4**: tipografía monoespaciada, 
 ## Instalación
 
 ### Con Tailwind (recomendado)
+
+El paquete está en [npmjs.com/package/cobalto](https://www.npmjs.com/package/cobalto).
 
 ```bash
 npm install cobalto
@@ -39,14 +43,30 @@ cobalto.autoInit();
 
 El script se inicializa solo. Agrega `data-cb-manual` al `<script>` si prefieres llamar a `cobalto.init()` tú mismo.
 
-### Laravel + Vite
+Sin atributo, el modo claro u oscuro sigue al sistema. Si tus usuarios eligen un tema, agrega este script en el `head` para aplicarlo antes del primer pintado y evitar un parpadeo (sirve igual en cualquier stack, incluido Laravel):
+
+```html
+<script>
+  try {
+    var t = localStorage.getItem('cb-theme');
+    var a = localStorage.getItem('cb-accent');
+    if (t) document.documentElement.setAttribute('data-cb-theme', t);
+    if (a) document.documentElement.setAttribute('data-cb-accent', a);
+  } catch (e) {}
+</script>
+```
+
+### Laravel 12 y 13 + Vite
 
 ```css
-/* resources/css/app.css */
-@import "tailwindcss";
-@import "cobalto/tailwind";
+/* resources/css/app.css: lo que trae Laravel, mas Cobalto */
+@import 'tailwindcss';
+@import 'cobalto/tailwind';
 
-@source "../views";
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
 ```
 
 ```js
@@ -57,7 +77,23 @@ window.cobalto = cobalto;
 cobalto.autoInit();
 ```
 
+### Livewire 3 y 4, Alpine
+
 Después de cada `wire:navigate` se vuelve a inicializar todo, y lo que Livewire o Alpine agregan al DOM se inicializa solo. Cobalto solo usa clases `cb-*` y atributos `data-cb-*`, así que no choca con `x-*` ni `wire:*`.
+
+Para lanzar un toast desde PHP:
+
+```php
+$this->dispatch('toast', title: 'Guardado', variant: 'success');
+```
+
+```js
+document.addEventListener('livewire:init', () => {
+  Livewire.on('toast', (event) => cobalto.toast(event));
+});
+```
+
+O con Alpine: `<div x-data x-on:toast.window="cobalto.toast($event.detail)"></div>`.
 
 ### Fuente
 

@@ -14,7 +14,11 @@ const themes = flags.has('--all-themes')
   ? ['cobalto', 'esmeralda', 'ambar', 'rubi', 'violeta', 'grafito']
   : ['cobalto'];
 const modes = ['dark', 'light'];
-const widths = flags.has('--mobile') ? [1280, 360] : [1280];
+const widths = [
+  1280,
+  ...(flags.has('--tablet') ? [1024, 768] : []),
+  ...(flags.has('--mobile') ? [360] : []),
+];
 
 function browserPath() {
   const candidates = [

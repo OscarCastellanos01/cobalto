@@ -34,9 +34,7 @@ export default {
       id,
       key: `${P}.${id}.title`,
     }));
-    const livewire = [0, 1, 2, 3, 4]
-      .map((i) => tr('li', `${P}.livewire.items.${i}`))
-      .join('\n    ');
+    const livewire = [0, 1, 2, 3].map((i) => tr('li', `${P}.livewire.items.${i}`)).join('\n    ');
     const messageRows = MESSAGES.map(([key, attr, value]) => [
       { code: `\`${key}\`` },
       { code: attr ? `\`${attr}\`` : '—' },
@@ -104,17 +102,19 @@ export default {
   ${title('laravel')}
   ${desc('laravel.desc')}
   ${codeBlock('npm install cobalto', { lang: 'bash', fileKey: 'ui.code.terminal' })}
-  <div class="mt-4">
+  ${desc('laravel.css', ' mt-6')}
   ${codeBlock(
     `
-    @import "tailwindcss";
-    @import "cobalto/tailwind";
+    @import 'tailwindcss';
+    @import 'cobalto/tailwind';
 
-    @source "../views";
+    @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+    @source '../../storage/framework/views/*.php';
+    @source '../**/*.blade.php';
+    @source '../**/*.js';
   `,
     { lang: 'css', file: 'resources/css/app.css' }
   )}
-  </div>
   <div class="mt-4">
   ${codeBlock(
     `
@@ -148,22 +148,27 @@ export default {
   <ul class="docs-list">
     ${livewire}
   </ul>
-  <div class="mt-6">
+  ${desc('livewire.php', ' mt-6')}
   ${codeBlock(
     `
     $this->dispatch('toast', title: 'Guardado', variant: 'success');
   `,
-    { lang: 'js', file: 'app/Livewire/EditarCliente.php' }
+    { lang: 'php', file: 'app/Livewire/EditarCliente.php' }
   )}
-  </div>
-  <div class="mt-4">
+  ${desc('livewire.listen', ' mt-6')}
   ${codeBlock(
     `
-    window.addEventListener('toast', (event) => cobalto.toast(event.detail));
+    document.addEventListener('livewire:init', () => {
+      Livewire.on('toast', (event) => cobalto.toast(event));
+      Livewire.on('abrir-modal', (event) => cobalto.modal.open(event.id));
+    });
   `,
     { lang: 'js', file: 'resources/js/app.js' }
   )}
-  </div>
+  ${desc('livewire.alpine', ' mt-6')}
+  ${codeBlock(`
+    <div x-data x-on:toast.window="cobalto.toast($event.detail)"></div>
+  `)}
 </section>
 
 <section class="docs-section" id="messages">

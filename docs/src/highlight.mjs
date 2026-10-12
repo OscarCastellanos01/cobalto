@@ -63,6 +63,12 @@ const RULES = {
       'cb-tok-key',
     ],
   ],
+  php: [
+    [/\/\/[^\n]*/g, 'cb-tok-com'],
+    [/'[^'\n]*'|&quot;[^\n]*?&quot;/g, 'cb-tok-str'],
+    [/\$\w+/g, 'cb-tok-attr'],
+    [/\b(function|return|fn|new|use|void)\b/g, 'cb-tok-key'],
+  ],
   bash: [
     [/#[^\n]*/g, 'cb-tok-com'],
     [/'[^'\n]*'|&quot;[^\n]*?&quot;/g, 'cb-tok-str'],

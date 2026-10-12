@@ -12,7 +12,8 @@
       "customize": "",
       "components": "",
       "examples": "",
-      "github": ""
+      "github": "",
+      "npm": ""
     },
     "menu": {
       "open": "",
@@ -148,6 +149,7 @@
       "laravel": {
         "title": "",
         "desc": "",
+        "css": "",
         "flash": ""
       },
       "livewire": {
@@ -156,9 +158,11 @@
           "",
           "",
           "",
-          "",
           ""
-        ]
+        ],
+        "php": "",
+        "listen": "",
+        "alpine": ""
       },
       "messages": {
         "title": "",

@@ -12,7 +12,8 @@
       "customize": "Personalización",
       "components": "Componentes",
       "examples": "Ejemplos",
-      "github": "GitHub ↗"
+      "github": "GitHub ↗",
+      "npm": "npm ↗"
     },
     "menu": {
       "open": "Abrir navegación",
@@ -132,7 +133,7 @@
       "title": "Instalación",
       "description": "Cómo instalar Cobalto con npm y Tailwind CSS v4, desde un CDN sin build o en Laravel con Vite y Livewire.",
       "keywords": "npm cdn laravel vite livewire alpine blade fuente instalar textos mensajes idioma",
-      "lead": "Dos formas de uso: como fuente para tu build de Tailwind CSS v4, o precompilado desde un CDN.",
+      "lead": "Dos formas de uso: como fuente para tu build de Tailwind CSS v4, o precompilado desde un CDN. El paquete está publicado en [npm](https://www.npmjs.com/package/cobalto).",
       "tailwind": {
         "title": "Con Tailwind (recomendado)",
         "desc": "Así puedes usar las utilidades `bg-cb-bg`, `text-cb-muted` o `dark:` en tu propio HTML y solo se genera el CSS que usas.",
@@ -147,18 +148,21 @@
       },
       "laravel": {
         "title": "Laravel + Vite",
-        "desc": "Laravel 11+ ya trae Tailwind v4 con Vite. No hace falta configurar nada más.",
-        "flash": "En el layout, agrega este script en el `head` para aplicar el tema guardado antes del primer pintado y evitar el parpadeo:"
+        "desc": "Laravel 12 y 13 ya traen Tailwind v4 con Vite. No hace falta configurar nada más.",
+        "css": "Agrega Cobalto justo después de Tailwind, en el CSS que trae el proyecto:",
+        "flash": "En el layout, agrega este script en el `head` para aplicar el tema guardado antes del primer pintado y evitar el parpadeo. Es el mismo para cualquier stack:"
       },
       "livewire": {
         "title": "Livewire y Alpine",
         "items": [
-          "`autoInit()` escucha `livewire:navigated` y vuelve a inicializar después de cada `wire:navigate`.",
+          "`autoInit()` escucha `livewire:navigated` y vuelve a inicializar después de cada `wire:navigate` (Livewire 3 y 4).",
           "Un `MutationObserver` inicializa los componentes que Livewire o Alpine agregan al DOM. Lo ya inicializado no se duplica.",
           "Cobalto solo usa atributos `data-cb-*` y clases `cb-*`, así que no choca con `x-*` ni `wire:*`.",
-          "Si Livewire re-renderiza un componente abierto (modal, dropdown), envuélvelo en `wire:ignore.self` para conservar su estado.",
-          "Para abrir un modal o lanzar un toast desde PHP, despacha un evento del navegador con `$this->dispatch(...)` y escúchalo con `window.addEventListener`."
-        ]
+          "Si Livewire re-renderiza un componente abierto (modal, dropdown), envuélvelo en `wire:ignore.self` para conservar su estado."
+        ],
+        "php": "Para lanzar un toast o abrir un modal desde PHP, despacha un evento desde el componente:",
+        "listen": "Y escúchalo en tu JavaScript con `Livewire.on()` dentro de `livewire:init`:",
+        "alpine": "O con Alpine, sin escribir JS aparte:"
       },
       "messages": {
         "title": "Textos e idioma",
@@ -1781,7 +1785,7 @@
       ],
       "snippets": [
         "Abrir y cerrar desde JS:",
-        "Con Livewire, abre el modal desde el servidor despachando un evento del navegador:"
+        "Desde Livewire 4: despacha el evento con `$this->dispatch('abrir-modal', id: 'confirmar')` y escúchalo con `Livewire.on()`:"
       ]
     },
     "drawer": {
@@ -2117,7 +2121,7 @@
       ],
       "snippets": [
         "API completa:",
-        "Desde Livewire, con un evento del navegador:"
+        "Desde Livewire 4, con un evento despachado con `$this->dispatch()`:"
       ]
     },
     "alert": {
