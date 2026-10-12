@@ -1,0 +1,96 @@
+{
+  "name": "cobalto",
+  "version": "0.1.0",
+  "description": "Componentes UI editoriales para Tailwind CSS v4: tipografia monoespaciada, bordes finos y colores personalizables con variables CSS.",
+  "keywords": [
+    "tailwindcss",
+    "tailwind",
+    "ui",
+    "components",
+    "css",
+    "design-system",
+    "editorial",
+    "monospace",
+    "laravel",
+    "blade"
+  ],
+  "homepage": "https://github.com/oscarcastellanos/cobalto#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oscarcastellanos/cobalto.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oscarcastellanos/cobalto/issues"
+  },
+  "license": "MIT",
+  "author": "Oscar Castellanos",
+  "type": "module",
+  "main": "./dist/cobalto.js",
+  "module": "./dist/cobalto.js",
+  "style": "./dist/cobalto.css",
+  "unpkg": "./dist/cobalto.umd.js",
+  "jsdelivr": "./dist/cobalto.umd.js",
+  "exports": {
+    ".": {
+      "import": "./dist/cobalto.js",
+      "default": "./dist/cobalto.js"
+    },
+    "./css": {
+      "style": "./dist/cobalto.css",
+      "default": "./dist/cobalto.css"
+    },
+    "./css/min": {
+      "style": "./dist/cobalto.min.css",
+      "default": "./dist/cobalto.min.css"
+    },
+    "./tailwind": {
+      "style": "./src/cobalto.css",
+      "default": "./src/cobalto.css"
+    },
+    "./tokens.css": {
+      "style": "./src/tokens.css",
+      "default": "./src/tokens.css"
+    },
+    "./components/*": "./src/js/components/*.js",
+    "./core": "./src/js/core.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "scripts": {
+    "build": "npm run build:css && npm run build:js && npm run build:site",
+    "build:css": "tailwindcss -i ./scripts/dist.css -o ./dist/cobalto.css && tailwindcss -i ./scripts/dist.css -o ./dist/cobalto.min.css --minify",
+    "build:js": "node ./scripts/build-js.mjs",
+    "build:site": "node ./scripts/build-docs.mjs && tailwindcss -i ./docs/src/site.css -o ./docs/assets/site.css --minify",
+    "dev": "tailwindcss -i ./docs/src/site.css -o ./docs/assets/site.css --watch",
+    "format": "prettier --write \"src/**/*.{css,js}\" \"scripts/**/*.{mjs,css}\" \"docs/src/**/*.{mjs,css}\"",
+    "format:check": "prettier --check \"src/**/*.{css,js}\" \"scripts/**/*.{mjs,css}\" \"docs/src/**/*.{mjs,css}\"",
+    "lint:style": "node ./scripts/lint-style.mjs",
+    "test:visual": "node ./scripts/check-pages.mjs",
+    "prepublishOnly": "npm run build && npm run lint:style"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "tailwindcss": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "axe-core": "^4.14.0",
+    "esbuild": "^0.28.2",
+    "playwright-core": "^1.64.0",
+    "prettier": "^3.9.10",
+    "tailwindcss": "^4.3.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

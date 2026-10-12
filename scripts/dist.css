@@ -1,0 +1,3 @@
+@import "tailwindcss" source(none);
+@import "../src/cobalto.css";
+@source inline("cb-wrap cb-sr-only cb-grid-bg cb-arrow cb-tabular cb-reveal");
