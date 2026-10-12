@@ -95,7 +95,7 @@ export default {
             <section class="cb-section cb-hero cb-hero--grid border-b-0">
               <div class="cb-wrap">
                 <div class="cb-label"><b>01/</b>Plataforma</div>
-                <h1 class="cb-h1">Herramientas<br>que trabajan. <em>Sin ruido.</em></h1>
+                <h1 class="cb-h1">Facturación clara<br>para tu <em>negocio.</em></h1>
                 <p class="cb-lead">Un párrafo corto que explica qué haces y para quién. Dos o tres líneas como máximo.</p>
                 <div class="cb-actions">
                   <a href="#" class="cb-btn cb-btn--primary">Empezar ↗</a>
