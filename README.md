@@ -216,7 +216,15 @@ npm test        # estilo, contraste y pruebas de interaccion
 
 Las pruebas de interacción y de accesibilidad (`npm run test:a11y`) usan Edge o Chrome instalados; con otra ruta, define `CB_BROWSER`.
 
-Antes de abrir un pull request, lee [`CLAUDE.md`](CLAUDE.md): comentarios solo cuando aportan, en español y sin tildes, sin alineación vertical y con indentación de 2 espacios. `npm run lint:style` revisa lo básico.
+Estilo de código:
+
+- Comentarios solo cuando aportan algo (una decisión no obvia, un workaround), en español y sin tildes.
+- Sin alineación vertical: un solo espacio alrededor de `=`, `:` y operadores.
+- Indentación de 2 espacios, sin tabs. `.editorconfig` y `.prettierrc` ya lo configuran.
+- Nombres en inglés; textos visibles en español.
+- El autor siempre se escribe como "Oscar Castellanos (TruperMax)".
+
+`npm run lint:style` revisa lo básico.
 
 Para documentar un componente nuevo, agrega su estructura y ejemplos en `docs/src/components/` y sus textos en `docs/i18n/es.json`. Después corre `npm run i18n:sync` (crea las mismas claves vacías en `en.json`) y `npm run build:site`. La documentación nunca lleva textos escritos directamente en el HTML; `npm run test:i18n` lo verifica.
 
