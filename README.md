@@ -2,6 +2,8 @@
 
 [![npm](https://img.shields.io/npm/v/cobalto)](https://www.npmjs.com/package/cobalto) [![licencia](https://img.shields.io/npm/l/cobalto)](LICENSE)
 
+**Documentación y ejemplos:** [cobalto.trupermax.com](https://cobalto.trupermax.com)
+
 Componentes UI editoriales para **Tailwind CSS v4**: tipografía monoespaciada, bordes finos en lugar de sombras, secciones numeradas y un sistema de color que cambias con una sola variable.
 
 - 36 componentes, de la navbar a la tabla de datos.
@@ -272,7 +274,7 @@ Para documentar un componente nuevo, agrega su estructura y ejemplos en `docs/sr
 npm run build:deploy
 ```
 
-Genera la carpeta `_site/` con la documentación, los ejemplos y los archivos de `dist/` que usan. Sube el **contenido** de esa carpeta tal cual a cualquier hosting estático (GitHub Pages, Netlify, Vercel, Cloudflare Pages o un servidor con cPanel). La raíz redirige a la landing. No subas solo los HTML: dependen de `docs/assets`, `docs/js`, `docs/i18n` y `dist`.
+Genera la carpeta `_site/` con la documentación, los ejemplos y los archivos de `dist/` que usan. Sube el **contenido** de esa carpeta tal cual a cualquier hosting estático (GitHub Pages, Netlify, Vercel, Cloudflare Pages o un servidor con cPanel). La landing queda en la raíz y la documentación en `/docs/`. También genera `sitemap.xml`, `robots.txt`, URLs canónicas y un `CNAME` para GitHub Pages, usando `https://cobalto.trupermax.com`; para otro dominio usa `CB_SITE_URL=https://otro.dominio npm run build:deploy`. No subas solo los HTML: dependen de `docs/assets`, `docs/js`, `docs/i18n` y `dist`.
 
 ## Licencia
 

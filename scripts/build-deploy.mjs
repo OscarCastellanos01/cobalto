@@ -1,8 +1,9 @@
-import { cp, mkdir, readdir, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const OUT = resolve('_site');
+const SITE_URL = (process.env.CB_SITE_URL || 'https://cobalto.trupermax.com').replace(/\/$/, '');
 
 // solo lo que usan las paginas publicadas; docs/src son fuentes y no se suben
 const COPIES = [
@@ -19,20 +20,40 @@ const COPIES = [
   ['dist/cobalto.umd.min.js', 'dist/cobalto.umd.min.js'],
 ];
 
-const ROOT_INDEX = `<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cobalto</title>
-  <meta http-equiv="refresh" content="0; url=examples/landing.html">
-  <link rel="canonical" href="examples/landing.html">
-</head>
-<body>
-  <a href="examples/landing.html">Cobalto</a>
-</body>
-</html>
-`;
+/**
+ * La landing vive en examples/ y apunta a ../; en la raiz del sitio esas rutas cambian.
+ */
+function landingForRoot(html, examples) {
+  const pages = examples.map((file) => file.replace(/\.html$/, '')).join('|');
+  return html
+    .replace(/(href|src)="\.\.\/(dist|docs)\//g, '$1="$2/')
+    .replace(new RegExp(`href="(${pages})\\.html`, 'g'), 'href="examples/$1.html')
+    .replace('</head>', `  <link rel="canonical" href="${SITE_URL}/">\n</head>`);
+}
+
+function withCanonical(html, path) {
+  if (html.includes('rel="canonical"')) return html;
+  return html.replace('</head>', `  <link rel="canonical" href="${SITE_URL}/${path}">\n</head>`);
+}
+
+async function listHtml(dir) {
+  const files = [];
+  for (const entry of await readdir(resolve(OUT, dir), { withFileTypes: true })) {
+    const path = `${dir}/${entry.name}`;
+    if (entry.isDirectory()) files.push(...(await listHtml(path)));
+    else if (entry.name.endsWith('.html')) files.push(path);
+  }
+  return files;
+}
+
+function sitemap(paths) {
+  const urls = paths
+    .map(
+      (path) => `  <url><loc>${SITE_URL}/${path.replace(/(^|\/)index\.html$/, '$1')}</loc></url>`
+    )
+    .join('\n');
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
+}
 
 async function main() {
   const missing = COPIES.map(([from]) => from).filter((from) => !existsSync(resolve(from)));
@@ -55,10 +76,29 @@ async function main() {
     await cp(resolve('examples', file), resolve(OUT, 'examples', file));
   }
 
-  await writeFile(resolve(OUT, 'index.html'), ROOT_INDEX);
+  const landing = await readFile(resolve('examples/landing.html'), 'utf8');
+  await writeFile(resolve(OUT, 'index.html'), landingForRoot(landing, examples));
+
+  const pages = [...(await listHtml('docs')), ...(await listHtml('examples'))];
+  for (const path of pages) {
+    const file = resolve(OUT, path);
+    const canonical = path === 'examples/landing.html' ? '' : path;
+    await writeFile(file, withCanonical(await readFile(file, 'utf8'), canonical));
+  }
+
+  await writeFile(
+    resolve(OUT, 'sitemap.xml'),
+    sitemap(['index.html', ...pages.filter((p) => p !== 'examples/landing.html')])
+  );
+  await writeFile(
+    resolve(OUT, 'robots.txt'),
+    `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`
+  );
   // github pages ignora carpetas que empiezan con guion bajo si no existe este archivo
   await writeFile(resolve(OUT, '.nojekyll'), '');
-  console.log(`_site listo: ${examples.length} ejemplos y la documentacion`);
+  // github pages usa este archivo para el dominio propio; otros hostings lo ignoran
+  await writeFile(resolve(OUT, 'CNAME'), `${new URL(SITE_URL).host}\n`);
+  console.log(`_site listo para ${SITE_URL}: ${pages.length + 1} paginas`);
 }
 
 main();
