@@ -253,7 +253,7 @@ export default {
                 <time class="cb-timeline__date" datetime="2026-10-12">12 oct 2026</time>
                 <div class="cb-timeline__body">
                   <div class="cb-timeline__head"><h3 class="cb-timeline__title">v0.1.0</h3><span class="cb-tag cb-tag--live">Actual</span></div>
-                  <div class="cb-timeline__text">Primera versión pública.<ul><li>36 componentes</li><li>6 temas de color</li></ul></div>
+                  <div class="cb-timeline__text">Primera versión pública.<ul><li>Componentes base</li><li>6 temas de color</li></ul></div>
                 </div>
               </li>
               <li class="cb-timeline__item">

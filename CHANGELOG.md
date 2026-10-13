@@ -11,7 +11,7 @@ Todos los cambios importantes de este proyecto se documentan aquí. El formato s
 - Temas `cobalto`, `esmeralda`, `ambar`, `rubi`, `violeta` y `grafito`, con modo claro y oscuro.
 - Modo claro y oscuro con `data-cb-theme` y `prefers-color-scheme`, y variantes `dark:` y `light:`.
 - Tokens de tipografía, radios, espaciado, sombras, duraciones, capas y breakpoints.
-- 36 componentes: topbar, navbar, menú móvil, command palette, hero, encabezado de sección, card, grid, principios, stats, CTA, footer, botones, chips y tags, formularios, tabla de datos, tabs, accordion, modal, drawer, toast, alert, tooltip, popover, badge, avatar, breadcrumb, paginación, sidebar de documentación, bloque de código, pricing, testimonios, timeline, skeleton, spinner, empty state, stepper, dropdown, progress y layout de dashboard.
+- Componentes: topbar, navbar, menú móvil, command palette, hero, encabezado de sección, card, grid, principios, stats, CTA, footer, botones, chips y tags, formularios, tabla de datos, tabs, accordion, modal, drawer, toast, alert, tooltip, popover, badge, avatar, breadcrumb, paginación, sidebar de documentación, bloque de código, pricing, testimonios, timeline, skeleton, spinner, empty state, stepper, dropdown, progress y layout de dashboard.
 - JavaScript sin dependencias (ESM y UMD) con `init()`, `autoInit()`, `toast()`, `modal`, `drawer` y `theme`.
 - Soporte para Livewire (`livewire:navigated`) y nodos agregados dinámicamente.
 - Sitio de documentación con personalizador de colores en vivo y ejemplos de landing, dashboard, login, pricing y documentación.

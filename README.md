@@ -6,7 +6,7 @@
 
 Componentes UI editoriales para **Tailwind CSS v4**: tipografía monoespaciada, bordes finos en lugar de sombras, secciones numeradas y un sistema de color que cambias con una sola variable.
 
-- 36 componentes, de la navbar a la tabla de datos.
+- Componentes de la navbar a la tabla de datos.
 - 6 temas de color, cada uno con modo claro y oscuro, todos con contraste AA verificado.
 - JavaScript opcional y sin dependencias, controlado con atributos `data-cb-*`.
 - Funciona con Laravel, Livewire y Alpine sin configuración extra.

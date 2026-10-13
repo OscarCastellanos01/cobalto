@@ -5,7 +5,7 @@ const P = 'pages.index';
 export default {
   slug: 'index',
   order: 1,
-  render({ components, groups, codeBlock }) {
+  render({ groups, codeBlock }) {
     const cards = groups
       .map(
         (group) => `
@@ -35,7 +35,7 @@ export default {
 <header class="cb-hero cb-hero--grid mb-6 pt-4 pb-12">
   <div class="cb-label" translate="no"><b>v0.1/</b>Cobalto</div>
   ${tr('h1', `${P}.heading`, 'class="cb-h1"')}
-  ${tr('p', `${P}.lead`, 'class="cb-lead"', { count: components.length })}
+  ${tr('p', `${P}.lead`, 'class="cb-lead"')}
   <div class="cb-actions">
     ${tr('a', `${P}.install`, 'href="instalacion.html" class="cb-btn cb-btn--primary"')}
     ${tr('a', `${P}.customize`, 'href="personalizacion.html" class="cb-btn cb-btn--outline"')}
