@@ -27,7 +27,7 @@ function landingForRoot(html, examples) {
   const pages = examples.map((file) => file.replace(/\.html$/, '')).join('|');
   // cubre atributos (href="...") y el json de la busqueda ("href": "...")
   return html
-    .replace(/((?:href|src)"?:? ?=?\s?")\.\.\/(dist|docs)\//g, '$1$2/')
+    .replace(/((?:href|src|data-i18n-base)"?:? ?=?\s?")\.\.\/(dist|docs)\//g, '$1$2/')
     .replace(new RegExp(`(href"?:? ?=?\\s?")(${pages})\\.html`, 'g'), '$1examples/$2.html')
     .replace('</head>', `  <link rel="canonical" href="${SITE_URL}/">\n</head>`);
 }

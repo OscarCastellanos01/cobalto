@@ -2,16 +2,17 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const DIR = resolve('docs/i18n');
-export const LOCALES = ['es', 'en'];
+export const BASE_LANG = 'en';
+export const LOCALES = ['en', 'es'];
 
 function load(lang) {
   return JSON.parse(readFileSync(resolve(DIR, `${lang}.json`), 'utf8'));
 }
 
-const es = load('es');
+const base = load(BASE_LANG);
 
 export function availableLocales() {
-  return LOCALES.filter((lang) => lang === 'es' || load(lang).meta?.ready === true);
+  return LOCALES.filter((lang) => lang === BASE_LANG || load(lang).meta?.ready === true);
 }
 
 export function lookup(dictionary, key) {
@@ -19,12 +20,12 @@ export function lookup(dictionary, key) {
 }
 
 /**
- * Texto en espanol de una clave. Falla si no existe, para que ningun texto
+ * Texto en el idioma base de una clave. Falla si no existe, para que ningun texto
  * visible quede fuera de docs/i18n.
  */
 export function t(key) {
-  const value = lookup(es, key);
-  if (typeof value !== 'string') throw new Error(`falta la clave i18n "${key}" en es.json`);
+  const value = lookup(base, key);
+  if (typeof value !== 'string') throw new Error(`falta la clave i18n "${key}" en en.json`);
   return value;
 }
 

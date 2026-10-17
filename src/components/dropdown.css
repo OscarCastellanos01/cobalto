@@ -46,6 +46,15 @@
       @apply size-4 shrink-0 text-cb-muted;
     }
 
+    &[aria-checked="true"],
+    &[aria-pressed="true"] {
+      @apply text-cb-accent;
+    }
+
+    &:is([aria-checked="true"], [aria-pressed="true"]):not(:has(> svg))::after {
+      @apply ml-auto content-['✓'];
+    }
+
     &:disabled,
     &[aria-disabled="true"] {
       @apply pointer-events-none opacity-50;

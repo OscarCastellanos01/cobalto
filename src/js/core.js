@@ -493,17 +493,17 @@ export function focusableWhenScrollable(el) {
 }
 
 const messages = {
-  commandEmpty: 'Sin resultados para',
-  toastRegion: 'Notificaciones',
-  toastClose: 'Cerrar notificación',
-  tableEmpty: 'Sin resultados',
-  tableStatus: 'Mostrando {start}–{end} de {total}',
-  tableSelected: '{count} seleccionada(s)',
-  paginationPrev: 'Página anterior',
-  paginationNext: 'Página siguiente',
-  paginationPage: 'Página {page}',
-  copyDone: 'Copiado',
-  copyError: 'Error al copiar',
+  commandEmpty: 'No results for',
+  toastRegion: 'Notifications',
+  toastClose: 'Close notification',
+  tableEmpty: 'No results',
+  tableStatus: 'Showing {start}–{end} of {total}',
+  tableSelected: '{count} selected',
+  paginationPrev: 'Previous page',
+  paginationNext: 'Next page',
+  paginationPage: 'Page {page}',
+  copyDone: 'Copied',
+  copyError: 'Copy failed',
 };
 
 /**

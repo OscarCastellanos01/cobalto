@@ -178,7 +178,7 @@ async function table() {
   check('tabla: pagina 2', (await names()).length === 3);
   await wrap.locator('[data-cb-table-select-all]').check();
   const status = await wrap.locator('[data-cb-table-status]').textContent();
-  check('tabla: seleccionar visibles', status.includes('3 seleccionada'), status);
+  check('tabla: seleccionar visibles', status.includes('3 selected'), status);
   await page.close();
 }
 

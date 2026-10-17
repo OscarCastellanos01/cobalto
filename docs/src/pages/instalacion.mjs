@@ -3,17 +3,17 @@ import { tr } from '../i18n.mjs';
 const P = 'pages.instalacion';
 
 const MESSAGES = [
-  ['commandEmpty', 'data-cb-command-empty', 'Sin resultados para'],
-  ['toastRegion', '', 'Notificaciones'],
-  ['toastClose', 'closeLabel (opción de toast)', 'Cerrar notificación'],
-  ['tableEmpty', 'data-cb-table-empty', 'Sin resultados'],
-  ['tableStatus', 'data-cb-table-status-text', 'Mostrando {start}–{end} de {total}'],
-  ['tableSelected', 'data-cb-table-selected-text', '{count} seleccionada(s)'],
-  ['paginationPrev', 'data-cb-pagination-prev', 'Página anterior'],
-  ['paginationNext', 'data-cb-pagination-next', 'Página siguiente'],
-  ['paginationPage', 'data-cb-pagination-page', 'Página {page}'],
-  ['copyDone', 'data-cb-copy-done', 'Copiado'],
-  ['copyError', 'data-cb-copy-error', 'Error al copiar'],
+  ['commandEmpty', 'data-cb-command-empty', 'No results for'],
+  ['toastRegion', '', 'Notifications'],
+  ['toastClose', 'closeLabel (toast option)', 'Close notification'],
+  ['tableEmpty', 'data-cb-table-empty', 'No results'],
+  ['tableStatus', 'data-cb-table-status-text', 'Showing {start}–{end} of {total}'],
+  ['tableSelected', 'data-cb-table-selected-text', '{count} selected'],
+  ['paginationPrev', 'data-cb-pagination-prev', 'Previous page'],
+  ['paginationNext', 'data-cb-pagination-next', 'Next page'],
+  ['paginationPage', 'data-cb-pagination-page', 'Page {page}'],
+  ['copyDone', 'data-cb-copy-done', 'Copied'],
+  ['copyError', 'data-cb-copy-error', 'Copy failed'],
 ];
 
 export default {
@@ -180,21 +180,21 @@ export default {
 
     cobalto.autoInit({
       messages: {
-        commandEmpty: 'No results for',
-        tableStatus: 'Showing {start}–{end} of {total}',
-        copyDone: 'Copied',
+        commandEmpty: 'Sin resultados para',
+        tableStatus: 'Mostrando {start}–{end} de {total}',
+        copyDone: 'Copiado',
       },
     });
 
     // o en cualquier momento
-    cobalto.setMessages({ toastClose: 'Close notification' });
+    cobalto.setMessages({ toastClose: 'Cerrar notificación' });
   `,
     { lang: 'js', file: 'app.js' }
   )}
   ${desc('messages.attrs', ' mt-6')}
   ${codeBlock(`
-    <div class="cb-table-wrap" data-cb-table data-cb-table-empty="No results" data-cb-table-status-text="{start}–{end} of {total}">...</div>
-    <button class="cb-code__copy" data-cb-copy data-cb-copy-done="Copied">...</button>
+    <div class="cb-table-wrap" data-cb-table data-cb-table-empty="Sin resultados" data-cb-table-status-text="{start}–{end} de {total}">...</div>
+    <button class="cb-code__copy" data-cb-copy data-cb-copy-done="Copiado">...</button>
   `)}
   ${desc('messages.keys', ' mt-6')}
   ${table([`${P}.messages.headers.0`, `${P}.messages.headers.1`, `${P}.messages.headers.2`], messageRows)}

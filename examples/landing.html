@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="es">
+<html lang="en" data-i18n-base="../docs/" data-i18n-available="en,es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cobalto · Componentes UI para Tailwind CSS v4</title>
-  <meta name="description" content="Componentes editoriales para Tailwind CSS v4: tipografía monoespaciada, bordes finos y colores que cambias con una sola variable. Con o sin build, en cualquier stack.">
+  <title data-i18n-title="landing.meta.title">Cobalto · UI Components for Tailwind CSS v4</title>
+  <meta name="description" content="Editorial components for Tailwind CSS v4: monospaced typography, thin borders and colors you change with a single variable. With or without a build, in any stack." data-i18n-attr="content:landing.meta.description">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cobalto">
-  <meta property="og:title" content="Cobalto · Componentes UI para Tailwind CSS v4">
-  <meta property="og:description" content="Componentes editoriales para Tailwind CSS v4, con colores que cambias con una sola variable.">
+  <meta property="og:title" content="Cobalto · UI Components for Tailwind CSS v4">
+  <meta property="og:description" content="Editorial components for Tailwind CSS v4, with colors you change with a single variable.">
   <meta property="og:url" content="https://cobalto.trupermax.com/">
   <meta name="theme-color" content="#060b18">
   <script>
@@ -24,13 +24,15 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../dist/cobalto.css">
   <script src="../dist/cobalto.umd.js" defer></script>
+  <script src="../docs/i18n/es.js" defer></script>
+  <script src="../docs/js/i18n.js" defer></script>
 </head>
 <body>
 
 <div class="cb-topbar">
   <div class="cb-topbar__inner">
-    <div class="cb-topbar__status">Componentes UI para Tailwind CSS v4</div>
-    <div class="cb-topbar__aside">Licencia MIT · Sin dependencias</div>
+    <div class="cb-topbar__status" data-i18n="landing.topbar.status">UI components for Tailwind CSS v4</div>
+    <div class="cb-topbar__aside" data-i18n="landing.topbar.aside">MIT license</div>
   </div>
 </div>
 
@@ -38,47 +40,67 @@
   <div class="cb-nav__inner">
     <a href="#inicio" class="cb-logo"><span class="cb-logo__mark" aria-hidden="true">C</span>Cobalto</a>
 
-    <nav aria-label="Principal">
+    <nav aria-label="Main" data-i18n-attr="aria-label:ui.nav.label">
       <ul class="cb-nav__menu">
-        <li class="cb-nav__item"><a class="cb-nav__link" href="#inicio">Inicio</a></li>
-        <li class="cb-nav__item"><a class="cb-nav__link" href="#componentes">Componentes</a></li>
+        <li class="cb-nav__item"><a class="cb-nav__link" href="#inicio" data-i18n="landing.nav.home">Home</a></li>
+        <li class="cb-nav__item"><a class="cb-nav__link" href="#componentes" data-i18n="landing.nav.components">Components</a></li>
         <li class="cb-nav__item cb-dropdown" data-cb-dropdown data-cb-dropdown-hover>
           <button class="cb-nav__link" type="button" data-cb-dropdown-trigger>
-            Plantillas
+            <span data-i18n="landing.nav.templates">Templates</span>
             <svg class="cb-nav__chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5"/></svg>
           </button>
           <div class="cb-dropdown__panel cb-dropdown__panel--wide" data-cb-dropdown-panel>
-            <a class="cb-dropdown__item cb-dropdown__item--rich" href="dashboard.html"><span class="cb-dropdown__num">01</span><span><strong class="cb-dropdown__title">Dashboard</strong><span class="cb-dropdown__desc">Sidebar, métricas y tabla de datos.</span></span></a>
-            <a class="cb-dropdown__item cb-dropdown__item--rich" href="pricing.html"><span class="cb-dropdown__num">02</span><span><strong class="cb-dropdown__title">Precios</strong><span class="cb-dropdown__desc">Planes, comparativa y preguntas.</span></span></a>
-            <a class="cb-dropdown__item cb-dropdown__item--rich" href="login.html"><span class="cb-dropdown__num">03</span><span><strong class="cb-dropdown__title">Acceso</strong><span class="cb-dropdown__desc">Inicio de sesión con validación.</span></span></a>
-            <a class="cb-dropdown__item cb-dropdown__item--rich" href="docs.html"><span class="cb-dropdown__num">04</span><span><strong class="cb-dropdown__title">Docs de API</strong><span class="cb-dropdown__desc">Sidebar, versiones y bloques de código.</span></span></a>
+            <a class="cb-dropdown__item cb-dropdown__item--rich" href="dashboard.html"><span class="cb-dropdown__num">01</span><span><strong class="cb-dropdown__title" data-i18n="landing.tpl.dashboard.title">Dashboard</strong><span class="cb-dropdown__desc" data-i18n="landing.tpl.dashboard.desc">Sidebar, metrics and data table.</span></span></a>
+            <a class="cb-dropdown__item cb-dropdown__item--rich" href="pricing.html"><span class="cb-dropdown__num">02</span><span><strong class="cb-dropdown__title" data-i18n="landing.tpl.pricing.title">Pricing</strong><span class="cb-dropdown__desc" data-i18n="landing.tpl.pricing.desc">Plans, comparison and questions.</span></span></a>
+            <a class="cb-dropdown__item cb-dropdown__item--rich" href="login.html"><span class="cb-dropdown__num">03</span><span><strong class="cb-dropdown__title" data-i18n="landing.tpl.login.title">Sign in</strong><span class="cb-dropdown__desc" data-i18n="landing.tpl.login.desc">Sign-in with validation.</span></span></a>
+            <a class="cb-dropdown__item cb-dropdown__item--rich" href="docs.html"><span class="cb-dropdown__num">04</span><span><strong class="cb-dropdown__title" data-i18n="landing.tpl.api.title">API docs</strong><span class="cb-dropdown__desc" data-i18n="landing.tpl.api.desc">Sidebar, versions and code blocks.</span></span></a>
           </div>
         </li>
         <li class="cb-nav__item cb-dropdown" data-cb-dropdown data-cb-dropdown-hover>
           <button class="cb-nav__link" type="button" data-cb-dropdown-trigger>
-            Recursos
+            <span data-i18n="landing.nav.resources">Resources</span>
             <svg class="cb-nav__chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5"/></svg>
           </button>
           <div class="cb-dropdown__panel cb-dropdown__panel--wide" data-cb-dropdown-panel>
-            <a class="cb-dropdown__item cb-dropdown__item--rich" href="../docs/index.html"><span class="cb-dropdown__num">01</span><span><strong class="cb-dropdown__title">Documentación</strong><span class="cb-dropdown__desc">Cada componente con ejemplos y código.</span></span></a>
-            <a class="cb-dropdown__item cb-dropdown__item--rich" href="../docs/personalizacion.html"><span class="cb-dropdown__num">02</span><span><strong class="cb-dropdown__title">Personalización</strong><span class="cb-dropdown__desc">Cambia colores y temas en vivo.</span></span></a>
+            <a class="cb-dropdown__item cb-dropdown__item--rich" href="../docs/index.html"><span class="cb-dropdown__num">01</span><span><strong class="cb-dropdown__title" data-i18n="landing.res.docs.title">Documentation</strong><span class="cb-dropdown__desc" data-i18n="landing.res.docs.desc">Every component with examples and code.</span></span></a>
+            <a class="cb-dropdown__item cb-dropdown__item--rich" href="../docs/personalizacion.html"><span class="cb-dropdown__num">02</span><span><strong class="cb-dropdown__title" data-i18n="landing.res.customize.title">Customization</strong><span class="cb-dropdown__desc" data-i18n="landing.res.customize.desc">Change colors and themes live.</span></span></a>
           </div>
         </li>
-        <li class="cb-nav__item"><a class="cb-nav__link" href="#proceso">Principios</a></li>
+        <li class="cb-nav__item"><a class="cb-nav__link" href="#proceso" data-i18n="landing.nav.principles">Principles</a></li>
       </ul>
     </nav>
 
     <div class="cb-nav__actions">
-      <button class="cb-search-btn" type="button" data-cb-command-open="search" aria-label="Buscar">
+      <button class="cb-search-btn" type="button" data-cb-command-open="search" aria-label="Search" data-i18n-attr="aria-label:ui.search.button">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        <span class="cb-search-btn__text">Buscar</span><kbd data-cb-kbd-mod="K">⌘K</kbd>
+        <span class="cb-search-btn__text" data-i18n="ui.search.button">Search</span><kbd data-cb-kbd-mod="K">⌘K</kbd>
       </button>
-      <button class="cb-icon-btn" type="button" data-cb-theme-toggle aria-label="Cambiar tema">
+      <div class="cb-dropdown cb-nav__collapse-sm" data-cb-dropdown>
+        <button class="cb-icon-btn" type="button" data-cb-dropdown-trigger aria-label="Color theme" data-i18n-attr="aria-label:ui.theme.accent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="8.5" cy="10" r="1.2"/><circle cx="12" cy="7.5" r="1.2"/><circle cx="15.5" cy="10" r="1.2"/></svg></button>
+        <div class="cb-dropdown__panel cb-dropdown__panel--end" role="menu" aria-label="Color theme" data-i18n-attr="aria-label:ui.theme.accent">
+          <p class="cb-dropdown__label" data-i18n="ui.theme.accent">Color theme</p>
+          <button class="cb-dropdown__item" type="button" role="menuitemradio" data-cb-accent-set="cobalto"><i class="cb-chip__swatch" data-cb-accent="cobalto" aria-hidden="true"></i><span data-i18n="ui.accents.cobalto">Cobalto</span></button>
+          <button class="cb-dropdown__item" type="button" role="menuitemradio" data-cb-accent-set="esmeralda"><i class="cb-chip__swatch" data-cb-accent="esmeralda" aria-hidden="true"></i><span data-i18n="ui.accents.esmeralda">Emerald</span></button>
+          <button class="cb-dropdown__item" type="button" role="menuitemradio" data-cb-accent-set="ambar"><i class="cb-chip__swatch" data-cb-accent="ambar" aria-hidden="true"></i><span data-i18n="ui.accents.ambar">Amber</span></button>
+          <button class="cb-dropdown__item" type="button" role="menuitemradio" data-cb-accent-set="rubi"><i class="cb-chip__swatch" data-cb-accent="rubi" aria-hidden="true"></i><span data-i18n="ui.accents.rubi">Ruby</span></button>
+          <button class="cb-dropdown__item" type="button" role="menuitemradio" data-cb-accent-set="violeta"><i class="cb-chip__swatch" data-cb-accent="violeta" aria-hidden="true"></i><span data-i18n="ui.accents.violeta">Violet</span></button>
+          <button class="cb-dropdown__item" type="button" role="menuitemradio" data-cb-accent-set="grafito"><i class="cb-chip__swatch" data-cb-accent="grafito" aria-hidden="true"></i><span data-i18n="ui.accents.grafito">Graphite</span></button>
+        </div>
+      </div>
+      <div class="cb-dropdown cb-nav__collapse-sm" data-cb-dropdown>
+        <button class="cb-icon-btn" type="button" data-cb-dropdown-trigger aria-label="Documentation language" data-i18n-attr="aria-label:ui.lang.label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg></button>
+        <div class="cb-dropdown__panel cb-dropdown__panel--end" role="menu" aria-label="Documentation language" data-i18n-attr="aria-label:ui.lang.label">
+          <p class="cb-dropdown__label" data-i18n="ui.menu.language">Language</p>
+          <button class="cb-dropdown__item" type="button" role="menuitemradio" lang="en" data-docs-lang="en" aria-checked="true"><span data-i18n="ui.lang.en">English</span></button>
+          <button class="cb-dropdown__item" type="button" role="menuitemradio" lang="es" data-docs-lang="es" aria-checked="false"><span data-i18n="ui.lang.es">Español</span></button>
+        </div>
+      </div>
+      <button class="cb-icon-btn" type="button" data-cb-theme-toggle aria-label="Switch between light and dark mode" data-i18n-attr="aria-label:ui.theme.toggle">
         <svg class="cb-theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
         <svg class="cb-theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
       </button>
-      <a href="#contacto" class="cb-btn cb-btn--primary cb-nav__collapse-sm">Instalar ↗</a>
-      <button class="cb-icon-btn cb-nav__burger" type="button" data-cb-mobile-toggle="mobile-menu" aria-label="Menú">
+      <a href="#contacto" class="cb-btn cb-btn--primary cb-nav__collapse-sm" data-i18n="landing.nav.install">Install ↗</a>
+      <button class="cb-icon-btn cb-nav__burger" type="button" data-cb-mobile-toggle="mobile-menu" aria-label="Open navigation" data-i18n-attr="aria-label:ui.menu.open">
         <svg class="cb-burger__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         <svg class="cb-burger__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
       </button>
@@ -86,99 +108,113 @@
   </div>
 </header>
 
-<nav class="cb-mobile-menu" id="mobile-menu" data-cb-mobile-menu aria-label="Menú móvil">
-  <a class="cb-mobile-menu__link" href="#inicio">Inicio <span class="cb-mobile-menu__meta">01</span></a>
-  <a class="cb-mobile-menu__link" href="#componentes">Componentes <span class="cb-mobile-menu__meta">02</span></a>
-  <a class="cb-mobile-menu__link" href="#proceso">Principios <span class="cb-mobile-menu__meta">03</span></a>
-  <div class="cb-label cb-mobile-menu__label"><b>//</b>Plantillas</div>
-  <a class="cb-mobile-menu__link" href="dashboard.html">Dashboard <span class="cb-mobile-menu__meta">↗</span></a>
-  <a class="cb-mobile-menu__link" href="pricing.html">Precios <span class="cb-mobile-menu__meta">↗</span></a>
-  <a class="cb-mobile-menu__link" href="login.html">Acceso <span class="cb-mobile-menu__meta">↗</span></a>
-  <a class="cb-mobile-menu__link" href="docs.html">Docs de API <span class="cb-mobile-menu__meta">↗</span></a>
-  <div class="cb-label cb-mobile-menu__label"><b>//</b>Recursos</div>
-  <a class="cb-mobile-menu__link" href="../docs/index.html">Documentación <span class="cb-mobile-menu__meta">↗</span></a>
-  <a class="cb-mobile-menu__link" href="../docs/personalizacion.html">Personalización <span class="cb-mobile-menu__meta">↗</span></a>
-  <a href="#contacto" class="cb-btn cb-btn--primary cb-mobile-menu__cta">Instalar ↗</a>
+<nav class="cb-mobile-menu" id="mobile-menu" data-cb-mobile-menu aria-label="Mobile menu" data-i18n-attr="aria-label:landing.nav.mobile">
+  <div class="cb-label cb-mobile-menu__label"><b>//</b><span data-i18n="ui.menu.language">Language</span></div>
+  <div class="cb-chips" role="group" aria-label="Documentation language" data-i18n-attr="aria-label:ui.lang.label">
+    <button class="cb-chip" type="button" lang="en" data-docs-lang="en" aria-pressed="true"><span data-i18n="ui.lang.en">English</span></button>
+    <button class="cb-chip" type="button" lang="es" data-docs-lang="es" aria-pressed="false"><span data-i18n="ui.lang.es">Español</span></button>
+  </div>
+  <div class="cb-label cb-mobile-menu__label"><b>//</b><span data-i18n="ui.menu.theme">Color theme</span></div>
+  <div class="cb-chips" role="group" aria-label="Color theme" data-i18n-attr="aria-label:ui.theme.accent">
+    <button class="cb-chip" type="button" data-cb-accent-set="cobalto"><i class="cb-chip__swatch" data-cb-accent="cobalto"></i><span data-i18n="ui.accents.cobalto">Cobalto</span></button>
+    <button class="cb-chip" type="button" data-cb-accent-set="esmeralda"><i class="cb-chip__swatch" data-cb-accent="esmeralda"></i><span data-i18n="ui.accents.esmeralda">Emerald</span></button>
+    <button class="cb-chip" type="button" data-cb-accent-set="ambar"><i class="cb-chip__swatch" data-cb-accent="ambar"></i><span data-i18n="ui.accents.ambar">Amber</span></button>
+    <button class="cb-chip" type="button" data-cb-accent-set="rubi"><i class="cb-chip__swatch" data-cb-accent="rubi"></i><span data-i18n="ui.accents.rubi">Ruby</span></button>
+    <button class="cb-chip" type="button" data-cb-accent-set="violeta"><i class="cb-chip__swatch" data-cb-accent="violeta"></i><span data-i18n="ui.accents.violeta">Violet</span></button>
+    <button class="cb-chip" type="button" data-cb-accent-set="grafito"><i class="cb-chip__swatch" data-cb-accent="grafito"></i><span data-i18n="ui.accents.grafito">Graphite</span></button>
+  </div>
+  <a class="cb-mobile-menu__link" href="#inicio"><span data-i18n="landing.nav.home">Home</span> <span class="cb-mobile-menu__meta">01</span></a>
+  <a class="cb-mobile-menu__link" href="#componentes"><span data-i18n="landing.nav.components">Components</span> <span class="cb-mobile-menu__meta">02</span></a>
+  <a class="cb-mobile-menu__link" href="#proceso"><span data-i18n="landing.nav.principles">Principles</span> <span class="cb-mobile-menu__meta">03</span></a>
+  <div class="cb-label cb-mobile-menu__label"><b>//</b><span data-i18n="landing.nav.templates">Templates</span></div>
+  <a class="cb-mobile-menu__link" href="dashboard.html"><span data-i18n="landing.tpl.dashboard.title">Dashboard</span> <span class="cb-mobile-menu__meta">↗</span></a>
+  <a class="cb-mobile-menu__link" href="pricing.html"><span data-i18n="landing.tpl.pricing.title">Pricing</span> <span class="cb-mobile-menu__meta">↗</span></a>
+  <a class="cb-mobile-menu__link" href="login.html"><span data-i18n="landing.tpl.login.title">Sign in</span> <span class="cb-mobile-menu__meta">↗</span></a>
+  <a class="cb-mobile-menu__link" href="docs.html"><span data-i18n="landing.tpl.api.title">API docs</span> <span class="cb-mobile-menu__meta">↗</span></a>
+  <div class="cb-label cb-mobile-menu__label"><b>//</b><span data-i18n="landing.nav.resources">Resources</span></div>
+  <a class="cb-mobile-menu__link" href="../docs/index.html"><span data-i18n="landing.res.docs.title">Documentation</span> <span class="cb-mobile-menu__meta">↗</span></a>
+  <a class="cb-mobile-menu__link" href="../docs/personalizacion.html"><span data-i18n="landing.res.customize.title">Customization</span> <span class="cb-mobile-menu__meta">↗</span></a>
+  <a href="#contacto" class="cb-btn cb-btn--primary cb-mobile-menu__cta" data-i18n="landing.nav.install">Install ↗</a>
 </nav>
 
 <main>
   <section class="cb-section cb-hero cb-hero--grid" id="inicio">
     <div class="cb-wrap">
-      <div class="cb-label cb-reveal"><b>01/</b>Cobalto UI</div>
-      <h1 class="cb-h1 cb-reveal">Componentes editoriales<br>para <em>Tailwind CSS v4.</em></h1>
-      <p class="cb-lead cb-reveal">Estética editorial, tipografía monoespaciada y colores que cambias con una sola variable. Con o sin build, en cualquier stack.</p>
+      <div class="cb-label cb-reveal"><b>01/</b><span data-i18n="landing.hero.label">Cobalto UI</span></div>
+      <h1 class="cb-h1 cb-reveal" data-i18n="landing.hero.title">Editorial components<br>for <em>Tailwind CSS v4.</em></h1>
+      <p class="cb-lead cb-reveal" data-i18n="landing.hero.lead">Editorial aesthetics, monospaced typography and colors you change with a single variable. With or without a build, in any stack.</p>
       <div class="cb-actions cb-reveal">
-        <a href="#contacto" class="cb-btn cb-btn--primary">Empezar ahora ↗</a>
-        <a href="#componentes" class="cb-btn cb-btn--outline">Ver componentes</a>
+        <a href="#contacto" class="cb-btn cb-btn--primary" data-i18n="landing.hero.start">Get started ↗</a>
+        <a href="#componentes" class="cb-btn cb-btn--outline" data-i18n="landing.hero.view">View components</a>
         <a href="https://github.com/OscarCastellanos01/cobalto" class="cb-btn cb-btn--outline">GitHub</a>
       </div>
-      <p class="cb-note cb-reveal">Recomendado: instala el paquete con npm y úsalo desde Tailwind. También funciona desde un CDN sin ningún build. <a href="../docs/instalacion.html">Más información</a></p>
+      <p class="cb-note cb-reveal"><span data-i18n="landing.hero.note">Recommended: install the package with npm and use it from Tailwind. It also works from a CDN with no build at all.</span> <a href="../docs/instalacion.html" data-i18n="landing.hero.noteLink">Learn more</a></p>
       <div class="cb-chips cb-hero__chips cb-reveal">
         <a class="cb-chip" href="../docs/instalacion.html#tailwind"><i class="cb-chip__swatch" style="--cb-chip-color: var(--cb-accent-800)"></i>Tailwind v4</a>
         <a class="cb-chip" href="../docs/instalacion.html#laravel"><i class="cb-chip__swatch" style="--cb-chip-color: var(--cb-accent-600)"></i>Laravel</a>
         <a class="cb-chip" href="../docs/instalacion.html#livewire"><i class="cb-chip__swatch" style="--cb-chip-color: var(--cb-accent-500)"></i>Livewire</a>
         <a class="cb-chip" href="../docs/instalacion.html#livewire"><i class="cb-chip__swatch" style="--cb-chip-color: var(--cb-accent-400)"></i>Alpine.js</a>
         <a class="cb-chip" href="../docs/instalacion.html#tailwind"><i class="cb-chip__swatch" style="--cb-chip-color: var(--cb-accent-300)"></i>Vite</a>
-        <a class="cb-chip" href="../docs/instalacion.html#cdn"><i class="cb-chip__swatch" style="--cb-chip-color: var(--cb-info)"></i>Sin dependencias</a>
+        <a class="cb-chip" href="../docs/instalacion.html#cdn"><i class="cb-chip__swatch" style="--cb-chip-color: var(--cb-info)"></i><span data-i18n="landing.hero.noDeps">No dependencies</span></a>
       </div>
     </div>
   </section>
 
   <section class="cb-section" id="componentes">
     <div class="cb-wrap">
-      <div class="cb-label cb-reveal"><b>02/</b>Componentes</div>
-      <h2 class="cb-h2 cb-reveal">Piezas distintas.<br>Un solo sistema.</h2>
-      <p class="cb-lead cb-reveal">Cada componente comparte los mismos tokens de color, tipografía y espaciado, así que todo combina sin esfuerzo.</p>
+      <div class="cb-label cb-reveal"><b>02/</b><span data-i18n="landing.comp.label">Components</span></div>
+      <h2 class="cb-h2 cb-reveal" data-i18n="landing.comp.title">Different pieces.<br>One system.</h2>
+      <p class="cb-lead cb-reveal" data-i18n="landing.comp.lead">Every component shares the same color, typography and spacing tokens, so everything fits together effortlessly.</p>
 
       <div class="cb-grid">
         <a class="cb-card cb-reveal" href="../docs/componentes/formularios.html">
-          <div class="cb-card__top"><span>01</span><span class="cb-tag cb-tag--live">Estable</span></div>
+          <div class="cb-card__top"><span>01</span><span class="cb-tag cb-tag--live" data-i18n="landing.tag.stable">Stable</span></div>
           <svg class="cb-card__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
           <div class="cb-card__visual"><div class="cb-viz cb-viz--rows"><i></i><i></i><i></i><i></i></div></div>
-          <h3 class="cb-card__title">Formularios</h3>
-          <p class="cb-card__text">Inputs, selects, switches y archivos con estados de error, éxito y texto de ayuda.</p>
+          <h3 class="cb-card__title" data-i18n="landing.card.forms.title">Forms</h3>
+          <p class="cb-card__text" data-i18n="landing.card.forms.text">Inputs, selects, switches and files with error and success states and help text.</p>
           <div class="cb-card__meta"><span>Input</span><span>Select</span><span>Switch</span></div>
         </a>
         <a class="cb-card cb-reveal" href="../docs/componentes/menu-movil.html">
-          <div class="cb-card__top"><span>02</span><span class="cb-tag cb-tag--live">Estable</span></div>
+          <div class="cb-card__top"><span>02</span><span class="cb-tag cb-tag--live" data-i18n="landing.tag.stable">Stable</span></div>
           <svg class="cb-card__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
           <div class="cb-card__visual"><div class="cb-viz cb-viz--phone"></div></div>
-          <h3 class="cb-card__title">Responsive</h3>
-          <p class="cb-card__text">Todo funciona desde 360px, con menú móvil a pantalla completa.</p>
+          <h3 class="cb-card__title" data-i18n="landing.card.responsive.title">Responsive</h3>
+          <p class="cb-card__text" data-i18n="landing.card.responsive.text">Everything works from 360px, with a full-screen mobile menu.</p>
           <div class="cb-card__meta"><span>Mobile</span><span>Touch</span><span>Hover</span></div>
         </a>
         <a class="cb-card cb-reveal" href="../docs/componentes/grid.html">
-          <div class="cb-card__top"><span>03</span><span class="cb-tag cb-tag--live">Estable</span></div>
+          <div class="cb-card__top"><span>03</span><span class="cb-tag cb-tag--live" data-i18n="landing.tag.stable">Stable</span></div>
           <svg class="cb-card__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
           <div class="cb-card__visual"><div class="cb-viz cb-viz--shop"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-          <h3 class="cb-card__title">Cards y grids</h3>
-          <p class="cb-card__text">Tarjetas planas con bordes compartidos en dos, tres o cuatro columnas.</p>
+          <h3 class="cb-card__title" data-i18n="landing.card.grids.title">Cards and grids</h3>
+          <p class="cb-card__text" data-i18n="landing.card.grids.text">Flat cards with shared borders in two, three or four columns.</p>
           <div class="cb-card__meta"><span>Card</span><span>Grid</span></div>
         </a>
         <a class="cb-card cb-reveal" href="../docs/instalacion.html">
-          <div class="cb-card__top"><span>04</span><span class="cb-tag">Beta</span></div>
+          <div class="cb-card__top"><span>04</span><span class="cb-tag" data-i18n="landing.tag.beta">Beta</span></div>
           <svg class="cb-card__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
           <div class="cb-card__visual"><div class="cb-viz cb-viz--term">$ npm install cobalto
-<b>✓</b> css      listo
-<b>✓</b> js       listo
-<b>✓</b> tokens   listo</div></div>
-          <h3 class="cb-card__title">Instalación</h3>
-          <p class="cb-card__text">Un paquete de npm para Tailwind o un enlace de CDN para usarlo sin build.</p>
+<b>✓</b> css      <span data-i18n="landing.card.install.ready">ready</span>
+<b>✓</b> js       <span data-i18n="landing.card.install.ready">ready</span>
+<b>✓</b> tokens   <span data-i18n="landing.card.install.ready">ready</span></div></div>
+          <h3 class="cb-card__title" data-i18n="landing.card.install.title">Installation</h3>
+          <p class="cb-card__text" data-i18n="landing.card.install.text">An npm package for Tailwind or a CDN link to use it without a build.</p>
           <div class="cb-card__meta"><span>npm</span><span>CDN</span><span>Vite</span></div>
         </a>
         <a class="cb-card cb-reveal" href="../docs/componentes/modal.html">
-          <div class="cb-card__top"><span>05</span><span class="cb-tag">Beta</span></div>
+          <div class="cb-card__top"><span>05</span><span class="cb-tag" data-i18n="landing.tag.beta">Beta</span></div>
           <svg class="cb-card__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
           <div class="cb-card__visual"><div class="cb-viz cb-viz--nodes"><svg viewBox="0 0 200 80" stroke-width="1.5" aria-hidden="true"><path d="M30 40h50M120 40h50M100 20v-6M100 66v-6"/><rect class="is-accent" x="80" y="20" width="40" height="40" rx="6"/><circle cx="22" cy="40" r="8"/><circle cx="178" cy="40" r="8"/></svg></div></div>
-          <h3 class="cb-card__title">JavaScript opcional</h3>
-          <p class="cb-card__text">Modales, tabs, toasts y más por atributos data-cb, compatibles con Livewire y Alpine.</p>
+          <h3 class="cb-card__title" data-i18n="landing.card.js.title">Optional JavaScript</h3>
+          <p class="cb-card__text" data-i18n="landing.card.js.text">Modals, tabs, toasts and more through data-cb attributes, compatible with Livewire and Alpine.</p>
           <div class="cb-card__meta"><span>ESM</span><span>UMD</span></div>
         </a>
         <div class="cb-card cb-reveal">
-          <div class="cb-card__top"><span>06</span><span class="cb-tag">Próximo</span></div>
+          <div class="cb-card__top"><span>06</span><span class="cb-tag" data-i18n="landing.tag.next">Next</span></div>
           <div class="cb-card__visual"><div class="cb-viz cb-viz--bars"><i style="height: 35%"></i><i style="height: 55%"></i><i style="height: 42%"></i><i style="height: 70%"></i><i class="is-accent" style="height: 92%"></i><i style="height: 60%"></i><i style="height: 48%"></i></div></div>
-          <h3 class="cb-card__title">Componentes Blade</h3>
-          <p class="cb-card__text">El mismo markup convertido en componentes x-cb para Laravel.</p>
+          <h3 class="cb-card__title" data-i18n="landing.card.blade.title">Blade components</h3>
+          <p class="cb-card__text" data-i18n="landing.card.blade.text">The same markup turned into x-cb components for Laravel.</p>
           <div class="cb-card__meta"><span>Laravel</span><span>Blade</span></div>
         </div>
       </div>
@@ -187,34 +223,34 @@
 
   <section class="cb-section" id="proceso">
     <div class="cb-wrap">
-      <div class="cb-label cb-reveal"><b>03/</b>Principios</div>
-      <h2 class="cb-h2 cb-reveal">Hecho con cuidado.<br>Pensado para durar.</h2>
-      <p class="cb-lead cb-reveal">Cada componente sigue las mismas reglas, sin importar su tamaño.</p>
+      <div class="cb-label cb-reveal"><b>03/</b><span data-i18n="landing.prin.label">Principles</span></div>
+      <h2 class="cb-h2 cb-reveal" data-i18n="landing.prin.title">Made with care.<br>Built to last.</h2>
+      <p class="cb-lead cb-reveal" data-i18n="landing.prin.lead">Every component follows the same rules, no matter its size.</p>
       <ol class="cb-principles">
-        <li class="cb-principles__item cb-reveal"><span class="cb-principles__num">01</span><h3 class="cb-principles__title">Tokens primero</h3><p class="cb-principles__text">Ningún color fijo. Todo pasa por variables que puedes cambiar.</p></li>
-        <li class="cb-principles__item cb-reveal"><span class="cb-principles__num">02</span><h3 class="cb-principles__title">HTML simple</h3><p class="cb-principles__text">Clases BEM legibles, fáciles de convertir en componentes Blade.</p></li>
-        <li class="cb-principles__item cb-reveal"><span class="cb-principles__num">03</span><h3 class="cb-principles__title">Sobrescribible</h3><p class="cb-principles__text">Todo vive en capas de Tailwind, así que tus utilidades siempre ganan.</p></li>
-        <li class="cb-principles__item cb-reveal"><span class="cb-principles__num">04</span><h3 class="cb-principles__title">Accesible</h3><p class="cb-principles__text">Contraste AA, foco visible y navegación completa con teclado.</p></li>
-        <li class="cb-principles__item cb-reveal"><span class="cb-principles__num">05</span><h3 class="cb-principles__title">Sin dependencias</h3><p class="cb-principles__text">JavaScript puro y opcional. Nada de frameworks en el núcleo.</p></li>
-        <li class="cb-principles__item cb-reveal"><span class="cb-principles__num">06</span><h3 class="cb-principles__title">Movimiento sutil</h3><p class="cb-principles__text">Animaciones cortas que se apagan con prefers-reduced-motion.</p></li>
+        <li class="cb-principles__item cb-reveal"><span class="cb-principles__num">01</span><h3 class="cb-principles__title" data-i18n="landing.prin.tokens.title">Tokens first</h3><p class="cb-principles__text" data-i18n="landing.prin.tokens.text">No fixed colors. Everything goes through variables you can change.</p></li>
+        <li class="cb-principles__item cb-reveal"><span class="cb-principles__num">02</span><h3 class="cb-principles__title" data-i18n="landing.prin.html.title">Simple HTML</h3><p class="cb-principles__text" data-i18n="landing.prin.html.text">Readable BEM classes, easy to turn into Blade components.</p></li>
+        <li class="cb-principles__item cb-reveal"><span class="cb-principles__num">03</span><h3 class="cb-principles__title" data-i18n="landing.prin.override.title">Overridable</h3><p class="cb-principles__text" data-i18n="landing.prin.override.text">Everything lives in Tailwind layers, so your utilities always win.</p></li>
+        <li class="cb-principles__item cb-reveal"><span class="cb-principles__num">04</span><h3 class="cb-principles__title" data-i18n="landing.prin.a11y.title">Accessible</h3><p class="cb-principles__text" data-i18n="landing.prin.a11y.text">AA contrast, visible focus and full keyboard navigation.</p></li>
+        <li class="cb-principles__item cb-reveal"><span class="cb-principles__num">05</span><h3 class="cb-principles__title" data-i18n="landing.prin.deps.title">No dependencies</h3><p class="cb-principles__text" data-i18n="landing.prin.deps.text">Plain, optional JavaScript. No frameworks in the core.</p></li>
+        <li class="cb-principles__item cb-reveal"><span class="cb-principles__num">06</span><h3 class="cb-principles__title" data-i18n="landing.prin.motion.title">Subtle motion</h3><p class="cb-principles__text" data-i18n="landing.prin.motion.text">Short animations that switch off with prefers-reduced-motion.</p></li>
       </ol>
       <div class="cb-stats cb-reveal">
-        <div class="cb-stat"><strong class="cb-stat__value">MIT</strong><span class="cb-stat__label">Licencia abierta</span></div>
-        <div class="cb-stat"><strong class="cb-stat__value">6</strong><span class="cb-stat__label">Temas de color</span></div>
-        <div class="cb-stat"><strong class="cb-stat__value">0</strong><span class="cb-stat__label">Dependencias</span></div>
-        <div class="cb-stat"><strong class="cb-stat__value">AA</strong><span class="cb-stat__label">Contraste</span></div>
+        <div class="cb-stat"><strong class="cb-stat__value">MIT</strong><span class="cb-stat__label" data-i18n="landing.stat.license">Open license</span></div>
+        <div class="cb-stat"><strong class="cb-stat__value">6</strong><span class="cb-stat__label" data-i18n="landing.stat.themes">Color themes</span></div>
+        <div class="cb-stat"><strong class="cb-stat__value">0</strong><span class="cb-stat__label" data-i18n="landing.stat.deps">Dependencies</span></div>
+        <div class="cb-stat"><strong class="cb-stat__value">AA</strong><span class="cb-stat__label" data-i18n="landing.stat.contrast">Contrast</span></div>
       </div>
     </div>
   </section>
 
   <section class="cb-section cb-cta" id="contacto">
     <div class="cb-wrap">
-      <div class="cb-label cb-reveal"><b>04/</b>Empezar</div>
-      <h2 class="cb-h2 cb-reveal">¿Tienes un proyecto?<br>Úsalo hoy.</h2>
-      <p class="cb-lead cb-reveal">Instala el paquete, importa el CSS después de Tailwind y empieza a construir.</p>
+      <div class="cb-label cb-reveal"><b>04/</b><span data-i18n="landing.cta.label">Get started</span></div>
+      <h2 class="cb-h2 cb-reveal" data-i18n="landing.cta.title">Got a project?<br>Use it today.</h2>
+      <p class="cb-lead cb-reveal" data-i18n="landing.cta.lead">Install the package, import the CSS after Tailwind and start building.</p>
       <div class="cb-actions cb-reveal">
         <a href="../docs/instalacion.html" class="cb-btn cb-btn--primary">npm install cobalto ↗</a>
-        <a href="../docs/index.html" class="cb-btn cb-btn--outline">Documentación</a>
+        <a href="../docs/index.html" class="cb-btn cb-btn--outline" data-i18n="landing.cta.docs">Documentation</a>
       </div>
     </div>
   </section>
@@ -225,42 +261,42 @@
     <div class="cb-footer__grid">
       <div>
         <a href="#inicio" class="cb-logo"><span class="cb-logo__mark" aria-hidden="true">C</span>Cobalto</a>
-        <p class="cb-footer__text">Componentes construidos con cuidado y mantenidos a largo plazo.</p>
+        <p class="cb-footer__text" data-i18n="landing.footer.text">Components built with care and maintained for the long run.</p>
       </div>
-      <div><h4 class="cb-footer__title">Librería</h4><ul class="cb-footer__links"><li><a href="../docs/index.html">Documentación</a></li><li><a href="#componentes">Componentes</a></li><li><a href="#proceso">Principios</a></li><li><a href="#contacto">Instalar</a></li></ul></div>
-      <div><h4 class="cb-footer__title">Plantillas</h4><ul class="cb-footer__links"><li><a href="dashboard.html">Dashboard</a></li><li><a href="pricing.html">Precios</a></li><li><a href="login.html">Acceso</a></li><li><a href="docs.html">Docs de API</a></li></ul></div>
-      <div><h4 class="cb-footer__title">Comunidad</h4><ul class="cb-footer__links"><li><a href="https://github.com/OscarCastellanos01/cobalto">GitHub ↗</a></li><li><a href="https://www.npmjs.com/package/cobalto">npm ↗</a></li><li><a href="https://github.com/OscarCastellanos01/cobalto/blob/main/CHANGELOG.md">Changelog ↗</a></li></ul></div>
+      <div><h4 class="cb-footer__title" data-i18n="landing.footer.library">Library</h4><ul class="cb-footer__links"><li><a href="../docs/index.html" data-i18n="landing.res.docs.title">Documentation</a></li><li><a href="#componentes" data-i18n="landing.nav.components">Components</a></li><li><a href="#proceso" data-i18n="landing.nav.principles">Principles</a></li><li><a href="#contacto" data-i18n="landing.footer.install">Install</a></li></ul></div>
+      <div><h4 class="cb-footer__title" data-i18n="landing.nav.templates">Templates</h4><ul class="cb-footer__links"><li><a href="dashboard.html" data-i18n="landing.tpl.dashboard.title">Dashboard</a></li><li><a href="pricing.html" data-i18n="landing.tpl.pricing.title">Pricing</a></li><li><a href="login.html" data-i18n="landing.tpl.login.title">Sign in</a></li><li><a href="docs.html" data-i18n="landing.tpl.api.title">API docs</a></li></ul></div>
+      <div><h4 class="cb-footer__title" data-i18n="landing.footer.community">Community</h4><ul class="cb-footer__links"><li><a href="https://github.com/OscarCastellanos01/cobalto">GitHub ↗</a></li><li><a href="https://www.npmjs.com/package/cobalto">npm ↗</a></li><li><a href="https://github.com/OscarCastellanos01/cobalto/blob/main/CHANGELOG.md">Changelog ↗</a></li></ul></div>
     </div>
     <div class="cb-footer__huge" aria-hidden="true">Cobalto</div>
-    <div class="cb-footer__bottom"><span class="cb-footer__credit">© 2026 Oscar Castellanos (<a href="https://trupermax.com">TruperMax</a>) · <a href="https://github.com/OscarCastellanos01/cobalto/blob/main/LICENSE">Licencia MIT</a></span><span>Cobalto v0.1.0</span></div>
+    <div class="cb-footer__bottom"><span class="cb-footer__credit">© 2026 Oscar Castellanos (<a href="https://trupermax.com">TruperMax</a>) · <a href="https://github.com/OscarCastellanos01/cobalto/blob/main/LICENSE" data-i18n="ui.footer.license">MIT License</a></span><span>Cobalto v0.1.0</span></div>
   </div>
 </footer>
 
 <div class="cb-command" id="search" data-cb-command data-cb-command-hotkey="k">
-  <div class="cb-command__panel" aria-label="Buscar">
+  <div class="cb-command__panel" aria-label="Search" data-i18n-attr="aria-label:ui.search.button">
     <div class="cb-command__head">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input class="cb-command__input" data-cb-command-input placeholder="Buscar componentes, páginas..." aria-label="Buscar">
+      <input class="cb-command__input" data-cb-command-input placeholder="Search components, pages..." aria-label="Search" data-i18n-attr="placeholder:landing.search.placeholder;aria-label:ui.search.input">
       <kbd>Esc</kbd>
     </div>
     <div class="cb-command__results" data-cb-command-results></div>
-    <div class="cb-command__foot"><span><kbd>↑</kbd> <kbd>↓</kbd> navegar</span><span><kbd>↵</kbd> abrir</span><span><kbd>Esc</kbd> cerrar</span></div>
+    <div class="cb-command__foot"><span><kbd>↑</kbd> <kbd>↓</kbd> <span data-i18n="ui.search.navigate">navigate</span></span><span><kbd>↵</kbd> <span data-i18n="ui.search.open">open</span></span><span><kbd>Esc</kbd> <span data-i18n="ui.search.close">close</span></span></div>
   </div>
   <script type="application/json" data-cb-command-items>
     [
-      { "group": "Páginas", "label": "Inicio", "href": "#inicio" },
-      { "group": "Páginas", "label": "Componentes", "href": "#componentes" },
-      { "group": "Páginas", "label": "Principios", "href": "#proceso" },
-      { "group": "Páginas", "label": "Empezar", "href": "#contacto" },
-      { "group": "Componentes", "label": "Formularios", "href": "../docs/componentes/formularios.html", "keywords": "input select switch" },
-      { "group": "Componentes", "label": "Cards y grids", "href": "../docs/componentes/grid.html" },
-      { "group": "Componentes", "label": "Instalación", "href": "../docs/instalacion.html", "keywords": "npm cdn laravel" },
-      { "group": "Componentes", "label": "JavaScript opcional", "href": "../docs/componentes/modal.html", "keywords": "modal tabs toast" },
-      { "group": "Componentes", "label": "Todos los componentes", "href": "../docs/index.html#componentes", "keywords": "documentacion docs" },
-      { "group": "Plantillas", "label": "Dashboard", "href": "dashboard.html" },
-      { "group": "Plantillas", "label": "Precios", "href": "pricing.html" },
-      { "group": "Plantillas", "label": "Acceso", "href": "login.html" },
-      { "group": "Plantillas", "label": "Docs de API", "href": "docs.html", "keywords": "docs documentacion api webhooks sidebar" }
+      { "group": "Pages", "groupKey": "landing.search.pages", "label": "Home", "key": "landing.nav.home", "href": "#inicio" },
+      { "group": "Pages", "groupKey": "landing.search.pages", "label": "Components", "key": "landing.nav.components", "href": "#componentes" },
+      { "group": "Pages", "groupKey": "landing.search.pages", "label": "Principles", "key": "landing.nav.principles", "href": "#proceso" },
+      { "group": "Pages", "groupKey": "landing.search.pages", "label": "Get started", "key": "landing.cta.label", "href": "#contacto" },
+      { "group": "Components", "groupKey": "landing.nav.components", "label": "Forms", "key": "landing.card.forms.title", "href": "../docs/componentes/formularios.html", "keywords": "input select switch" },
+      { "group": "Components", "groupKey": "landing.nav.components", "label": "Cards and grids", "key": "landing.card.grids.title", "href": "../docs/componentes/grid.html" },
+      { "group": "Components", "groupKey": "landing.nav.components", "label": "Installation", "key": "landing.card.install.title", "href": "../docs/instalacion.html", "keywords": "npm cdn laravel" },
+      { "group": "Components", "groupKey": "landing.nav.components", "label": "Optional JavaScript", "key": "landing.card.js.title", "href": "../docs/componentes/modal.html", "keywords": "modal tabs toast" },
+      { "group": "Components", "groupKey": "landing.nav.components", "label": "All components", "key": "landing.search.all", "href": "../docs/index.html#componentes", "keywords": "documentacion docs" },
+      { "group": "Templates", "groupKey": "landing.nav.templates", "label": "Dashboard", "key": "landing.tpl.dashboard.title", "href": "dashboard.html" },
+      { "group": "Templates", "groupKey": "landing.nav.templates", "label": "Pricing", "key": "landing.tpl.pricing.title", "href": "pricing.html" },
+      { "group": "Templates", "groupKey": "landing.nav.templates", "label": "Sign in", "key": "landing.tpl.login.title", "href": "login.html" },
+      { "group": "Templates", "groupKey": "landing.nav.templates", "label": "API docs", "key": "landing.tpl.api.title", "href": "docs.html", "keywords": "docs documentacion api webhooks sidebar" }
     ]
   </script>
 </div>
