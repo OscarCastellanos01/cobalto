@@ -1,7 +1,7 @@
 import { dedent, escapeHtml, highlight } from './highlight.mjs';
 import { BASE_LANG, attrs, availableLocales, format, plain, t, tr } from './i18n.mjs';
 
-export const VERSION = '0.1.0';
+export const VERSION = '0.1.1';
 export const REPO = 'https://github.com/OscarCastellanos01/cobalto';
 export const NPM = 'https://www.npmjs.com/package/cobalto';
 

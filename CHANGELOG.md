@@ -2,6 +2,14 @@
 
 Todos los cambios importantes de este proyecto se documentan aquí. El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y el versionado sigue [SemVer](https://semver.org/lang/es/).
 
+## [0.1.1] - 2026-10-17
+
+### Cambiado
+
+- La documentación y la landing usan inglés por defecto y mantienen el español como segundo idioma, con selector de idioma y de color de acento en la landing.
+- Los mensajes por defecto de `core.js` (estado vacío, cerrar notificación, estado y paginación de la tabla, copiar) pasan de español a inglés. Se pueden cambiar con `setMessages()` o con atributos `data-cb-*`.
+- En el dropdown, la opción marcada con `aria-checked` o `aria-pressed` se resalta con el color de acento y una marca.
+
 ## [0.1.0] - 2026-10-12
 
 ### Agregado
@@ -21,4 +29,5 @@ Todos los cambios importantes de este proyecto se documentan aquí. El formato s
 - `--cb-dark-dim` pasa de `#56689a` a `#6f7fab` y `--cb-light-dim` de `#7d8db3` a `#5c6a8d` para llegar a contraste AA.
 - El relleno de acento en modo oscuro (`--cb-accent-bg`) se oscurece un 14 % para que el texto blanco del botón primario llegue a 4.5:1.
 
+[0.1.1]: https://github.com/OscarCastellanos01/cobalto/releases/tag/v0.1.1
 [0.1.0]: https://github.com/OscarCastellanos01/cobalto/releases/tag/v0.1.0
