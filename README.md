@@ -1,21 +1,21 @@
 # Cobalto
 
-[![npm](https://img.shields.io/npm/v/cobalto)](https://www.npmjs.com/package/cobalto) [![licencia](https://img.shields.io/npm/l/cobalto)](LICENSE)
+[![npm](https://img.shields.io/npm/v/cobalto)](https://www.npmjs.com/package/cobalto) [![license](https://img.shields.io/npm/l/cobalto)](LICENSE)
 
-**Documentación y ejemplos:** [cobalto.trupermax.com](https://cobalto.trupermax.com)
+**Documentation and examples:** [cobalto.trupermax.com](https://cobalto.trupermax.com)
 
-Componentes UI editoriales para **Tailwind CSS v4**: tipografía monoespaciada, bordes finos en lugar de sombras, secciones numeradas y un sistema de color que cambias con una sola variable.
+Editorial UI components for **Tailwind CSS v4**: monospaced typography, thin borders instead of shadows, numbered sections and a color system you change with a single variable.
 
-- Componentes de la navbar a la tabla de datos.
-- 6 temas de color, cada uno con modo claro y oscuro, todos con contraste AA verificado.
-- JavaScript opcional y sin dependencias, controlado con atributos `data-cb-*`.
-- Funciona con Laravel, Livewire y Alpine sin configuración extra.
+- Components from the navbar to the data table.
+- 6 color themes, each with light and dark mode, all with verified AA contrast.
+- Optional, dependency-free JavaScript driven by `data-cb-*` attributes.
+- Works with Laravel, Livewire and Alpine with no extra setup.
 
-## Instalación
+## Installation
 
-### Con Tailwind (recomendado)
+### With Tailwind (recommended)
 
-El paquete está en [npmjs.com/package/cobalto](https://www.npmjs.com/package/cobalto).
+The package is at [npmjs.com/package/cobalto](https://www.npmjs.com/package/cobalto).
 
 ```bash
 npm install cobalto
@@ -34,18 +34,18 @@ import cobalto from 'cobalto';
 cobalto.autoInit();
 ```
 
-`autoInit()` restaura el tema guardado, inicializa los componentes de la página y vigila el DOM para inicializar los que se agreguen después.
+`autoInit()` restores the saved theme, initializes the components on the page and watches the DOM to initialize the ones added later.
 
-### Sin build, desde CDN
+### No build, from a CDN
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cobalto@0.1.0/dist/cobalto.min.css">
-<script src="https://cdn.jsdelivr.net/npm/cobalto@0.1.0/dist/cobalto.umd.min.js" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cobalto@0.1.2/dist/cobalto.min.css">
+<script src="https://cdn.jsdelivr.net/npm/cobalto@0.1.2/dist/cobalto.umd.min.js" defer></script>
 ```
 
-El script se inicializa solo. Agrega `data-cb-manual` al `<script>` si prefieres llamar a `cobalto.init()` tú mismo.
+The script initializes itself. Add `data-cb-manual` to the `<script>` if you prefer to call `cobalto.init()` yourself.
 
-Sin atributo, el modo claro u oscuro sigue al sistema. Si tus usuarios eligen un tema, agrega este script en el `head` para aplicarlo antes del primer pintado y evitar un parpadeo (sirve igual en cualquier stack, incluido Laravel):
+Without an attribute, light or dark mode follows the system. If your users pick a theme, add this script in the `head` to apply it before the first paint and avoid a flash (it works the same in any stack, Laravel included):
 
 ```html
 <script>
@@ -58,10 +58,10 @@ Sin atributo, el modo claro u oscuro sigue al sistema. Si tus usuarios eligen un
 </script>
 ```
 
-### Laravel 12 y 13 + Vite
+### Laravel 12 and 13 + Vite
 
 ```css
-/* resources/css/app.css: lo que trae Laravel, mas Cobalto */
+/* resources/css/app.css: what Laravel ships, plus Cobalto */
 @import 'tailwindcss';
 @import 'cobalto/tailwind';
 
@@ -79,14 +79,14 @@ window.cobalto = cobalto;
 cobalto.autoInit();
 ```
 
-### Livewire 3 y 4, Alpine
+### Livewire 3 and 4, Alpine
 
-Después de cada `wire:navigate` se vuelve a inicializar todo, y lo que Livewire o Alpine agregan al DOM se inicializa solo. Cobalto solo usa clases `cb-*` y atributos `data-cb-*`, así que no choca con `x-*` ni `wire:*`.
+Everything is initialized again after each `wire:navigate`, and whatever Livewire or Alpine add to the DOM is initialized on its own. Cobalto only uses `cb-*` classes and `data-cb-*` attributes, so it does not clash with `x-*` or `wire:*`.
 
-Para lanzar un toast desde PHP:
+To fire a toast from PHP:
 
 ```php
-$this->dispatch('toast', title: 'Guardado', variant: 'success');
+$this->dispatch('toast', title: 'Saved', variant: 'success');
 ```
 
 ```js
@@ -95,11 +95,11 @@ document.addEventListener('livewire:init', () => {
 });
 ```
 
-O con Alpine: `<div x-data x-on:toast.window="cobalto.toast($event.detail)"></div>`.
+Or with Alpine: `<div x-data x-on:toast.window="cobalto.toast($event.detail)"></div>`.
 
-### Fuente
+### Font
 
-Cobalto no carga ninguna fuente. Sin nada más usa la monoespaciada del sistema. Para JetBrains Mono, agrega el `<link>` de Google Fonts o instala `@fontsource-variable/jetbrains-mono` y cambia el token:
+Cobalto does not load any font. With nothing else it uses the system monospace. For JetBrains Mono, add the Google Fonts `<link>` or install `@fontsource-variable/jetbrains-mono` and change the token:
 
 ```css
 :root {
@@ -107,29 +107,29 @@ Cobalto no carga ninguna fuente. Sin nada más usa la monoespaciada del sistema.
 }
 ```
 
-## Uso
+## Usage
 
 ```html
 <section class="cb-section">
   <div class="cb-wrap">
-    <div class="cb-label"><b>01/</b>Servicios</div>
-    <h2 class="cb-h2">Seis servicios.<br>Un solo equipo.</h2>
-    <p class="cb-lead">Cada proyecto se construye a la medida.</p>
+    <div class="cb-label"><b>01/</b>Services</div>
+    <h2 class="cb-h2">Six services.<br>One team.</h2>
+    <p class="cb-lead">Every project is built to measure.</p>
     <div class="cb-actions">
-      <a class="cb-btn cb-btn--primary" href="#">Cotizar ↗</a>
-      <button class="cb-btn cb-btn--outline" type="button" data-cb-open="contacto">Contacto</button>
+      <a class="cb-btn cb-btn--primary" href="#">Get a quote ↗</a>
+      <button class="cb-btn cb-btn--outline" type="button" data-cb-open="contact">Contact</button>
     </div>
   </div>
 </section>
 ```
 
-Los componentes viven en `@layer components`, así que cualquier utilidad de Tailwind los sobrescribe: `<div class="cb-card bg-cb-bg-2 p-4">`.
+Components live in `@layer components`, so any Tailwind utility overrides them: `<div class="cb-card bg-cb-bg-2 p-4">`.
 
-## Colores
+## Colors
 
-Todos los colores pasan por variables `--cb-*`. Hay tres formas de cambiarlos.
+All colors go through `--cb-*` variables. There are three ways to change them.
 
-**1. Una variable.** La escala `--cb-accent-50` a `--cb-accent-950`, el relleno de los botones, los fondos suaves y el foco se recalculan solos.
+**1. One variable.** The `--cb-accent-50` to `--cb-accent-950` scale, the button fill, the soft backgrounds and the focus ring are recalculated on their own.
 
 ```css
 :root {
@@ -137,41 +137,41 @@ Todos los colores pasan por variables `--cb-*`. Hay tres formas de cambiarlos.
 }
 ```
 
-**2. Un tema predefinido:** `cobalto` (por defecto), `esmeralda`, `ambar`, `rubi`, `violeta` o `grafito`. También se puede aplicar a una sola sección.
+**2. A predefined theme:** `cobalto` (default), `esmeralda`, `ambar`, `rubi`, `violeta` or `grafito`. It can also be applied to a single section.
 
 ```html
 <html data-cb-accent="esmeralda">
 ```
 
-**3. Un tema propio**, con valores distintos para cada modo:
+**3. Your own theme**, with different values for each mode:
 
 ```css
-[data-cb-accent="marca"] {
+[data-cb-accent="brand"] {
   --cb-dark-accent: #fb923c;
   --cb-dark-accent-ink: #0c0a09;
   --cb-light-accent: #c2410c;
   --cb-light-accent-ink: #ffffff;
-  /* tambien --cb-dark-bg, --cb-light-text, etc. */
+  /* also --cb-dark-bg, --cb-light-text, etc. */
 }
 ```
 
-Este CSS va en tu propia hoja de estilos, después de importar Cobalto (en Laravel, `resources/css/app.css`). Ojo: un bloque en `:root` gana siempre, incluso sobre `data-cb-accent`; si quieres tu tema y además poder cambiar entre los predefinidos, usa la forma con nombre y actívala con `<html data-cb-accent="marca">` o `cobalto.theme.setAccent('marca')`.
+This CSS goes in your own stylesheet, after importing Cobalto (in Laravel, `resources/css/app.css`). Note that a `:root` block always wins, even over `data-cb-accent`; if you want your theme and also the ability to switch between the predefined ones, use the named form and activate it with `<html data-cb-accent="brand">` or `cobalto.theme.setAccent('brand')`.
 
-La documentación incluye un personalizador en vivo que ajusta el color para mantener contraste AA y genera el CSS.
+The documentation includes a live customizer that adjusts the color to keep AA contrast and generates the CSS.
 
-### Claro y oscuro
+### Light and dark
 
-Sin atributo se sigue `prefers-color-scheme` (oscuro si el sistema no indica nada). `data-cb-theme="light|dark"` lo fija en `html` o en cualquier sección. Las variantes `dark:` y `light:` de Tailwind siguen las mismas reglas.
+Without an attribute, `prefers-color-scheme` is followed (dark if the system says nothing). `data-cb-theme="light|dark"` fixes it on `html` or on any section. Tailwind's `dark:` and `light:` variants follow the same rules.
 
 ```js
-cobalto.theme.set('light'); // 'dark', 'light' o 'system'
+cobalto.theme.set('light'); // 'dark', 'light' or 'system'
 cobalto.theme.toggle();
 cobalto.theme.setAccent('violeta');
 ```
 
 ### Tokens
 
-| Token | Utilidad |
+| Token | Utility |
 | --- | --- |
 | `--cb-bg`, `--cb-bg-2`, `--cb-bg-3` | `bg-cb-bg`, `bg-cb-bg-2`... |
 | `--cb-line`, `--cb-line-2` | `border-cb-line` |
@@ -179,103 +179,103 @@ cobalto.theme.setAccent('violeta');
 | `--cb-accent`, `--cb-accent-ink`, `--cb-accent-bg`, `--cb-accent-50…950` | `bg-cb-accent`, `text-cb-accent-ink`, `bg-cb-accent-200` |
 | `--cb-success`, `--cb-warning`, `--cb-danger`, `--cb-info` | `text-cb-danger` |
 
-También hay tokens de fuentes, tipografía (`text-cb-xs` a `text-cb-6xl`), radios, espaciado, sombras, duraciones y capas. La lista completa está en la página de personalización de la documentación.
+There are also tokens for fonts, typography (`text-cb-xs` to `text-cb-6xl`), radii, spacing, shadows, durations and layers. The full list is on the customization page of the documentation.
 
-## Componentes
+## Components
 
-| Estructura | Contenido | Acciones | Formularios y datos | Overlays | Estado |
+| Structure | Content | Actions | Forms and data | Overlays | State |
 | --- | --- | --- | --- | --- | --- |
-| Barra de anuncio | Card | Botones | Formularios | Modal | Tabs |
-| Navbar | Grid de cards | Chips y tags | Tabla de datos | Drawer | Accordion |
-| Menú móvil | Principios | Badge y avatar | | Command palette ⌘K | Toast |
-| Hero | Stats | Dropdown | | Tooltip y popover | Alert y banner |
-| Encabezado de sección | CTA | Breadcrumb | | | Progress |
-| Footer | Pricing | Paginación | | | Skeleton y spinner |
-| Sidebar de docs | Testimonios | | | | Stepper |
-| Layout de dashboard | Timeline | | | | |
+| Announcement bar | Card | Buttons | Forms | Modal | Tabs |
+| Navbar | Card grid | Chips and tags | Data table | Drawer | Accordion |
+| Mobile menu | Principles | Badge and avatar | | Command palette ⌘K | Toast |
+| Hero | Stats | Dropdown | | Tooltip and popover | Alert and banner |
+| Section header | CTA | Breadcrumb | | | Progress |
+| Footer | Pricing | Pagination | | | Skeleton and spinner |
+| Docs sidebar | Testimonials | | | | Stepper |
+| Dashboard layout | Timeline | | | | |
 | | Empty state | | | | |
-| | Bloque de código | | | | |
+| | Code block | | | | |
 
 ## JavaScript
 
-Cada componente expone `init(root)`, admite varias instancias por página y se puede llamar varias veces sin duplicar listeners.
+Each component exposes `init(root)`, supports several instances per page and can be called many times without duplicating listeners.
 
 ```js
 import cobalto from 'cobalto';
 
 cobalto.init(document.querySelector('#panel'));
-cobalto.toast({ title: 'Guardado', variant: 'success' });
-cobalto.modal.open('confirmar');
+cobalto.toast({ title: 'Saved', variant: 'success' });
+cobalto.modal.open('confirm');
 
-document.querySelector('#acciones').addEventListener('cb:select', (event) => {
+document.querySelector('#actions').addEventListener('cb:select', (event) => {
   console.log(event.detail.value);
 });
 ```
 
-Componentes sueltos: `import { init } from 'cobalto/components/tabs';`
+Individual components: `import { init } from 'cobalto/components/tabs';`
 
-Los eventos usan el prefijo `cb:` (`cb:open`, `cb:close`, `cb:change`, `cb:select`...). `cb:open` y `cb:close` se pueden cancelar con `preventDefault()`.
+Events use the `cb:` prefix (`cb:open`, `cb:close`, `cb:change`, `cb:select`...). `cb:open` and `cb:close` can be cancelled with `preventDefault()`.
 
-## Textos de los componentes
+## Component texts
 
-Los textos que ven tus usuarios (estado vacío de la búsqueda, cerrar un toast, estado y paginación de la tabla, copiar) vienen en español. Cámbialos para todo el sitio o por elemento:
+The texts your users see (search empty state, closing a toast, table status and pagination, copy) come in English. Change them for the whole site or per element:
 
 ```js
-cobalto.autoInit({ messages: { commandEmpty: 'No results for', copyDone: 'Copied' } });
-cobalto.setMessages({ tableStatus: 'Showing {start}–{end} of {total}' });
+cobalto.autoInit({ messages: { commandEmpty: 'Sin resultados para', copyDone: 'Copiado' } });
+cobalto.setMessages({ tableStatus: 'Mostrando {start}–{end} de {total}' });
 ```
 
 ```html
-<div data-cb-table data-cb-table-empty="No results">...</div>
+<div data-cb-table data-cb-table-empty="Sin resultados">...</div>
 ```
 
-La lista completa de claves y atributos está en la página de instalación de la documentación.
+The full list of keys and attributes is on the installation page of the documentation.
 
-## Convenciones
+## Conventions
 
-- Clases con prefijo `cb-` en BEM: `.cb-card`, `.cb-card__title`, `.cb-card--featured`.
-- Estados con clases `is-*` (`is-open`, `is-active`) o atributos ARIA (`aria-expanded`, `aria-current`).
-- Comportamiento con atributos `data-cb-*`.
-- Ningún componente usa colores fijos.
+- Classes with the `cb-` prefix in BEM: `.cb-card`, `.cb-card__title`, `.cb-card--featured`.
+- States with `is-*` classes (`is-open`, `is-active`) or ARIA attributes (`aria-expanded`, `aria-current`).
+- Behavior with `data-cb-*` attributes.
+- No component uses fixed colors.
 
-## Accesibilidad
+## Accessibility
 
-- Contraste AA en los 6 temas y en ambos modos (`npm run test:contrast` lo verifica).
-- Navegación completa con teclado, foco visible con el color de acento.
-- Foco atrapado en modal, drawer y paleta; Esc cierra la capa de más arriba.
-- Sin JS el contenido se ve completo; las animaciones se apagan con `prefers-reduced-motion`.
+- AA contrast in the 6 themes and both modes (`npm run test:contrast` checks it).
+- Full keyboard navigation, focus ring in the accent color.
+- Focus trapped in modal, drawer and palette; Esc closes the topmost layer.
+- Without JS the content shows in full; animations switch off with `prefers-reduced-motion`.
 
-## Contribuir
+## Contributing
 
 ```bash
 npm install
-npm run dev     # recompila el CSS del sitio al guardar
-npm run build   # dist/, paginas de docs y assets
-npm test        # estilo, contraste y pruebas de interaccion
+npm run dev     # rebuilds the site CSS on save
+npm run build   # dist/, docs pages and assets
+npm test        # style, contrast and interaction tests
 ```
 
-Las pruebas de interacción y de accesibilidad (`npm run test:a11y`) usan Edge o Chrome instalados; con otra ruta, define `CB_BROWSER`.
+The interaction and accessibility tests (`npm run test:a11y`) use an installed Edge or Chrome; with another path, set `CB_BROWSER`.
 
-Estilo de código:
+Code style:
 
-- Comentarios solo cuando aportan algo (una decisión no obvia, un workaround), en español y sin tildes.
-- Sin alineación vertical: un solo espacio alrededor de `=`, `:` y operadores.
-- Indentación de 2 espacios, sin tabs. `.editorconfig` y `.prettierrc` ya lo configuran.
-- Nombres en inglés; textos visibles en español.
-- El autor siempre se escribe como "Oscar Castellanos (TruperMax)".
+- Comments only when they add something (a non-obvious decision, a workaround), in Spanish and without accents.
+- No vertical alignment: a single space around `=`, `:` and operators.
+- 2-space indentation, no tabs. `.editorconfig` and `.prettierrc` already set this up.
+- Names in English; visible texts in English.
+- The author is always written as "Oscar Castellanos (TruperMax)".
 
-`npm run lint:style` revisa lo básico.
+`npm run lint:style` checks the basics.
 
-Para documentar un componente nuevo, agrega su estructura y ejemplos en `docs/src/components/` y sus textos en `docs/i18n/es.json`. Después corre `npm run i18n:sync` (crea las mismas claves vacías en `en.json`) y `npm run build:site`. La documentación nunca lleva textos escritos directamente en el HTML; `npm run test:i18n` lo verifica.
+To document a new component, add its structure and examples in `docs/src/components/` and its texts in `docs/i18n/en.json`. Then run `npm run i18n:sync` (creates the same empty keys in `es.json`) and `npm run build:site`. The documentation never carries texts written directly in the HTML; `npm run test:i18n` checks it.
 
-## Publicar la documentación y los ejemplos
+## Publishing the documentation and examples
 
 ```bash
 npm run build:deploy
 ```
 
-Genera la carpeta `_site/` con la documentación, los ejemplos y los archivos de `dist/` que usan. Sube el **contenido** de esa carpeta tal cual a cualquier hosting estático (GitHub Pages, Netlify, Vercel, Cloudflare Pages o un servidor con cPanel). La landing queda en la raíz y la documentación en `/docs/`. También genera `sitemap.xml`, `robots.txt`, URLs canónicas y un `CNAME` para GitHub Pages, usando `https://cobalto.trupermax.com`; para otro dominio usa `CB_SITE_URL=https://otro.dominio npm run build:deploy`. No subas solo los HTML: dependen de `docs/assets`, `docs/js`, `docs/i18n` y `dist`.
+It generates the `_site/` folder with the documentation, the examples and the `dist/` files they use. Upload the **contents** of that folder as is to any static host (GitHub Pages, Netlify, Vercel, Cloudflare Pages or a cPanel server). The landing page sits at the root and the documentation at `/docs/`. It also generates `sitemap.xml`, `robots.txt`, canonical URLs and a `CNAME` for GitHub Pages, using `https://cobalto.trupermax.com`; for another domain use `CB_SITE_URL=https://other.domain npm run build:deploy`. Do not upload only the HTML files: they depend on `docs/assets`, `docs/js`, `docs/i18n` and `dist`.
 
-## Licencia
+## License
 
 MIT © 2026 Oscar Castellanos ([TruperMax](https://trupermax.com))

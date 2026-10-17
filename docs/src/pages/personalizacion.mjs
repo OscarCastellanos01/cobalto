@@ -181,7 +181,7 @@ export default {
   )}
   ${desc('where.cdn', ' mt-6')}
   ${codeBlock(`
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cobalto@0.1.1/dist/cobalto.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cobalto@0.1.2/dist/cobalto.min.css">
     <link rel="stylesheet" href="/css/mi-tema.css">
   `)}
   ${desc('where.warn', ' mt-6')}
