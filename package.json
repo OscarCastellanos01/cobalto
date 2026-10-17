@@ -1,6 +1,6 @@
 {
   "name": "cobalto",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Componentes UI editoriales para Tailwind CSS v4: tipografia monoespaciada, bordes finos y colores personalizables con variables CSS.",
   "keywords": [
     "tailwindcss",

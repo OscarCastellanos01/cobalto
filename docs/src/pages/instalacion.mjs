@@ -92,8 +92,8 @@ export default {
   ${title('cdn')}
   ${desc('cdn.desc')}
   ${codeBlock(`
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cobalto@0.1.0/dist/cobalto.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/cobalto@0.1.0/dist/cobalto.umd.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cobalto@0.1.1/dist/cobalto.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/cobalto@0.1.1/dist/cobalto.umd.min.js" defer></script>
   `)}
   ${desc('cdn.note', ' mt-6')}
 </section>
