@@ -3,8 +3,8 @@ import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const DIR = resolve('docs/i18n');
-const BASE = 'es';
-const LOCALES = ['en'];
+const BASE = 'en';
+const LOCALES = ['es'];
 const checkOnly = process.argv.includes('--check');
 
 async function load(lang) {
@@ -12,7 +12,7 @@ async function load(lang) {
   return existsSync(path) ? JSON.parse(await readFile(path, 'utf8')) : {};
 }
 
-// copia la forma del espanol: lo traducido se conserva y lo nuevo queda vacio
+// copia la forma del idioma base: lo traducido se conserva y lo nuevo queda vacio
 function align(base, target, path, report) {
   if (Array.isArray(base)) {
     const list = Array.isArray(target) ? target : [];

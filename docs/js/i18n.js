@@ -1,6 +1,6 @@
 (function () {
   const STORAGE_KEY = 'cb-docs-lang';
-  const BASE_LANG = 'es';
+  const BASE_LANG = 'en';
   const root = document.documentElement;
   const basePath = root.getAttribute('data-i18n-base') || '';
   const available = (root.getAttribute('data-i18n-available') || BASE_LANG).split(',');
@@ -122,7 +122,7 @@
   }
 
   function applySearch(dictionary) {
-    const palette = document.getElementById('docs-search');
+    const palette = document.querySelector('[data-cb-command]');
     const source = palette?.querySelector('script[data-cb-command-items]');
     if (!source || !window.cobalto) return;
     if (!originalItems) originalItems = JSON.parse(source.textContent);
@@ -154,8 +154,11 @@
   async function load(lang) {
     if (lang === BASE_LANG) return null;
     if (cache[lang]) return cache[lang];
+    // el diccionario embebido evita el fetch, que no funciona abriendo el html con file://
+    const embedded = window.cobaltoDocsDict?.[lang];
+    if (embedded) return (cache[lang] = embedded);
     const response = await fetch(`${basePath}i18n/${lang}.json`);
-    if (!response.ok) throw new Error(`no se pudo cargar ${lang}.json`);
+    if (!response.ok) throw new Error(`could not load ${lang}.json`);
     cache[lang] = await response.json();
     return cache[lang];
   }

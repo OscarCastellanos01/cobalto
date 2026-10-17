@@ -4,13 +4,13 @@ import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { codeBlock, layout, table, toc } from '../docs/src/layout.mjs';
 import { dedent } from '../docs/src/highlight.mjs';
-import { lookup, plain, t, tr } from '../docs/src/i18n.mjs';
+import { BASE_LANG, LOCALES, lookup, plain, t, tr } from '../docs/src/i18n.mjs';
 import { readFileSync } from 'node:fs';
 
 const DOCS = resolve('docs');
 const SOURCES = resolve('docs/src/components');
 const PAGES = resolve('docs/src/pages');
-const es = JSON.parse(readFileSync(resolve('docs/i18n/es.json'), 'utf8'));
+const dictionary = JSON.parse(readFileSync(resolve(`docs/i18n/${BASE_LANG}.json`), 'utf8'));
 
 async function importAll(dir) {
   const files = (await readdir(dir)).filter((file) => file.endsWith('.mjs')).sort();
@@ -25,7 +25,7 @@ function exampleBlock(component, example) {
   const variant = example.layout ? ` docs-preview--${example.layout}` : '';
   const preview = dedent(example.html);
   const code = example.code ? dedent(example.code) : preview;
-  const description = lookup(es, `${base}.description`)
+  const description = lookup(dictionary, `${base}.description`)
     ? tr('p', `${base}.description`, 'class="docs-section__desc"')
     : '';
   return {
@@ -58,7 +58,7 @@ function pairRows(base, list) {
 
 function componentMain(component, groupKey, index) {
   const base = `components.${component.slug}`;
-  const texts = lookup(es, base);
+  const texts = lookup(dictionary, base);
   const sections = component.examples.map((example) => exampleBlock(component, example));
 
   if (texts.classes?.length) {
@@ -93,7 +93,7 @@ function componentMain(component, groupKey, index) {
     const snippets = (component.snippets || [])
       .map((snippet, i) => {
         const titleKey = `${base}.snippets.${i}`;
-        const title = lookup(es, titleKey)
+        const title = lookup(dictionary, titleKey)
           ? tr('p', titleKey, 'class="docs-section__desc mt-6"')
           : '';
         return `${title}${codeBlock(snippet.code, { lang: snippet.lang || 'js' })}`;
@@ -151,7 +151,7 @@ function searchIndex(groupsData, pages) {
   }));
   groupsData.forEach((group) => {
     group.components.forEach((c) => {
-      const classes = (lookup(es, `components.${c.slug}.classes`) || [])
+      const classes = (lookup(dictionary, `components.${c.slug}.classes`) || [])
         .map((row) => row[0].replace(/`/g, ''))
         .join(' ');
       items.push({
@@ -165,6 +165,18 @@ function searchIndex(groupsData, pages) {
     });
   });
   return items;
+}
+
+// el diccionario como script evita el fetch, que falla al abrir el html con file://
+async function writeDictionaries() {
+  const langs = LOCALES.filter((lang) => lang !== BASE_LANG);
+  for (const lang of langs) {
+    const data = readFileSync(resolve(`docs/i18n/${lang}.json`), 'utf8');
+    const body = `window.cobaltoDocsDict = window.cobaltoDocsDict || {};
+window.cobaltoDocsDict.${lang} = ${JSON.stringify(JSON.parse(data))};
+`;
+    await writeFile(resolve(DOCS, 'i18n', `${lang}.js`), body);
+  }
 }
 
 async function main() {
@@ -217,6 +229,7 @@ async function main() {
     if (existsSync(resolve('dist', file)))
       await copyFile(resolve('dist', file), resolve(DOCS, 'assets', file));
   }
+  await writeDictionaries();
   console.log(`docs: ${allComponents.length} componentes y ${pages.length} paginas`);
 }
 

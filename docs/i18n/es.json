@@ -166,7 +166,7 @@
       },
       "messages": {
         "title": "Textos e idioma",
-        "desc": "Los textos que ven tus usuarios (estado vacío de la búsqueda, botón de cerrar de los toasts, estado y paginación de la tabla, botón de copiar) vienen en español. Cámbialos para todo el sitio con `setMessages()` o al inicializar:",
+        "desc": "Los textos que ven tus usuarios (estado vacío de la búsqueda, botón de cerrar de los toasts, estado y paginación de la tabla, botón de copiar) vienen en inglés. Cámbialos para todo el sitio con `setMessages()` o al inicializar:",
         "attrs": "O solo para un elemento, con atributos. El atributo gana sobre el texto global:",
         "keys": "Claves disponibles. Las llaves `{nombre}` se reemplazan por el valor correspondiente:",
         "headers": [
@@ -2304,6 +2304,152 @@
         "Usa `ol` y `aria-current=\"step\"` en el paso actual.",
         "Si el marcador de completado es \"✓\", agrega texto oculto como \"completado\" en `cb-sr-only`."
       ]
+    }
+  },
+  "landing": {
+    "topbar": {
+      "status": "Componentes UI para Tailwind CSS v4",
+      "aside": "Licencia MIT"
+    },
+    "nav": {
+      "home": "Inicio",
+      "components": "Componentes",
+      "templates": "Plantillas",
+      "resources": "Recursos",
+      "principles": "Principios",
+      "install": "Instalar ↗",
+      "mobile": "Menú móvil"
+    },
+    "tpl": {
+      "dashboard": {
+        "title": "Dashboard",
+        "desc": "Sidebar, métricas y tabla de datos."
+      },
+      "pricing": {
+        "title": "Precios",
+        "desc": "Planes, comparativa y preguntas."
+      },
+      "login": {
+        "title": "Acceso",
+        "desc": "Inicio de sesión con validación."
+      },
+      "api": {
+        "title": "Docs de API",
+        "desc": "Sidebar, versiones y bloques de código."
+      }
+    },
+    "res": {
+      "docs": {
+        "title": "Documentación",
+        "desc": "Cada componente con ejemplos y código."
+      },
+      "customize": {
+        "title": "Personalización",
+        "desc": "Cambia colores y temas en vivo."
+      }
+    },
+    "hero": {
+      "label": "Cobalto UI",
+      "title": "Componentes editoriales\npara *Tailwind CSS v4.*",
+      "lead": "Estética editorial, tipografía monoespaciada y colores que cambias con una sola variable. Con o sin build, en cualquier stack.",
+      "start": "Empezar ahora ↗",
+      "view": "Ver componentes",
+      "note": "Recomendado: instala el paquete con npm y úsalo desde Tailwind. También funciona desde un CDN sin ningún build.",
+      "noteLink": "Más información",
+      "noDeps": "Sin dependencias"
+    },
+    "comp": {
+      "label": "Componentes",
+      "title": "Piezas distintas.\nUn solo sistema.",
+      "lead": "Cada componente comparte los mismos tokens de color, tipografía y espaciado, así que todo combina sin esfuerzo."
+    },
+    "tag": {
+      "stable": "Estable",
+      "beta": "Beta",
+      "next": "Próximo"
+    },
+    "card": {
+      "forms": {
+        "title": "Formularios",
+        "text": "Inputs, selects, switches y archivos con estados de error, éxito y texto de ayuda."
+      },
+      "responsive": {
+        "title": "Responsive",
+        "text": "Todo funciona desde 360px, con menú móvil a pantalla completa."
+      },
+      "grids": {
+        "title": "Cards y grids",
+        "text": "Tarjetas planas con bordes compartidos en dos, tres o cuatro columnas."
+      },
+      "install": {
+        "ready": "listo",
+        "title": "Instalación",
+        "text": "Un paquete de npm para Tailwind o un enlace de CDN para usarlo sin build."
+      },
+      "js": {
+        "title": "JavaScript opcional",
+        "text": "Modales, tabs, toasts y más por atributos data-cb, compatibles con Livewire y Alpine."
+      },
+      "blade": {
+        "title": "Componentes Blade",
+        "text": "El mismo markup convertido en componentes x-cb para Laravel."
+      }
+    },
+    "prin": {
+      "label": "Principios",
+      "title": "Hecho con cuidado.\nPensado para durar.",
+      "lead": "Cada componente sigue las mismas reglas, sin importar su tamaño.",
+      "tokens": {
+        "title": "Tokens primero",
+        "text": "Ningún color fijo. Todo pasa por variables que puedes cambiar."
+      },
+      "html": {
+        "title": "HTML simple",
+        "text": "Clases BEM legibles, fáciles de convertir en componentes Blade."
+      },
+      "override": {
+        "title": "Sobrescribible",
+        "text": "Todo vive en capas de Tailwind, así que tus utilidades siempre ganan."
+      },
+      "a11y": {
+        "title": "Accesible",
+        "text": "Contraste AA, foco visible y navegación completa con teclado."
+      },
+      "deps": {
+        "title": "Sin dependencias",
+        "text": "JavaScript puro y opcional. Nada de frameworks en el núcleo."
+      },
+      "motion": {
+        "title": "Movimiento sutil",
+        "text": "Animaciones cortas que se apagan con prefers-reduced-motion."
+      }
+    },
+    "stat": {
+      "license": "Licencia abierta",
+      "themes": "Temas de color",
+      "deps": "Dependencias",
+      "contrast": "Contraste"
+    },
+    "cta": {
+      "label": "Empezar",
+      "title": "¿Tienes un proyecto?\nÚsalo hoy.",
+      "lead": "Instala el paquete, importa el CSS después de Tailwind y empieza a construir.",
+      "docs": "Documentación"
+    },
+    "footer": {
+      "text": "Componentes construidos con cuidado y mantenidos a largo plazo.",
+      "library": "Librería",
+      "install": "Instalar",
+      "community": "Comunidad"
+    },
+    "meta": {
+      "title": "Cobalto · Componentes UI para Tailwind CSS v4",
+      "description": "Componentes editoriales para Tailwind CSS v4: tipografía monoespaciada, bordes finos y colores que cambias con una sola variable. Con o sin build, en cualquier stack."
+    },
+    "search": {
+      "placeholder": "Buscar componentes, páginas...",
+      "pages": "Páginas",
+      "all": "Todos los componentes"
     }
   }
 }

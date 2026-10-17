@@ -1,5 +1,5 @@
 import { dedent, escapeHtml, highlight } from './highlight.mjs';
-import { attrs, availableLocales, format, plain, t, tr } from './i18n.mjs';
+import { BASE_LANG, attrs, availableLocales, format, plain, t, tr } from './i18n.mjs';
 
 export const VERSION = '0.1.0';
 export const REPO = 'https://github.com/OscarCastellanos01/cobalto';
@@ -25,7 +25,7 @@ export function icon(name, className = '') {
 }
 
 export const ACCENTS = ['cobalto', 'esmeralda', 'ambar', 'rubi', 'violeta', 'grafito'];
-const LANGS = ['es', 'en'];
+const LANGS = ['en', 'es'];
 
 export function codeBlock(code, { lang = 'html', file = '', fileKey = '' } = {}) {
   const source = dedent(code);
@@ -99,7 +99,7 @@ function accentMenu() {
 }
 
 function languageOption(lang, available) {
-  const active = lang === 'es';
+  const active = lang === BASE_LANG;
   const disabled = available.includes(lang) ? '' : ' aria-disabled="true"';
   const soon = available.includes(lang)
     ? ''
@@ -123,7 +123,7 @@ function mobileSettings(available) {
     const soon = available.includes(lang)
       ? ''
       : tr('span', 'ui.lang.soon', 'class="cb-tag" data-docs-soon');
-    return `<button class="cb-chip" type="button" lang="${lang}" data-docs-lang="${lang}" aria-pressed="${lang === 'es'}"${disabled}>${tr('span', `ui.lang.${lang}`)}${soon}</button>`;
+    return `<button class="cb-chip" type="button" lang="${lang}" data-docs-lang="${lang}" aria-pressed="${lang === BASE_LANG}"${disabled}>${tr('span', `ui.lang.${lang}`)}${soon}</button>`;
   }).join('');
   const accents = ACCENTS.map(
     (value) =>
@@ -155,7 +155,7 @@ export function layout({
   const tocColumn = toc ? `<aside class="docs-toc">${toc}</aside>` : '';
   const items = search.map((item) => ({ ...item, href: prefix + item.href }));
   return `<!doctype html>
-<html lang="es" data-i18n-base="${prefix}" data-i18n-available="${available.join(',')}">
+<html lang="${BASE_LANG}" data-i18n-base="${prefix}" data-i18n-available="${available.join(',')}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -175,6 +175,10 @@ export function layout({
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="${prefix}assets/site.css">
   <script src="${prefix}assets/cobalto.umd.js" defer></script>
+${available
+    .filter((lang) => lang !== BASE_LANG)
+    .map((lang) => `<script src="${prefix}i18n/${lang}.js" defer></script>`)
+    .join('\n  ')}
   <script src="${prefix}js/i18n.js" defer></script>
   <script src="${prefix}js/docs.js" defer></script>
 </head>
